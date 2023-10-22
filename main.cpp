@@ -4,33 +4,34 @@
 #include "menu/BaseMenu.hpp"
 #include "menu/menu_cartelera.h"
 #include "menu/header_ambiente.hpp"
-#define ancho 1900 // max 1920 
-#define altura 1000 // max 1080
-//#include <stdio.h>
+
+#define ancho 1200 // max 1920
+#define altura 700 // max 1080
+
 #include "funciones.h"
 int main(){
-    cine::setConsoleSizeCenter(ancho, altura);
-   int p;
-   short contador = cine::menuPrincipal();
-    switch (contador)
-    {
-        case 1:{
-            cartelera(p);
-            mostrar_info_peliculas(p);
-            menu_ambiente();
-            ele_sala();
-            ele_horario();
-            
-            break;       
-        }
-        case 2:{
-            
-            break;
-        }
-        case 3:{
+    cine::setConsoleSizeCenter(ancho, altura); // <- usen esta funcion es GODXD
+    int p;
+    short contador = cine::menuPrincipal();
+        switch (contador)
+        {
+            case 1:{
+                cartelera(p);
+                mostrar_info_peliculas(p);
+                menu_ambiente();
+                ele_sala();
+                ele_horario();
+                
+                break;       
+            }
+            case 2:{
+                
+                break;
+            }
+            case 3:{
 
-            break;
+                break;
+            }
         }
-    }
+        return 0;
 }
-//en vscode para compilar -> g++ Prueba.cpp -o prueba

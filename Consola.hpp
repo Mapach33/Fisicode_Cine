@@ -28,7 +28,7 @@ namespace cine{
         MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
     }
 
-    //Cambia el tamaño de la consola y lo centra en la pantalla
+    //Cambia el tamaño de la pantalla, Ancho y altura en pixeles. Tomar en cuenta para pantallas con menor resolucion
     void setConsoleSizeCenter(int ancho, int altura)
     {
         RECT rectClient, rectWindow;
