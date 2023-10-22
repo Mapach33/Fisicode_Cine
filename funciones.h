@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Consola.hpp"
 #include <stdio.h>
 #include <vector>
 #include <conio.h>
@@ -61,15 +62,6 @@ namespace cine
         ExitKey = 27,
         Space = 32,
         Enter = 13
-    };
-
-    //Colores para el fondo
-    enum ConsoleColor {
-    Black = 0,
-    Blue = BACKGROUND_BLUE,
-    Green = BACKGROUND_GREEN,
-    Red = BACKGROUND_RED,
-    Intensity = BACKGROUND_INTENSITY
     };
 
     //Imprime un texto con un determinado color
@@ -220,16 +212,6 @@ namespace cine
             print('\n');
             }
         }
-    }
-
-    //Eliges el tamaño de la ventana de windows(Prototipo no se si funciona aun)
-    void setConsoleSize(const int ancho,const int alto) {
-    SMALL_RECT rect;
-    rect.Left = 0;
-    rect.Top = 0;
-    rect.Right = ancho - 1;  // Ancho en caracteres
-    rect.Bottom = alto - 1; // Alto en caracteres
-    SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &rect);
     }
 }//namespaces cine
 

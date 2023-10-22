@@ -4,9 +4,12 @@
 #include "menu/BaseMenu.hpp"
 #include "menu/menu_cartelera.h"
 #include "menu/header_ambiente.hpp"
+#define ancho 1900 // max 1920 
+#define altura 1000 // max 1080
 //#include <stdio.h>
 #include "funciones.h"
 int main(){
+    cine::setConsoleSizeCenter(ancho, altura);
    int p;
    short contador = cine::menuPrincipal();
     switch (contador)

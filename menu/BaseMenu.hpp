@@ -1,15 +1,13 @@
 //MENU PRINCIPAL (?
 #pragma once // <- Esto sirve para que no haya errores por incluir dos veces una misma lib
 #include "../funciones.h"
-
 namespace cine {
     int menuPrincipal(){
-        clear();
+        cine::clear();
         short int contador = 1;
         int centroX = getConsoleSize().x/2-9;
         gotoxy(centroX-5,3);
         cine::imprimirMarco(21,9);
-
         while (1) {
             cine::setCursorVisible(false);
             gotoxy(centroX,5);print ("  Menu:  \n");
