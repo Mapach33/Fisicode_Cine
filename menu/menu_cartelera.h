@@ -96,4 +96,5 @@ void mostrar_info_peliculas(int p){
     gotoxy(25, 48+i);color(hConsole, 79);cout << "Director: " << director[p-1] << endl;
     gotoxy(25, 49+i);color(hConsole, 79);cout << "Sinopsis: " << sinopsis[p-1] << endl;   
 	gotoxy(25, 50+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
+	Sleep(3000);
 }
