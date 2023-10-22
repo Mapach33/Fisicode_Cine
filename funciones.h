@@ -29,6 +29,7 @@ namespace cine
     | |_     | |  \___ \   | |  | |     | | | | | | | | |  _|  
     |  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
     |_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
+
     //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
     struct coordXY {
         int x;
@@ -46,11 +47,11 @@ namespace cine
         Left = 252,
         Right = 253,
 
-        Backspace = 8,   // not sure
-        Tab = 9,           // not sure
-        End = 35,          // not sure
-        Home = 36,         // not sure
-        Supr = 46,         // not sure
+        Backspace = 8,
+        Tab = 9,
+        End = 35,
+        Home = 36,
+        Supr = 46, 
 
         a = 97,
         w = 119,
@@ -61,6 +62,7 @@ namespace cine
         Space = 32,
         Enter = 13
     };
+
     //Colores para el fondo
     enum ConsoleColor {
     Black = 0,
@@ -194,7 +196,7 @@ namespace cine
         }
         return 0;
     }
-
+    //Imprime un marco(falta modificar que sea un parametro de entrada)
     void imprimirMarco(short ancho, short altura){
         short ejeX = getCursorPosition().x;
         for(short i=0;i<altura;i++){
@@ -218,6 +220,14 @@ namespace cine
         }
     }
 
-
+    //Eliges el tamaño de la ventana de windows(Prototipo no se si funciona aun)
+    void setConsoleSize(const int ancho,const int alto) {
+    SMALL_RECT rect;
+    rect.Left = 0;
+    rect.Top = 0;
+    rect.Right = ancho - 1;  // Ancho en caracteres
+    rect.Bottom = alto - 1; // Alto en caracteres
+    SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &rect);
+    }
 }//namespaces cine
 

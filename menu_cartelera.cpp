@@ -5,6 +5,5 @@ int main(){
     cine::setCursorVisible(false);
     cartelera(p);
     mostrar_info_peliculas(p);
-
     return 0;
 }
