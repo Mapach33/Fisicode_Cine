@@ -1,10 +1,12 @@
 //MENU PRINCIPAL (?
 #pragma once // <- Esto sirve para que no haya errores por incluir dos veces una misma lib
 #include "../funciones.h"
+const int tamX = 1000;
+const int tamY = 700;
 namespace cine {
     int menuPrincipal(){
         cine::clear();
-        cine::setConsoleSizeCenter(1000, 700);
+        cine::setConsoleSizeCenter(tamX, tamY);
         short opcion = 1;
         int centroX = getConsoleSize().x/2-9;
         short ejeYmenu = 12;
