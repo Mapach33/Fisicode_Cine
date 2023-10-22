@@ -170,20 +170,20 @@ namespace cine
     //Obtiene la tecla presionado o en su efecto el caracter;
     int getch(){
         if (_kbhit()) {
-        //primero obtenemos el caracter de control o, en su defecto, el caracter en si
+        //primero obtenemos el caracter de control
         int control = _getch();
         int input;
         if (_kbhit()) input = _getch();
 
         switch (control) {
-        case 224:
+        case 224://caso cuando es caracter de control
             if (input == 77) return Right;
             if (input == 75) return Left;
             if (input == 72) return Up;
             if (input == 80) return Down;
             break;
         default:
-            return control;
+            return control;//sino hay caracter de control solo retorna asci de la tecla
             break;
         }
         }
@@ -191,8 +191,8 @@ namespace cine
     }
 
     //Imprime un marco(falta modificar que sea un parametro de entrada)
-    void imprimirMarco(short ancho, short altura){
-        short ejeX = getCursorPosition().x;
+    void imprimirMarco(short ancho, short altura, coordXY coordenadas){
+        gotoxy(coordenadas);
         for(short i=0;i<altura;i++){
             if(i==0){
                 print(char(201));
@@ -200,13 +200,13 @@ namespace cine
                     print(char(205));
                 }print(char(187));print('\n');
             }else if(i==altura-1){
-                gotoX(ejeX);
+                gotoX(coordenadas.x);
                 print(char(200));
                 for(short j=0;j<ancho-2;j++){
                     print(char(205));
                 }print(char(188));
             }else{
-            gotoX(ejeX);
+            gotoX(coordenadas.x);
             print(char(186));
             gotoX(getCursorPosition().x+ancho-2);print(char(186));
             print('\n');

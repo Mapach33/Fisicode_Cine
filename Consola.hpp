@@ -18,8 +18,8 @@ namespace cine{
     Intensity = BACKGROUND_INTENSITY
     };
 
-    //Mueve la consola en eje X y Y
-    void MoveWindow(int posx, int posy) 
+    //Mueve la consola en eje X y Y(pixeles)
+    void MoveWindow(const int posx,const int posy) 
     {
         RECT rectClient, rectWindow;
         HWND hWnd = GetConsoleWindow();
@@ -29,7 +29,7 @@ namespace cine{
     }
 
     //Cambia el tamaño de la pantalla, Ancho y altura en pixeles. Tomar en cuenta para pantallas con menor resolucion
-    void setConsoleSizeCenter(int ancho, int altura)
+    void setConsoleSizeCenter(const int ancho,const int altura)
     {
         RECT rectClient, rectWindow;
         HWND hWnd = GetConsoleWindow();
