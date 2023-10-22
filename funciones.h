@@ -174,6 +174,7 @@ namespace cine
             cine::print(subStringsList[i] + "\n");
         }
     }
+    
     //Obtiene la tecla presionado o en su efecto el caracter;
     int getch(){
         if (_kbhit()) {
@@ -196,6 +197,7 @@ namespace cine
         }
         return 0;
     }
+
     //Imprime un marco(falta modificar que sea un parametro de entrada)
     void imprimirMarco(short ancho, short altura){
         short ejeX = getCursorPosition().x;
