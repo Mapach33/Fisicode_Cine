@@ -18,18 +18,8 @@ namespace cine{
     Intensity = BACKGROUND_INTENSITY
     };
 
-    //Mueve la consola en eje X y Y(pixeles)
-    void MoveWindow(const int posx,const int posy) 
-    {
-        RECT rectClient, rectWindow;
-        HWND hWnd = GetConsoleWindow();
-        GetClientRect(hWnd, &rectClient);
-        GetWindowRect(hWnd, &rectWindow);
-        MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
-    }
-
-    //Cambia el tamaño de la pantalla, Ancho y altura en pixeles. Tomar en cuenta para pantallas con menor resolucion
-    void setConsoleSizeCenter(const int ancho,const int altura)
+    //Centra la consola X Y en pixeles
+    void setConsoleSizeCenter(int ancho, int altura)//funciona pero es con pixeles
     {
         RECT rectClient, rectWindow;
         HWND hWnd = GetConsoleWindow();
@@ -41,10 +31,6 @@ namespace cine{
 
         MoveWindow(hWnd, posx, posy, ancho, altura, TRUE);
     }
-
-
-
-
 
 
 }// namespace cine

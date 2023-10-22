@@ -31,6 +31,9 @@ namespace cine
     |  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
     |_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
 
+    //Linea blanca
+    
+
     //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
     struct coordXY {
         int x;
@@ -190,7 +193,7 @@ namespace cine
         return 0;
     }
 
-    //Imprime un marco(falta modificar que sea un parametro de entrada)
+    //Imprime un marco
     void imprimirMarco(short ancho, short altura, coordXY coordenadas){
         gotoxy(coordenadas);
         for(short i=0;i<altura;i++){
@@ -213,5 +216,6 @@ namespace cine
             }
         }
     }
+    
 }//namespaces cine
 
