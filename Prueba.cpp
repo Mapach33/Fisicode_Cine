@@ -2,10 +2,28 @@
 #include <iostream>
 #include <windows.h>
 #include "menu/BaseMenu.hpp"
+#include "menu/menu_cartelera.h"
 //#include <stdio.h>
 #include "funciones.h"
 int main(){
+    int contador,p;
     cine::menuPrincipal();
-    return 0;
+
+    switch (contador)
+    {
+        case 1:{
+            cartelera(p);
+            mostrar_info_peliculas(p);
+            break;       
+        }
+        case 2:{
+
+            break;
+        }
+        case 3:{
+
+            break;
+        }
+    }
 }
 //en vscode para compilar -> g++ Prueba.cpp -o prueba
