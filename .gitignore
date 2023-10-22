@@ -1,4 +1,5 @@
 #Esto sirve para que no se suban archivos al repositorio
 # cualquiera archivo que termine en .exe y .json no se subiran al repositorio'
+.vscode/
 *.exe
 *.json
