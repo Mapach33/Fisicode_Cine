@@ -8,7 +8,8 @@
 #include "funciones.h"
 int main(){
    int p;
-    switch ( cine::menuPrincipal();)
+   short contador = cine::menuPrincipal();
+    switch (contador)
     {
         case 1:{
             cartelera(p);
@@ -20,7 +21,7 @@ int main(){
             break;       
         }
         case 2:{
-
+            
             break;
         }
         case 3:{
