@@ -1,12 +1,11 @@
-//MENU PRINCIPAL (?
 #pragma once // <- Esto sirve para que no haya errores por incluir dos veces una misma lib
 #include "../funciones.h"
-const int tamX = 1000;
-const int tamY = 700;
+const int tamX = 180;
+const int tamY = 40;
 namespace cine {
     int menuPrincipal(){
         cine::clear();
-        cine::setConsoleSizeCenter(tamX, tamY);
+        cine::Set_Console_Sizes(tamX, tamY);
         short opcion = 1;
         int centroX = getConsoleSize().x/2-9;
         short ejeYmenu = 12;
@@ -14,9 +13,7 @@ namespace cine {
         cine::gotoxy(0,2);
         cine::printRawCenter(cine::logo_fisicode);
 
-
         while (1) {
-            cine::setCursorVisible(false);
             gotoxy(centroX,ejeYmenu);print ("  Menu:  \n");
             gotoX(centroX);print    ("Cartelera\n");
             gotoX(centroX);print    (" Dulceria\n"); 
