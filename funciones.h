@@ -31,7 +31,6 @@ namespace cine
 |  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
 |_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
 
-    //Linea blanca
     
 
     //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
@@ -66,21 +65,6 @@ namespace cine
         Space = 32,
         Enter = 13
     };
-
-    //Imprime un texto con un determinado color
-    void textoColorFondo(const std::string& text, ConsoleColor backgroundColor) {
-    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(consoleHandle, backgroundColor);
-    // Imprimir el texto
-    cine::print(text);
-    SetConsoleTextAttribute(consoleHandle, 0);
-    }
-
-    //Modifica la visibilidad del cursor
-    void setCursorVisible(bool isVisible) {
-        // Se usan escape sequences para modificar la visibilidad del cursor
-        print("\x1b[?25" + std::string(isVisible ? "h" : "l"));
-    }
 
     //Obtiene la posicion del cursor donde se encuentra
     cine::coordXY getCursorPosition(){
@@ -216,7 +200,9 @@ namespace cine
             }
         }
     }
-    std::string lineaBlanca(getConsoleSize().x-1,'\xC4');
-    std::string DobleLineaBlanca(getConsoleSize().x-1,'\xCD');
+
+
+    // std::string lineaBlanca(getConsoleSize().x-1,'\xC4');
+    // std::string DobleLineaBlanca(getConsoleSize().x-1,'\xCD');
 }//namespaces cine
 
