@@ -7,8 +7,10 @@
 #include <conio.h>
 #include <windows.h>
 #include <string.h>
-
 namespace cine{
+    
+    std::string double_line;
+    std::string single_line;
 
     //Colores para el fondo
     enum ConsoleColor {
@@ -34,7 +36,7 @@ namespace cine{
         std::stringstream ss; ss << "MODE CON: COLS=" << console_width << "LINES=" << console_height;
         system(ss.str().c_str());
 
-        double_line = string (console_width,'\xCD');(No se como acceder a ellas, con poo seria mas facil :c )
+        double_line = string (console_width,'\xCD');
         single_line = string (console_width,'\xC4');
 
         HWND consoleWindow = GetConsoleWindow();
