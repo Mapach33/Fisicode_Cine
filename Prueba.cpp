@@ -7,10 +7,8 @@
 //#include <stdio.h>
 #include "funciones.h"
 int main(){
-    int contador=1,p;
-    cine::menuPrincipal();
-
-    switch (contador)
+   int p;
+    switch ( cine::menuPrincipal();)
     {
         case 1:{
             cartelera(p);
