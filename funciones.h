@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Consola.hpp"
 #include <stdio.h>
 #include <vector>
 #include <conio.h>
@@ -24,11 +25,14 @@ namespace cine
 
     //Logotoipo de fisicode
     std::string logo_fisicode = 
-    R"(     _____   ___   ____    ___    ____    ___    ____    _____ 
-    |  ___| |_ _| / ___|  |_ _|  / ___|  / _ \  |  _ \  | ____|
-    | |_     | |  \___ \   | |  | |     | | | | | | | | |  _|  
-    |  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
-    |_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
+    R"(_____   ___   ____    ___    ____    ___    ____    _____ 
+|  ___| |_ _| / ___|  |_ _|  / ___|  / _ \  |  _ \  | ____|
+| |_     | |  \___ \   | |  | |     | | | | | | | | |  _|  
+|  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
+|_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
+
+    
+
     //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
     struct coordXY {
         int x;
@@ -46,11 +50,11 @@ namespace cine
         Left = 252,
         Right = 253,
 
-        Backspace = 8,   // not sure
-        Tab = 9,           // not sure
-        End = 35,          // not sure
-        Home = 36,         // not sure
-        Supr = 46,         // not sure
+        Backspace = 8,
+        Tab = 9,
+        End = 35,
+        Home = 36,
+        Supr = 46, 
 
         a = 97,
         w = 119,
@@ -61,29 +65,6 @@ namespace cine
         Space = 32,
         Enter = 13
     };
-    //Colores para el fondo
-    enum ConsoleColor {
-    Black = 0,
-    Blue = BACKGROUND_BLUE,
-    Green = BACKGROUND_GREEN,
-    Red = BACKGROUND_RED,
-    Intensity = BACKGROUND_INTENSITY
-    };
-
-    //Imprime un texto con un determinado color
-    void textoColorFondo(const std::string& text, ConsoleColor backgroundColor) {
-    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(consoleHandle, backgroundColor);
-    // Imprimir el texto
-    cine::print(text);
-    SetConsoleTextAttribute(consoleHandle, 0);
-    }
-
-    //Modifica la visibilidad del cursor
-    void setCursorVisible(bool isVisible) {
-        // Se usan escape sequences para modificar la visibilidad del cursor
-        print("\x1b[?25" + std::string(isVisible ? "h" : "l"));
-    }
 
     //Obtiene la posicion del cursor donde se encuentra
     cine::coordXY getCursorPosition(){
@@ -172,31 +153,33 @@ namespace cine
             cine::print(subStringsList[i] + "\n");
         }
     }
+    
     //Obtiene la tecla presionado o en su efecto el caracter;
     int getch(){
         if (_kbhit()) {
-        //primero obtenemos el caracter de control o, en su defecto, el caracter en si
+        //primero obtenemos el caracter de control
         int control = _getch();
         int input;
         if (_kbhit()) input = _getch();
 
         switch (control) {
-        case 224:
+        case 224://caso cuando es caracter de control
             if (input == 77) return Right;
             if (input == 75) return Left;
             if (input == 72) return Up;
             if (input == 80) return Down;
             break;
         default:
-            return control;
+            return control;//sino hay caracter de control solo retorna asci de la tecla
             break;
         }
         }
         return 0;
     }
 
-    void imprimirMarco(short ancho, short altura){
-        short ejeX = getCursorPosition().x;
+    //Imprime un marco
+    void imprimirMarco(short ancho, short altura, coordXY coordenadas){
+        gotoxy(coordenadas);
         for(short i=0;i<altura;i++){
             if(i==0){
                 print(char(201));
@@ -204,13 +187,13 @@ namespace cine
                     print(char(205));
                 }print(char(187));print('\n');
             }else if(i==altura-1){
-                gotoX(ejeX);
+                gotoX(coordenadas.x);
                 print(char(200));
                 for(short j=0;j<ancho-2;j++){
                     print(char(205));
                 }print(char(188));
             }else{
-            gotoX(ejeX);
+            gotoX(coordenadas.x);
             print(char(186));
             gotoX(getCursorPosition().x+ancho-2);print(char(186));
             print('\n');
@@ -219,5 +202,7 @@ namespace cine
     }
 
 
+    // std::string lineaBlanca(getConsoleSize().x-1,'\xC4');
+    // std::string DobleLineaBlanca(getConsoleSize().x-1,'\xCD');
 }//namespaces cine
 

@@ -6,8 +6,6 @@
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
 using namespace std;
 
-
-
 string peliculas[] = {"Saw X", "Five Nights At Freddy's", "The Eras Tour","Sonidos de libertad","El Exorcista: Creyentes", "Sin Aire"};
 string duracion[] = {"2hrs 0min","1hrs 50min","2hrs 45min","2hrs 10min","2hrs 0min","1hrs 30min"};
 string director[] = {"Kevin Greutert","Emma Tammi","Sam Wrench","Alejandro Gómez Monteverde","David Gordon Green","Maximilian Erlenwein"};
