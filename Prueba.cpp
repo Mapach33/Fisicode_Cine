@@ -1,7 +1,7 @@
 //Esto es para ir probando las funciones nada mas
 #include <iostream>
 #include <windows.h>
-#include "menu/BaseMenu.hpp"
+#include "menu/menuPrincipal.hpp"
 #include "menu/menu_cartelera.h"
 #include "menu/header_ambiente.hpp"
 //#include <stdio.h>

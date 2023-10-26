@@ -32,12 +32,12 @@ namespace cine{
     }
 
     //Modifica el tamaño de la ventana e impide que el usuario la modifique
-    void Set_Console_Sizes(int console_width, int console_height) {
-        std::stringstream ss; ss << "MODE CON: COLS=" << console_width << "LINES=" << console_height;
+    void Set_Console_Sizes(const int consola_ancho,const int consola_alto) {
+        std::stringstream ss; ss << "MODE CON: COLS=" << consola_ancho << "LINES=" << consola_alto;
         system(ss.str().c_str());
 
-        double_line = std::string (console_width,'\xCD');
-        single_line = std::string (console_width,'\xC4');
+        double_line = std::string (consola_ancho,'\xCD');
+        single_line = std::string (consola_ancho,'\xC4');
 
         HWND consoleWindow = GetConsoleWindow();
         SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
