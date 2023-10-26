@@ -8,7 +8,7 @@
 #include "funciones.h"
 int main(){
    int p;
-    switch ( cine::menuPrincipal();)
+    switch ( cine::menuPrincipal())
     {
         case 1:{
             cartelera(p);

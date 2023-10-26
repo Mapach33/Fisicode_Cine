@@ -36,8 +36,8 @@ namespace cine{
         std::stringstream ss; ss << "MODE CON: COLS=" << console_width << "LINES=" << console_height;
         system(ss.str().c_str());
 
-        double_line = string (console_width,'\xCD');
-        single_line = string (console_width,'\xC4');
+        double_line = std::string (console_width,'\xCD');
+        single_line = std::string (console_width,'\xC4');
 
         HWND consoleWindow = GetConsoleWindow();
         SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
