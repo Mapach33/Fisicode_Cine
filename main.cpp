@@ -32,6 +32,6 @@ int main(){
                 break;
             }
         }
-    } while(contador != 3 );
-        return 0;
+    }while(contador != 3 );
+    return 0;
 }
