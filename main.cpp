@@ -4,12 +4,13 @@
 #include "menu/menuPrincipal.hpp"
 #include "menu/menu_cartelera.h"
 #include "menu/header_ambiente.hpp"
-
-
+#include "dulceriua.h"
 #include "funciones.h"
+
 int main(){
     int p;
     short contador = cine::menuPrincipal();
+    do{
         switch (contador)
         {
             case 1:{
@@ -22,7 +23,8 @@ int main(){
                 break;       
             }
             case 2:{
-                
+                dulceria();
+                fdulceria();
                 break;
             }
             case 3:{
@@ -30,5 +32,6 @@ int main(){
                 break;
             }
         }
+    } while(contador != 3 );
         return 0;
 }

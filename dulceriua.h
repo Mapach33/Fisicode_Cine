@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>  
 #include <iostream>
 #include <Windows.h>
@@ -6,9 +7,8 @@
 #include <locale.h>
 #include <string>
 #include <fstream>
-#include <ctime>
-#include <iomanip>
-#define color SetConsoleTextAttribute
+#include "funciones.h"
+
 
 using namespace std;
 
@@ -31,25 +31,9 @@ void dulceria(){
 			
 }
 
-void canchita();
-
-void bebidas();
-
-void extras();
-	
-void combos();
-	
-int fcanchita();
-
-int fbebidas();
-
-int fextras();
-
-int fcombos();
-
 // funcion principal
 
-int main(){
+int fdulceria(){
  	
  	char opcdulceria = ' ';
  	
