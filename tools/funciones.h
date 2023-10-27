@@ -195,11 +195,11 @@ namespace cine
             }else{
             gotoX(coordenadas.x);
             print(char(186));
-            gotoX(getCursorPosition().x+ancho-2);print(char(186));
-            print('\n');
+            gotoX(getCursorPosition().x+ancho-2);print(char(186));print('\n');
             }
         }
     }
+
 
 }//namespaces cine
 
