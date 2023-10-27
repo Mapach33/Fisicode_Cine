@@ -4,6 +4,7 @@
 #include <string>
 #include "../tools/funciones.h"
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
+
 using namespace std;
 
 string peliculas[] = {"Saw X", "Five Nights At Freddy's", "The Eras Tour","Sonidos de libertad","El Exorcista: Creyentes", "Sin Aire"};

@@ -1,11 +1,11 @@
 #pragma once // <- Esto sirve para que no haya errores por incluir dos veces una misma lib
 #include "../tools/funciones.h"
-const int tamX = 180;
+const int tamX = 170;
 const int tamY = 40;
 namespace cine {
     int menuPrincipal(){
         cine::clear();
-        cine::Set_Console_Sizes(tamX, tamY);
+        cine::Set_Console_Sizes(tamX, tamY,0);
         short opcion = 1;
         int centroX = getConsoleSize().x/2-9;
         short ejeYmenu = 12;
