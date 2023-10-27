@@ -6,7 +6,6 @@
 #include"menuCartelera.h"
 using namespace std;
 
-
 string fopcsala(char opcs) {
 	string tipo;
 	switch (opcs) {
