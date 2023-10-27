@@ -7,7 +7,7 @@
 #include <locale.h>
 #include <string>
 #include <fstream>
-#include "funciones.h"
+#include "../tools/funciones.h"
 
 
 using namespace std;
@@ -32,65 +32,6 @@ void dulceria(){
 }
 
 // funcion principal
-
-int fdulceria(){
- 	
- 	char opcdulceria = ' ';
- 	
- 	do{
-	
- 		dulceria();
- 		cin>>opcdulceria;
- 
- 		switch(opcdulceria){
-			case '1':{
-				system("cls");
-				canchita();
-				fcanchita();
-				system("pause");
-				break;
-			}
-			
-			case '2':{
-				system("cls");
-				bebidas();
-				fbebidas();
-				system("pause");
-				break;
-			}
-			
-			case '3':{
-				system("cls");
-				extras();
-				fextras();
-				system("pause");
-				break;
-			}
-			
-			case '4':{
-				system("cls");
-				combos();
-				fcombos();
-				system("pause");
-				break;
-			}
-			
-			case '0':{
-				system("cls");
-				system("pause");
-				break;
-			}
-			default:{
-				cout<<"Seleccionar una opcion valida "<<endl;
-				break;
-			}		
-		}
-	
-		
-	} while(opcdulceria != '0');
-	
- 	return (0);
-}
 
 //especificaciones de void
 	void canchita(){
@@ -1202,6 +1143,65 @@ int fextras(){
 	
 		
 	} while(opcextras != '0');
+	
+ 	return (0);
+}
+
+int fdulceria(){
+ 	
+ 	char opcdulceria = ' ';
+ 	
+ 	do{
+	
+ 		dulceria();
+ 		cin>>opcdulceria;
+ 
+ 		switch(opcdulceria){
+			case '1':{
+				system("cls");
+				canchita();
+				fcanchita();
+				system("pause");
+				break;
+			}
+			
+			case '2':{
+				system("cls");
+				bebidas();
+				fbebidas();
+				system("pause");
+				break;
+			}
+			
+			case '3':{
+				system("cls");
+				extras();
+				fextras();
+				system("pause");
+				break;
+			}
+			
+			case '4':{
+				system("cls");
+				combos();
+				fcombos();
+				system("pause");
+				break;
+			}
+			
+			case '0':{
+				system("cls");
+				system("pause");
+				break;
+			}
+			default:{
+				cout<<"Seleccionar una opcion valida "<<endl;
+				break;
+			}		
+		}
+	
+		
+	} while(opcdulceria != '0');
 	
  	return (0);
 }

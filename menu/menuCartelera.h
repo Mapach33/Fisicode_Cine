@@ -2,7 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <string>
-#include "../funciones.h"
+#include "../tools/funciones.h"
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
 using namespace std;
 
@@ -27,7 +27,7 @@ void gotoxy(int x, int y) {
 
 void cartelera(int& p) {
 	   
-	int elegir;
+	char elegir;
 		
 	system("cls");
 	system("color 47");
@@ -76,13 +76,20 @@ void cartelera(int& p) {
 	do{
         gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; cin >> elegir;
 		i++;
-        if((elegir > 6) || (elegir < 1)){
+        if(elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6'){
         gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida..." << endl;
         }       
-    } while ((elegir > 6) || (elegir < 1));
+    } while (elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6');
 	
-	p = elegir;
-	
+	switch(elegir){
+		case '1': p=1; break;
+		case '2': p=2; break;
+		case '3': p=3; break;
+		case '4': p=4; break;
+		case '5': p=5; break;
+		case '6': p=6; break;
+	}
+		
 }
 
 void mostrar_info_peliculas(int p){

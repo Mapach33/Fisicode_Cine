@@ -3,7 +3,7 @@
 #include<windows.h>
 #include<conio.h>
 #include<locale.h>
-#include"menu_cartelera.h"
+#include"menuCartelera.h"
 using namespace std;
 
 

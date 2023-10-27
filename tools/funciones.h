@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Consola.hpp"
+#include "consola.hpp"
 #include <stdio.h>
 #include <vector>
 #include <conio.h>

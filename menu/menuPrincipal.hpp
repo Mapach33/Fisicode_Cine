@@ -1,5 +1,5 @@
 #pragma once // <- Esto sirve para que no haya errores por incluir dos veces una misma lib
-#include "../funciones.h"
+#include "../tools/funciones.h"
 const int tamX = 180;
 const int tamY = 40;
 namespace cine {
