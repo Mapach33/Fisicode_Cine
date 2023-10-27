@@ -201,8 +201,5 @@ namespace cine
         }
     }
 
-
-    // std::string lineaBlanca(getConsoleSize().x-1,'\xC4');
-    // std::string DobleLineaBlanca(getConsoleSize().x-1,'\xCD');
 }//namespaces cine
 
