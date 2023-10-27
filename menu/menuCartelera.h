@@ -31,7 +31,7 @@ void gotoxy(int x, int y) {
 
 
 void cartelera(int& p) {
-	cine::Set_Console_Sizes(130,60);   
+	cine::Set_Console_Sizes(130,60,1);   
 	char elegir;
 		
 	system("cls");
