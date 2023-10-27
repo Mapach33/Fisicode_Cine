@@ -58,9 +58,4 @@ namespace cine{
         ShowConsoleCursor(cursor);
     }
     
-
-    
-
-
-
 }// namespace cine
