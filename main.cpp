@@ -1,11 +1,11 @@
 //Esto es para ir probando las funciones nada mas
 #include <iostream>
 #include <windows.h>
-#include "../menu/menuPrincipal.hpp"
-#include "../menu/menuCartelera.h"
-#include "../menu/menuAmbiente.hpp"
-#include "../menu/menuDulceria.h"
-#include "../tools/funciones.h"
+#include "menu/menuPrincipal.hpp"
+#include "menu/menuCartelera.h"
+#include "menu/menuAmbiente.hpp"
+#include "menu/menuDulceria.h"
+#include "tools/funciones.h"
 
 int main(){
     int p;
