@@ -82,8 +82,9 @@ string ele_sala(){
 		}
 	}while(opcs != '1' && opcs != '2' && opcs != '3');	
 	cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
-	system("PAUSE");
+	Sleep(3000);
 	return fopcsala(opcs);
+	
 }
 string ele_horario(){
 	
@@ -101,5 +102,7 @@ string ele_horario(){
 			}
 		}while(opch != '1' && opch != '2' && opch != '3'); 
 	cout << "Opcion de horario es: " << fopchorario(opch) << endl;
+	Sleep(3000);
 	return fopchorario(opch);
+	
 }

@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <string>
 #include "../tools/funciones.h"
+#include "../tools/consola.hpp"
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
 
 using namespace std;
@@ -16,6 +17,7 @@ string sinopsis[] = {"Un asesino busca venganza",
 					"Un agente se embarca en la mision de salvar a una niña del trafico de menores", 
                     "La película de terror más aterradora de la historia volvio a las pantallas",
 					"May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
+
 int i=0;
 void gotoxy(int x, int y) {
 	HANDLE hcon;
@@ -26,8 +28,10 @@ void gotoxy(int x, int y) {
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
+
+
 void cartelera(int& p) {
-	   
+	cine::Set_Console_Sizes(130,60);   
 	char elegir;
 		
 	system("cls");
