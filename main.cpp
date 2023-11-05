@@ -9,8 +9,9 @@
 
 int main(){
     int p;
-    short contador = cine::menuPrincipal();
+    short contador;
     do{
+        contador = cine::menuPrincipal();
         switch (contador)
         {
             case 1:{
