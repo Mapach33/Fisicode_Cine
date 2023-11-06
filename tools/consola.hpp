@@ -28,7 +28,7 @@ namespace cine{
         GetClientRect(hWnd, &rectClient);
         GetWindowRect(hWnd, &rectWindow);
         int posx, posy;
-        posx = GetSystemMetrics(SM_CXSCREEN) / 2 - (rectClient.right - rectClient.left) / 2,
+        posx = GetSystemMetrics(SM_CXSCREEN) / 2 - (rectClient.right - rectClient.left) / 2, 
         posy = GetSystemMetrics(SM_CYSCREEN) / 2 - (rectClient.bottom - rectClient.top) / 2,
 
         MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
