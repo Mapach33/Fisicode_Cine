@@ -2,4 +2,4 @@
 Proyecto Algoritmica 1
 
 
-![fisilogo](logo.jpg)
+![fisilogo](logo.png)
