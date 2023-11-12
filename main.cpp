@@ -8,18 +8,21 @@
 #include "tools/funciones.h"
 
 int main(){
+    
     int p;
     short contador;
+    
     do{
         contador = cine::menuPrincipal();
         switch (contador)
         {
             case 1:{
-                cartelera(p);
-                mostrar_info_peliculas(p);
+                mostrar_cartelera(p);
+                elegir_pelicula(p);
                 menu_ambiente();
                 ele_sala();
                 ele_horario();
+                
                 break;       
             }
             case 2:{
