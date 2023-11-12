@@ -8,9 +8,10 @@
 #include "tools/funciones.h"
 
 int main(){
+    
     int p;
     short contador;
-    float boleta_precio_total = 0;
+    
     do{
         contador = cine::menuPrincipal();
         switch (contador)
@@ -21,6 +22,7 @@ int main(){
                 menu_ambiente();
                 ele_sala();
                 ele_horario();
+                
                 break;       
             }
             case 2:{

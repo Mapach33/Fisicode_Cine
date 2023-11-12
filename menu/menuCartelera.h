@@ -2,6 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <string>
+#include <fstream>
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
@@ -87,7 +88,7 @@ void mostrar_cartelera(int& p){
 void elegir_pelicula(int &p) {
     char elegir;
     char seguir;
-
+	string imprimir_pelicula, imprimir_duracion, imprimir_director, imprimir_sinopsis;
     do{
         gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; cin >> elegir;
 		i++;
@@ -114,6 +115,19 @@ void elegir_pelicula(int &p) {
 	gotoxy(25, 49+i);color(hConsole, 79);cout << "Sinopsis: " << sinopsis[p-1] << endl;   
 	gotoxy(25, 50+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
 	cout << endl;	
+	
+	ofstream Grabacion("boleta.txt", ios::out);
+			if(Grabacion.fail()){
+				cout<<"Error en el archivo..."<<endl;
+				Sleep(2000);
+				exit(1);
+			}
+			Grabacion<<peliculas[p-1]<<endl;
+			Grabacion<<duracion[p-1]<<endl;
+			Grabacion<<director[p-1]<<endl;
+			Grabacion<<sinopsis[p-1]<<endl;
+			Grabacion.close();
+
     system("pause");
 }
 
