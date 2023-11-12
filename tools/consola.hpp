@@ -21,18 +21,7 @@ namespace cine{
     Intensity = BACKGROUND_INTENSITY
     };
 
-    //Cetra la consola en la pantalla
-    void CenterConsoleWindow() {
-       RECT rectClient, rectWindow;
-        HWND hWnd = GetConsoleWindow();
-        GetClientRect(hWnd, &rectClient);
-        GetWindowRect(hWnd, &rectWindow);
-        int posx, posy;
-        posx = GetSystemMetrics(SM_CXSCREEN) / 2 - (rectClient.right - rectClient.left) / 2, 
-        posy = GetSystemMetrics(SM_CYSCREEN) / 2 - (rectClient.bottom - rectClient.top) / 2,
-
-        MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
-    } 
+    void CenterConsoleWindow();
 
     //Mostrar o no mostrar el cursor (parametro booleano)
     void ShowConsoleCursor(bool showFlag) {
@@ -56,6 +45,19 @@ namespace cine{
         SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
         CenterConsoleWindow();
         ShowConsoleCursor(cursor);
+    }
+
+    //Cetra la consola en la pantalla
+    void CenterConsoleWindow() {
+       RECT rectClient, rectWindow;
+        HWND hWnd = GetConsoleWindow();
+        GetClientRect(hWnd, &rectClient);
+        GetWindowRect(hWnd, &rectWindow);
+        int posx, posy;
+        posx = GetSystemMetrics(SM_CXSCREEN) / 2 - (rectClient.right - rectClient.left) / 2, 
+        posy = GetSystemMetrics(SM_CYSCREEN) / 2 - (rectClient.bottom - rectClient.top) / 2,
+
+        MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
     }
     
 }// namespace cine
