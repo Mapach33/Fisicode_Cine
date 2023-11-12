@@ -1199,9 +1199,9 @@ int fdulceria(){
 				break;
 			}		
 		}
-	
-		
+
+
 	} while(opcdulceria != '0');
-	
+
  	return (0);
 }
