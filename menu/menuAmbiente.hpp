@@ -3,6 +3,7 @@
 #include<windows.h>
 #include<conio.h>
 #include<locale.h>
+#include <fstream>
 #include"menuCartelera.h"
 using namespace std;
 
@@ -63,19 +64,19 @@ void menu_ambiente() {
 	gotoxy(20, 14);  cout << "| ¦         +============#1===========+            +============#2===========+          ¦  |" ; 
 	gotoxy(20, 15);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
 	gotoxy(20, 16);  cout << "| ¦         |          NORMAL         |            |          10:00am        |          ¦  |" ; 
-	gotoxy(20, 17);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
+	gotoxy(20, 17);  cout << "| ¦         |           $10           |            |                         |          ¦  |" ; 
 	gotoxy(20, 18);  cout << "| ¦         +=========================+            +=========================+          ¦  |" ; 
 	gotoxy(20, 19);  cout << "| ¦                                                                                     ¦  |" ; 
 	gotoxy(20, 20);  cout << "| ¦         +============#2===========+            +============#4===========+          ¦  |" ; 
 	gotoxy(20, 21);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
 	gotoxy(20, 22);  cout << "| ¦         |      3D ENVOLVENTE      |            |           1:00pm        |          ¦  |" ; 
-	gotoxy(20, 23);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
+	gotoxy(20, 23);  cout << "| ¦         |           $20           |            |                         |          ¦  |" ; 
 	gotoxy(20, 24);  cout << "| ¦         +=========================+            +=========================+          ¦  |" ; 
 	gotoxy(20, 25);  cout << "| ¦                                                                                     ¦  |" ; 
 	gotoxy(20, 26);  cout << "| ¦         +============#5===========+            +============#6===========+          ¦  |" ; 
 	gotoxy(20, 27);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
 	gotoxy(20, 28);  cout << "| ¦         |            VIP          |            |          7:00pm         |          ¦  |" ; 
-	gotoxy(20, 29);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
+	gotoxy(20, 29);  cout << "| ¦         |            $40          |            |                         |          ¦  |" ; 
 	gotoxy(20, 30);  cout << "| ¦         +=========================+            +=========================+          ¦  |" ; 
 	gotoxy(20, 31);  cout << "| ¦                                                                                     ¦  |" ; 
 	gotoxy(20, 32);  cout << "| ¦                                                                                     ¦  |" ; 
@@ -84,7 +85,7 @@ void menu_ambiente() {
 
 }
 string ele_sala(){
-	
+	int price;
 	char opcs = '0'; 
 	do{
 		system("CLS");
@@ -99,11 +100,37 @@ string ele_sala(){
 		}
 	}while(opcs != '1' && opcs != '2' && opcs != '3');	
 	cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
-	Sleep(3000);
+	switch(opcs){
+		case '1':{
+			price = 10;
+			break;
+		}
+		case '2':{
+			price = 20;
+			break;
+		}
+		case '3':{
+			price = 40;
+			break;
+		}
+		default:{
+			price = 0;
+			break;
+	}}
+	
+	ofstream Grabacion("boleta.txt", ios::app);
+			if(Grabacion.fail()){
+				cout<<"Error en el archivo..."<<endl;
+				Sleep(2000);
+				exit(1);
+			}
+			Grabacion<<price<<endl;
+			Grabacion.close();
+
+	system("pause");
 	return fopcsala(opcs);
 }
 string ele_horario(){
-	
 	char opch = '0'; 
 		do {
 			system("CLS");
@@ -118,7 +145,7 @@ string ele_horario(){
 			}
 		}while(opch != '1' && opch != '2' && opch != '3'); 
 	cout << "Opcion de horario es: " << fopchorario(opch) << endl;
-	Sleep(3000);
+	system("pause");
 	return fopchorario(opch);
 	
 }
