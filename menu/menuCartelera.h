@@ -7,7 +7,7 @@
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
 
 using namespace std;
-
+char elegir;
 string peliculas[] = {"Saw X", "Five Nights At Freddy's", "The Eras Tour","Sonidos de libertad","El Exorcista: Creyentes", "Sin Aire"};
 string duracion[] = {"2hrs 0min","1hrs 50min","2hrs 45min","2hrs 10min","2hrs 0min","1hrs 30min"};
 string director[] = {"Kevin Greutert","Emma Tammi","Sam Wrench","Alejandro Gómez Monteverde","David Gordon Green","Maximilian Erlenwein"};
@@ -19,6 +19,8 @@ string sinopsis[] = {"Un asesino busca venganza",
 					"May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
 
 int i=0;
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 void gotoxy(int x, int y) {
 	HANDLE hcon;
 	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -30,9 +32,9 @@ void gotoxy(int x, int y) {
 
 
 
-void cartelera(int& p) {
+void mostrar_cartelera(int& p){
 	cine::Set_Console_Sizes(130,60,1);   
-	char elegir;
+	
 		
 	system("cls");
 	system("color 47");
@@ -77,34 +79,41 @@ void cartelera(int& p) {
 	gotoxy(20, 37); color(hConsole, 228);cout << "| ¦                                                                              ¦  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 38); color(hConsole, 228);cout << "| +------------------------------------------------------------------------------+  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 39); color(hConsole, 228);cout << "|___________________________________________________________________________________|" ; color(hConsole, 0); cout<<"¦";
+	
+	
+	
+}
 
-	do{
+void elegir_pelicula(int &p) {
+    char elegir;
+    char seguir;
+
+    do{
         gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; cin >> elegir;
 		i++;
         if(elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6'){
         gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida..." << endl;
         }       
     } while (elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6');
-	
-	switch(elegir){
-		case '1': p=1; break;
-		case '2': p=2; break;
-		case '3': p=3; break;
-		case '4': p=4; break;
-		case '5': p=5; break;
-		case '6': p=6; break;
-	}
-		
-}
 
-void mostrar_info_peliculas(int p){
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    
+	switch (elegir) {
+		case '1': p = 1; break;
+		case '2': p = 2; break;
+		case '3': p = 3; break;
+		case '4': p = 4; break;
+		case '5': p = 5; break;
+		case '6': p = 6; break;
+	}
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	gotoxy(25, 44+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
 	gotoxy(55, 45+i);color(hConsole, 79);cout << peliculas[p-1]<< endl;
-    gotoxy(25, 46+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
+	gotoxy(25, 46+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
 	gotoxy(25, 47+i);color(hConsole, 79);cout << "Duracion: " << duracion[p-1] << endl;
-    gotoxy(25, 48+i);color(hConsole, 79);cout << "Director: " << director[p-1] << endl;
-    gotoxy(25, 49+i);color(hConsole, 79);cout << "Sinopsis: " << sinopsis[p-1] << endl;   
+	gotoxy(25, 48+i);color(hConsole, 79);cout << "Director: " << director[p-1] << endl;
+	gotoxy(25, 49+i);color(hConsole, 79);cout << "Sinopsis: " << sinopsis[p-1] << endl;   
 	gotoxy(25, 50+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
-	Sleep(3000);
+	cout << endl;	
+    system("pause");
 }
+

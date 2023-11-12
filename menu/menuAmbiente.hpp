@@ -85,6 +85,7 @@ string ele_sala(){
 	return fopcsala(opcs);
 	
 }
+
 string ele_horario(){
 	
 	char opch = '0'; 
