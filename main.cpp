@@ -1,4 +1,3 @@
-//Esto es para ir probando las funciones nada mas
 #include <iostream>
 #include <windows.h>
 #include "menu/menuPrincipal.hpp"
@@ -8,26 +7,23 @@
 #include "tools/funciones.h"
 
 int main(){
-    
-    int p;
-    short contador;
-    
+   
     do{
-        contador = cine::menuPrincipal();
-        switch (contador)
+       
+        switch (cine::menuPrincipal())
         {
             case 1:{
-                mostrar_cartelera(p);
-                elegir_pelicula(p);
+                mostrar_cartelera();
+                elegir_pelicula();
                 menu_ambiente();
                 ele_sala();
                 ele_horario();
-                
+                dulceria();
+                fdulceria();
                 break;       
             }
             case 2:{
-                dulceria();
-                fdulceria();
+                
                 break;
             }
             case 3:{
@@ -35,6 +31,6 @@ int main(){
                 break;
             }
         }
-    }while(contador != 3 );
+    }while(cine::menuPrincipal() !=3 );
     return 0;
 }
