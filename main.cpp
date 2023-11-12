@@ -20,7 +20,6 @@ int main(){
                 menu_ambiente();
                 ele_sala();
                 ele_horario();
-                
                 break;       
             }
             case 2:{
