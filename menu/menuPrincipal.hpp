@@ -2,19 +2,22 @@
 #include "../tools/funciones.h"
 const int tamX = 170;
 const int tamY = 40;
-namespace cine {
+
+    
+namespace cine{
+ 
     int menuPrincipal(){
         cine::clear();
-        cine::Set_Console_Sizes(tamX, tamY,0);
-        short opcion = 1;
-        int centroX = getConsoleSize().x/2-9;
-        short ejeYmenu = 12;
+        cine::Set_Console_Sizes(tamX, tamY,0);                         // 
+        short opcion = 1;                                           //  asdasd
+        int centroX = getConsoleSize().x/2-9;///                        sdfasdfasdf 
+        short ejeYmenu = 12;                                       //   asdadasd
         cine::imprimirMarco(21,9,{centroX-5,ejeYmenu-2});
         cine::gotoxy(0,2);
         cine::printRawCenter(cine::logo_fisicode);
 
         while (1) {
-            gotoxy(centroX,ejeYmenu);print ("  Menu:  \n");
+            gotoxy(centroX,ejeYmenu);print ("  Menu:  \n");     
             gotoX(centroX);print    ("Cartelera\n");
             gotoX(centroX);print    (" Dulceria\n"); 
             gotoX(centroX);print    ("  Salir  \n");

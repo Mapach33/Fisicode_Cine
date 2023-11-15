@@ -6,6 +6,30 @@
 #include <conio.h>
 #include <windows.h>
 #include <string.h>
+using namespace std;
+
+enum key {
+        //numeros ramdons
+        Up = 600,
+        Down = 700,
+        Left = 800,
+        Right = 900,
+
+        Backspace = 8,
+        Tab = 9, 
+        End = 35,
+        Home = 36,
+        Supr = 46, 
+
+        a = 97,
+        w = 119,
+        s = 115,
+        d = 100,
+
+        ExitKey = 27,
+        Space = 32,
+        Enter = 13
+};
 
 //para llamar a cualquiera de estas  funciones usaremos cine::<funcion>
 namespace cine 
@@ -43,28 +67,6 @@ namespace cine
         coordXY operator - (const coordXY& vec) { return { x - vec.x, y - vec.y }; }
     };
 
-    enum key {
-        //artificial keycodes
-        Up = 250,
-        Down = 251,
-        Left = 252,
-        Right = 253,
-
-        Backspace = 8,
-        Tab = 9,
-        End = 35,
-        Home = 36,
-        Supr = 46, 
-
-        a = 97,
-        w = 119,
-        s = 115,
-        d = 100,
-
-        ExitKey = 27,
-        Space = 32,
-        Enter = 13
-    };
 
     //Obtiene la posicion del cursor donde se encuentra
     cine::coordXY getCursorPosition(){
@@ -117,7 +119,7 @@ namespace cine
     }
 
     // Imprime un texto multilinea de forma centrada en la consola
-    void printRawCenter(std::string raw) {
+    void printRawCenter(std::string& raw) {
         std::vector<std::string> subStringsList;
         std::string buffer = "";
 
@@ -156,10 +158,10 @@ namespace cine
     
     //Obtiene la tecla presionado o en su efecto el caracter;
     int getch(){
-        if (_kbhit()) {
+        //if (_kbhit()) { // Comprobar si se presiono una tecla
         //primero obtenemos el caracter de control
-        int control = _getch();
-        int input;
+        int control = _getch(); //  
+        int input; 
         if (_kbhit()) input = _getch();
 
         switch (control) {
@@ -173,7 +175,7 @@ namespace cine
             return control;//sino hay caracter de control solo retorna asci de la tecla
             break;
         }
-        }
+        //}
         return 0;
     }
 
@@ -202,4 +204,6 @@ namespace cine
 
 
 }//namespaces cine
+
+
 

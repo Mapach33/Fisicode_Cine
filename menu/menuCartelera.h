@@ -43,7 +43,6 @@ void mostrar_cartelera(){
 	setlocale(LC_ALL, "Spanish");
 	
 
-	
 	gotoxy(20, 3);  color(hConsole, 6);  cout << " __________________________________________________________________________________" ; color(hConsole, 0); cout<<"¦";	
 	gotoxy(20, 4);  color(hConsole, 228);cout << "| +-------------------------------------------------------------------------------+|" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 5);  color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
@@ -57,7 +56,7 @@ void mostrar_cartelera(){
 	gotoxy(20, 13); color(hConsole, 116);cout << "|__________________________________________________________________________________|" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 14); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 15); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
-	gotoxy(20, 16); color(hConsole, 228);cout << "|       +========= ^-^ #1 ========+            +========= ^-^ #2 ========+         |" ; color(hConsole, 0); cout<<"¦";
+	gotoxy(20, 16); color(hConsole, 228);cout << "|      +========= ^-^ #1 ========+            +========= ^-^ #2 ========+         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 17); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 18); color(hConsole, 228);cout << "|       |         Saw X           |            | Five Nights At Freddy's |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 19); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
@@ -76,7 +75,7 @@ void mostrar_cartelera(){
 	gotoxy(20, 32); color(hConsole, 228);cout << "|       | El Exorcista: Creyentes |            |        Sin Aire         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 33); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 34); color(hConsole, 228);cout << "|       |       B18 - Terror      |            |      B14 - Thriller     |         |" ; color(hConsole, 0); cout<<"¦";
-	gotoxy(20, 35); color(hConsole, 228);cout << "|       +=========================+            +=========================+         |" ; color(hConsole, 0); cout<<"¦";
+	gotoxy(20, 35); color(hConsole, 228);cout << "|       +=========================+            +=========================+          |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 36); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 37); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 38); color(hConsole, 228);cout << "|+--------------------------------------------------------------------------------+|" ; color(hConsole, 0); cout<<"¦";
