@@ -87,12 +87,7 @@ void menu_ambiente() {
 }
 string ele_sala(){
 	string x_opcs;
-<<<<<<< HEAD
-	short opcs;
-	
-=======
 	short opcs, price;
->>>>>>> 488032103672d18a4a73660041c861502b5d9ac5
 	do{
 		gotoxy(25, 36);cout << "Use '1' = Normal / '2' = 3D Envolvente / '3' = VIP " << endl;
 		gotoxy(25, 37);cout << "                                                      " << endl;
@@ -124,21 +119,6 @@ string ele_sala(){
 string ele_horario(){
 	short opch; 
 	string x_opch;
-<<<<<<< HEAD
-	
-		do {
-			system("CLS");
-			menu_ambiente();
-			cout << " \n Elija El Horario : ";
-			cout << "\nUse: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm \n" << endl;
-			getline(cin, x_opch);
-			
-			istringstream(x_opch)>>opch;
-						if (opch<1 || opch>3) { 
-				cout << "\nIngrese una opcion valida (1-3)... " << endl;
-				// flag = true;
-				system("pause"); 	
-=======
 		do {
 			gotoxy(25, 39);cout << "                                                                       ";
 			gotoxy(25, 36);cout << "Use: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm " << endl;
@@ -153,7 +133,6 @@ string ele_horario(){
 				gotoxy(25, 38);cout << "                                                          ";
 				gotoxy(25, 39);cout << "                                                          ";
 				gotoxy(25, 40);getch();	
->>>>>>> 488032103672d18a4a73660041c861502b5d9ac5
 			}
 		}while(opch<1 || opch>3); 
 	gotoxy(25, 39);cout << "Opcion de horario es: " << fopchorario(opch) << endl;
