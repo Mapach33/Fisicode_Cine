@@ -34,7 +34,6 @@ namespace cine{
     void Set_Console_Sizes(const int consola_ancho,const int consola_alto,bool cursor) {
         std::stringstream ss; ss << "MODE CON: COLS=" << consola_ancho << "LINES=" << consola_alto;
         system(ss.str().c_str());
-
         HWND consoleWindow = GetConsoleWindow();
         SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
         CenterConsoleWindow();
