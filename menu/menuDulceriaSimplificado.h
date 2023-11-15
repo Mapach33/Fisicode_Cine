@@ -67,6 +67,7 @@ void ElegirCombos(){
 			}
 			Grabacion<<nomcombos [opccombos-1]<<endl;
 			Grabacion<<precio<<endl;
+			Grabacion<<cntcombos<<endl;
 			Grabacion.close();
 
     imprimirBoleta(1);
