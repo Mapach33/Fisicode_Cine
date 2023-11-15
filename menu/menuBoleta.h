@@ -12,35 +12,43 @@
 
 
 using namespace std;
-string pelicula, duracion, director, sinopsis, costo_pelicula ;
+struct boleta{
+    string pelicula, sala, p_unit, hora, t_combo, pu_combo, c_combo, pt_combo;
+}b1;
+
 void Lee(ifstream &lee){
+    cine::Set_Console_Sizes(60,25,1);
 		system("CLS");
-		getline(lee,pelicula);
+		getline(lee,b1.pelicula);
 		while(!lee.eof()){
-			getline(lee,duracion);
-			getline(lee,director);
-			getline(lee,sinopsis);
-            getline(lee,costo_pelicula);
+			getline(lee,b1.sala);
+			getline(lee,b1.p_unit);
+			getline(lee,b1.hora);
+            getline(lee,b1.t_combo);
+            getline(lee,b1.c_combo);
+            getline(lee,b1.pu_combo);
+            getline(lee,b1.pt_combo);
+
 			 system("CLS");
-            cout << "Boleta" << endl;
-            cout << "--------------------------" << endl;
-            cout << "Pelicula: " << pelicula << endl;
-            cout << "Sala: " << "falta rellenar" << endl;
-            cout << "Horario: " << "falta rellenar" << endl;
-            cout << "Asientos: " << endl;
-            cout << "--------------------------" << endl;
-            cout << "Subtotal: " << endl;
-            cout << "IGV: " << endl;
-            cout << "Total: " << endl;
-            cout << "--------------------------" << endl;
-            cout << "Combos: " << endl;
-            cout << "--------------------------" << endl;
-            cout << "Total a pagar: " << endl;
-            cout << "--------------------------" << endl;
-            cout << "Gracias por su compra" << endl;
-            cout << "--------------------------" << endl;
+            cout << "                  Boleta" << endl;
+            cout << "------------------------------------------" << endl;
+            cout << "Pelicula           : " << b1.pelicula << endl;
+            cout << "Sala               : " << b1.sala<< endl;
+            cout << "Horario            : " << b1.hora<< endl;
+            cout << "Asientos           : " << endl;
+            cout << "Precio por Asiento : " << b1.p_unit<<endl;
+            cout << "------------------------------------------" << endl;
+            cout << "Combos             : " << b1.t_combo<< endl;
+            cout << "Cantidad de Combos : " << b1.c_combo<<endl;
+            cout << "Precio Unitario    : " << b1.pu_combo<<endl;
+            cout << "Precio T. Combo    : " << b1.pt_combo<<endl;
+            cout << "------------------------------------------" << endl;
+            cout << "Total a pagar      : " << endl;
+            cout << "------------------------------------------" << endl;
+            cout << "           Gracias por su compra" << endl;
+            cout << "------------------------------------------" << endl;
             system("pause");
-			getline(lee,pelicula);
+			getline(lee,b1.pelicula);
 		}
 		system("pause");
 

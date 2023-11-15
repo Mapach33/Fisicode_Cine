@@ -66,6 +66,8 @@ void ElegirCombos(){
 				exit(1);
 			}
 			Grabacion<<nomcombos [opccombos-1]<<endl;
+			Grabacion<<cntcombos<<endl;
+			Grabacion<<pciocombos[opccombos -1]<<endl;
 			Grabacion<<precio<<endl;
 			Grabacion<<cntcombos<<endl;
 			Grabacion.close();

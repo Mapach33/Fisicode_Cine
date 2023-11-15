@@ -6,7 +6,7 @@
 #include "menu/salaCine.h"
 
 int main(){
-
+    
 
     MenuPrincipal menuPrincipal;
 
