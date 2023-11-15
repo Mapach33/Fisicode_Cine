@@ -17,8 +17,7 @@ int main(){
                 ele_horario();
                 MenuAsientos menuAsientos; cin.get();
                 
-                Combos();
-                ElegirCombos();
+                elegir_combo();
                 
     }
     return 0;
