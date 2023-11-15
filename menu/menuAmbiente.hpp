@@ -31,13 +31,13 @@ string fopchorario(short opch) {
 	string tipo;
 	switch (opch) {
 		case 1:
-			tipo = "10:00am";
+			tipo = "10:00";
 			break;
 		case 2:
-			tipo = "1:00pm";
+			tipo = "13:00";
 			break;
 		case 3:
-			tipo = "7:00pm";
+			tipo = "19:00";
 			break;
 		default: {
 			tipo = "Desconocido";
@@ -76,7 +76,7 @@ void menu_ambiente() {
 	gotoxy(20, 25);  cout << "| ¦                                                                                     ¦  |" ; 
 	gotoxy(20, 26);  cout << "| ¦         +============#3===========+            +============#3===========+          ¦  |" ; 
 	gotoxy(20, 27);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
-	gotoxy(20, 28);  cout << "| ¦         |            VIP          |            |          7:00pm         |          ¦  |" ; 
+	gotoxy(20, 28);  cout << "| ¦         |        4D  EXTREME      |            |          7:00pm         |          ¦  |" ; 
 	gotoxy(20, 29);  cout << "| ¦         |            $40          |            |                         |          ¦  |" ; 
 	gotoxy(20, 30);  cout << "| ¦         +=========================+            +=========================+          ¦  |" ; 
 	gotoxy(20, 31);  cout << "| ¦                                                                                     ¦  |" ; 
@@ -110,6 +110,7 @@ string ele_sala(){
 				Sleep(2000);
 				exit(1);
 			}
+			Grabacion<<fopcsala(opcs, price)<<endl;
 			Grabacion<<price<<endl;
 			Grabacion.close();
 			gotoxy(25, 40);getch();
@@ -121,11 +122,11 @@ string ele_horario(){
 	string x_opch;
 		do {
 			gotoxy(25, 39);cout << "                                                                       ";
-			gotoxy(25, 36);cout << "Use: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm " << endl;
+			gotoxy(25, 36);cout << "Use: '1' = 10:00 / '2' = 13:00 / '3' = 19:00 " << endl;
 			gotoxy(25, 37);cout << "                                                              ";
 			gotoxy(25, 38);cout << "Elija El Horario : "; getline(cin, x_opch);
 			
-			
+
 			istringstream(x_opch)>>opch;
 			
 			if (opch<1 || opch>3) { 
@@ -135,8 +136,19 @@ string ele_horario(){
 				gotoxy(25, 40);getch();	
 			}
 		}while(opch<1 || opch>3); 
+
 	gotoxy(25, 39);cout << "Opcion de horario es: " << fopchorario(opch) << endl;
 	gotoxy(25, 40);getch();
-	return fopchorario(opch);
 	
+	ofstream Grabacion("boleta.txt", ios::app);
+			if(Grabacion.fail()){
+				system("CLS");
+				cout<<"Error en el archivo..."<<endl;
+				Sleep(2000);
+				exit(1);
+			}
+			Grabacion<<fopchorario(opch)<<endl;
+			Grabacion.close();
+			gotoxy(25, 40);getch();
+	return fopchorario(opch);
 }
