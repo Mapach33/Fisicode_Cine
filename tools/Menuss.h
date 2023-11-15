@@ -1,3 +1,4 @@
+#pragma once
 #include "funciones.h"
 #include "consola.hpp"
 //Clase madre
@@ -45,7 +46,7 @@ void Menu::imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool 
 
     int largoOpcion{19}, altoOpcion{3}; // esto se puede cambioar
 
-    colorOpcion = 8;
+    colorOpcion = 120;
     if(seleccionado) {colorOpcion = colorMarco;}
     SetConsoleTextAttribute(miconsola,colorOpcion);
 
@@ -81,14 +82,14 @@ MenuPrincipal::MenuPrincipal(){
     altoConsola = 40;
     anchoConsola = 150;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 159;
-    colorMarco = 9;
+    colorTexto = 112;
+    colorMarco = 115;
     opcion = 1;
     imprimir();
 }
 
 void MenuPrincipal::imprimir(){
-
+    system("COLOR 70");
     int ejeYmarco = 7;
     altoMarco = 25;
     anchoMarco = 55;
@@ -102,15 +103,20 @@ void MenuPrincipal::imprimir(){
         imprimirOpcion("Cartelera", (anchoConsola - 23)/2, 14, opcion==1);
         imprimirOpcion("Salir", (anchoConsola - 23)/2 , 18, opcion==2);
         switch (cine::getch()) {
+    
+            case key::w:
             case Up:
                 if (opcion > 1) opcion--;
                 break;
+        
+            case key::s:
             case Down:
                 if (opcion < 2) opcion++;
                 break;
+
             case Enter:
                 continuar = false;
                 break;
         }
     }
-}   
+}

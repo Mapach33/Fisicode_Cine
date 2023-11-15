@@ -5,9 +5,11 @@
 #include <vector>
 #include <conio.h>
 #include <windows.h>
+#include <stdlib.h>
 #include <string.h>
-using namespace std;
+#include <ctime>
 
+using namespace std;
 enum key {
         //numeros ramdons
         Up = 600,
@@ -35,7 +37,6 @@ enum key {
 namespace cine 
 {   
     HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-
     //Imprime mas rapido
     void print(char ch) {
         WriteConsole(consoleHandle, &ch, 1, NULL, NULL);
@@ -177,29 +178,6 @@ namespace cine
         }
         //}
         return 0;
-    }
-
-    //Imprime un marco
-    void imprimirMarco(short ancho, short altura, coordXY coordenadas){
-        gotoxy(coordenadas);
-        for(short i=0;i<altura;i++){
-            if(i==0){
-                print(char(201));
-                for(short j=0;j<ancho-2;j++){
-                    print(char(205));
-                }print(char(187));print('\n');
-            }else if(i==altura-1){
-                gotoX(coordenadas.x);
-                print(char(200));
-                for(short j=0;j<ancho-2;j++){
-                    print(char(205));
-                }print(char(188));
-            }else{
-            gotoX(coordenadas.x);
-            print(char(186));
-            gotoX(getCursorPosition().x+ancho-2);print(char(186));print('\n');
-            }
-        }
     }
 
 
