@@ -1151,8 +1151,8 @@ int fextras(){
 
 int fdulceria(){
  	cine::ShowConsoleCursor(1);
- 	char opcdulceria = ' ';
- 	
+ 	string x_opcdulceria;
+ 	short opcdulceria;
  	do{
 	
 		dulceria();
