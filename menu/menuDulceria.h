@@ -5,8 +5,9 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
-#include <string>
+#include <string.h>
 #include <fstream>
+#include <sstream>
 #include "../tools/funciones.h"
 
 
@@ -26,7 +27,7 @@ void dulceria(){
 		cout<<"\n3.- EXTRAS ";
 		cout<<"\n4.- COMBOS ";
 	
-		cout<<"\n\n0.- Salir ";
+		cout<<"\n\n5.- Salir ";
 		cout<<endl;
 		cout<<"\n\tQUE DESEA COMPRAR----->";
 			
@@ -1150,59 +1151,67 @@ int fextras(){
 
 int fdulceria(){
  	cine::ShowConsoleCursor(1);
- 	char opcdulceria = ' ';
+ 	string x_opcdulceria;
+	short opcdulceria;
  	
  	do{
 	
- 		dulceria();
- 		cin>>opcdulceria;
- 
- 		switch(opcdulceria){
-			case '1':{
-				system("cls");
-				canchita();
-				fcanchita();
-				system("pause");
-				break;
-			}
+		dulceria();
+ 		getline(cin,x_opcdulceria);
+		istringstream(x_opcdulceria)>>opcdulceria;
+		if(opcdulceria>5 || opcdulceria<1){
+			cout << "Ingrese una opcion valida (1-5)...            " << endl;
 			
-			case '2':{
-				system("cls");
-				bebidas();
-				fbebidas();
-				system("pause");
-				break;
-			}
+			system("pause");
+			system("cls");
 			
-			case '3':{
-				system("cls");
-				extras();
-				fextras();
-				system("pause");
-				break;
-			}
-			
-			case '4':{
-				system("cls");
-				combos();
-				fcombos();
-				system("pause");
-				break;
-			}
-			
-			case '0':{
-				system("cls");
-				system("pause");
-				break;
-			}
-			default:{
-				cout<<"Seleccionar una opcion valida "<<endl;
-				break;
-			}		
 		}
+		
+				switch(opcdulceria){
+				case 1:{
+					system("cls");
+					canchita();
+					fcanchita();
+					system("pause");
+					break;
+				}
+				
+				case 2:{
+					system("cls");
+					bebidas();
+					fbebidas();
+					system("pause");
+					break;
+				}
+				
+				case 3:{
+					system("cls");
+					extras();
+					fextras();
+					system("pause");
+					break;
+				}
+				
+				case 4:{
+					system("cls");
+					combos();
+					fcombos();
+					system("pause");
+					break;
+				}
+				
+				case 5:{
+					system("cls");
+					system("pause");
+					break;
+				}
+			}
+			
+		
+ 		
 
 
-	} while(opcdulceria != '0');
+	} while(opcdulceria>5 || opcdulceria<1);
 
  	return (0);
 }

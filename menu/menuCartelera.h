@@ -21,7 +21,7 @@ string sinopsis[] = {"Un asesino busca venganza",
                     "La película de terror más aterradora de la historia volvio a las pantallas",
 					"May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
 
-int i=0;
+
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 void gotoxy(int x, int y) {
@@ -88,7 +88,7 @@ void mostrar_cartelera(){
 
 void elegir_pelicula() {
     short p, elegir;
-	
+	int i=0;
 	string x_elegir, imprimir_pelicula, imprimir_duracion, imprimir_director, imprimir_sinopsis;
     do{
         gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; getline(cin, x_elegir);
@@ -102,7 +102,7 @@ void elegir_pelicula() {
         }       
     } while (elegir > 6 || elegir < 1);
 
-    p=elegir;
+    p = elegir;
 	
 	gotoxy(25, 44+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
 	gotoxy(55, 45+i);color(hConsole, 79);cout << peliculas[p-1]<< endl;
