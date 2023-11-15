@@ -109,9 +109,6 @@ void elegir_pelicula() {
 				exit(1);
 			}
 			Grabacion<<peliculas[elegir-1]<<endl;
-			Grabacion<<duracion[elegir-1]<<endl;
-			Grabacion<<director[elegir-1]<<endl;
-			Grabacion<<sinopsis[elegir-1]<<endl;
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
