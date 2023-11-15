@@ -97,20 +97,13 @@ string ele_sala(){
 		cout << "\nUse '1' = Normal / '2' = 3D Envolvente / '3' = VIP \n" << endl;
 		getline(cin, x_opcs);
 		istringstream(x_opcs)>>opcs;
-		// flag = false;
-		//verificación de un unico caracter
-		// if (cin.fail() || cin.get() != '\n') {
-        // cerr << "Error: Debe ingresar solo un caracter." << endl;
-        // flag = true;
-        // system("pause");
-   		// }
-		if (opcs<0 || opcs>3) { 
+		
+		if ( opcs < 1 || opcs > 3) { 
 			cout << "\nIngrese una opcion valida (1-3)... \n" << endl;
-			// flag = true;
 			system("pause");
+			
 		}
-	}while(opcs<0 || opcs>3);	
-	cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
+		cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
 	switch(opcs){
 		case 1:{
 			price = 10;
@@ -129,6 +122,9 @@ string ele_sala(){
 			break;
 		}
 	}
+	}while(opcs < 1 || opcs > 3);	
+
+	
 	
 	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
@@ -160,12 +156,12 @@ string ele_horario(){
 			// system("pause");
 			// }
 
-			if (opch<0 || opch>3) { 
+			if (opch<1 || opch>3) { 
 				cout << "\nIngrese una opcion valida (1-3)... " << endl;
 				// flag = true;
 				system("pause"); 	
 			}
-		}while(opch<0 || opch>3); 
+		}while(opch<1 || opch>3); 
 	cout << "Opcion de horario es: " << fopchorario(opch) << endl;
 	system("pause");
 	return fopchorario(opch);
