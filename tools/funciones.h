@@ -176,6 +176,4 @@ namespace cine
         //}
         return 0;
     }
-
-
 }//namespaces cine
