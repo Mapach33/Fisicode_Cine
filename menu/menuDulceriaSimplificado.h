@@ -9,8 +9,9 @@
 #include <fstream>
 #include <sstream>
 #include "../tools/funciones.h"
-
+#include "menuBoleta.h"
 using namespace std;
+
 
 void Combos(){
 		
@@ -23,8 +24,7 @@ void Combos(){
 		cout<<"\n3.- Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas";
 		cout<<"\n4.- 2 Canchas Grandes + 5 Gaseosas Medianas ";
 		cout<<"\n5.- 2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog";
-		
-		cout<<"\n\n6.- No deseo comprar nada ";
+		cout<<"\n\n6.- 4 Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog";
 		cout<<endl;
 		cout<<"\n\tElija una opcion----->"<<endl;
 			
@@ -32,8 +32,8 @@ void Combos(){
 
 void ElegirCombos(){
     string nomcombos[] = {"Cancha Grande + 2 Gaseosas Grandes","2 Canchas Medianas + 3 Gaseosas Medianas","Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas",
-                            "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog"};
-	float pciocombos[] = {26,28,32,33.5,35};
+                            "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog", "Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog"};
+	float pciocombos[] = {26,28,32,33.5,35,45};
 	
  	string x_opccombos;
     short opccombos;
@@ -54,7 +54,7 @@ void ElegirCombos(){
 
     cout<<"Eligio "<<nomcombos[opccombos -1]<<endl;
 
-	cout<<" ¿Cantidad de su pedido? "; cin>>cntcombos;
+	cout<<"Elija la cantidad: "; cin >> cntcombos;
 
     system("pause");
     precio = pciocombos [opccombos -1] * cntcombos;
@@ -68,4 +68,6 @@ void ElegirCombos(){
 			Grabacion<<nomcombos [opccombos-1]<<endl;
 			Grabacion<<precio<<endl;
 			Grabacion.close();
+
+    imprimirBoleta(1);
 }
