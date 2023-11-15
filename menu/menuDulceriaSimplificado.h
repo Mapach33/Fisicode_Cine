@@ -57,11 +57,10 @@ MenuDulceria::MenuDulceria(){
 }
 
 void MenuDulceria::imprimir(){
-    system("COLOR 70");
+    system("COLOR 70 && cls");
     int ejeYmarco = 7;
     altoMarco = 50;
     anchoMarco = 100;
-    system("cls");
     cine::gotoY(1);
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);

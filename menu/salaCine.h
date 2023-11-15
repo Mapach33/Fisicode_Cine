@@ -34,6 +34,7 @@ MenuAsientos::MenuAsientos(){
 
 void MenuAsientos::imprimir(){
     system("cls && color 7");
+    int colu;
     gotoxy(anchoConsola/2 - 8,2);cout << "P A N T A L L A";
     imprimirCine();
     cine::ShowConsoleCursor(true);
@@ -51,9 +52,10 @@ void MenuAsientos::imprimir(){
             gotoxy(anchoConsola/2-19,26);
             cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
             getline(cin,columna);
-        }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
+            colu = stoi(columna);
+        }while(colu<1 or colu>maxColumnas);
 
-    }while(asientos[fila[0]-65][columna[0]-49] == 0);
+    }while(asientos[fila[0]-65][colu] == 0);
 
     ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
@@ -61,7 +63,7 @@ void MenuAsientos::imprimir(){
 				Sleep(2000);
 				exit(1);
 			}
-			Grabacion<<columna<<fila<<endl;
+			Grabacion<<fila<<columna<<endl;
 			Grabacion.close();
 }
 

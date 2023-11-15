@@ -123,15 +123,17 @@ string ele_horario(){
 }
 
 void MenuSala::imprimir(){
-    system("COLOR 70");
-    int ejeYmarco = 7;
-    altoMarco = 30;
-    anchoMarco = 55;
-    system("cls");
-    cine::gotoY(1);
-    cine::printRawCenter(cine::logo_fisicode);
-    imprimirMarco(ejeYmarco);
-    bool continuar=true;
+			system("COLOR 70 && cls");
+			int ejeYmarco = 7;
+			altoMarco = 30;
+			anchoMarco = 55;
+			system("cls");
+			altoMarco = 50;
+			anchoMarco = 100;
+			cine::gotoY(1);
+			cine::printRawCenter(cine::logo_fisicode);
+			imprimirMarco(ejeYmarco);
+			bool continuar=true;
     
     while(continuar){
         imprimirOpcion("Normal", (anchoConsola - 23)/2, 14, opcion==1);
