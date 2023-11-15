@@ -75,8 +75,6 @@ class MenuPrincipal : public Menu{
     public:
         MenuPrincipal();
         void imprimir();
-    private:
-        
 };
 
 MenuPrincipal::MenuPrincipal(){

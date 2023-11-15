@@ -7,7 +7,6 @@
 #include "tools/menuss.h"
 
 int main(){
-
     MenuPrincipal menuPrincipal;
 
     if(menuPrincipal.getOpcion() == 1){
