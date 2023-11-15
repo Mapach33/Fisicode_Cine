@@ -44,6 +44,7 @@ void elegir_pelicula() {
 			Grabacion<<peliculas[elegir-1]<<endl;
 			
 			Grabacion.close();
+    SetConsoleTextAttribute(hConsole, 112);
 	cout << "\n\n\n\n\n\n\n\n\n\n-----------------------------------------------------------------------------"<<endl;
 	cout << peliculas[elegir-1]<< endl;
 	cout << "-----------------------------------------------------------------------------"<<endl;

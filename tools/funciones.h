@@ -184,6 +184,3 @@ namespace cine
 
 
 }//namespaces cine
-
-
-
