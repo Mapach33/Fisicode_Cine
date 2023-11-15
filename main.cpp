@@ -10,7 +10,7 @@ int main(){
     MenuPrincipal menuPrincipal;
 
     if(menuPrincipal.getOpcion() == 1){
-       mostrar_cartelera();
+                mostrar_cartelera();
                 elegir_pelicula();
                 menu_ambiente();
                 ele_sala();

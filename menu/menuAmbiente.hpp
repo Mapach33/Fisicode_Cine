@@ -8,20 +8,20 @@
 #include"menuCartelera.h"
 using namespace std;
 
-string fopcsala(short opcs) {
+string fopcsala(short opcs, short &price) {
 	string tipo;
 	switch (opcs) {
 		case 1:
-			tipo = "Normal";
+			tipo = "Normal";price = 10;
 			break;
 		case 2:
-			tipo = "3D Envolvente";
+			tipo = "3D Envolvente";price = 20;
 			break;
 		case 3:
-			tipo = "VIP";
+			tipo = "VIP";price = 40;
 			break;
 		default: {
-			tipo = "Desconocido";
+			tipo = "Desconocido";price = 0;
 			break;
 		}
 	}
@@ -86,84 +86,57 @@ void menu_ambiente() {
 
 }
 string ele_sala(){
-	int price;
 	string x_opcs;
-	short opcs;
-	// bool flag = false;
+	short opcs, price;
 	do{
-		system("CLS");
-		menu_ambiente();
-		cout << " \n Elija Su Tipo de Sala : ";
-		cout << "\nUse '1' = Normal / '2' = 3D Envolvente / '3' = VIP \n" << endl;
+		gotoxy(25, 36);cout << "Use '1' = Normal / '2' = 3D Envolvente / '3' = VIP " << endl;
+		gotoxy(25, 37);cout << "                                                      " << endl;
+		gotoxy(25, 38);cout << "Elija Su Tipo de Sala :  ";
 		getline(cin, x_opcs);
 		istringstream(x_opcs)>>opcs;
-		
-		if ( opcs < 1 || opcs > 3) { 
-			cout << "\nIngrese una opcion valida (1-3)... \n" << endl;
-			system("pause");
-			
-		}
-		cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
-	switch(opcs){
-		case 1:{
-			price = 10;
-			break;
-		}
-		case 2:{
-			price = 20;
-			break;
-		}
-		case 3:{
-			price = 40;
-			break;
-		}
-		default:{
-			price = 0;
-			break;
-		}
-	}
-	}while(opcs < 1 || opcs > 3);	
 
-	
-	
+		if ( opcs < 1 || opcs > 3) { 
+			gotoxy(25, 37);cout << "Ingrese una opcion valida (1-3)...              " << endl;
+			gotoxy(25, 38);cout << "                                                          ";
+			gotoxy(25, 40);getch();
+		}
+	}while(opcs < 1 || opcs > 3);	
+	gotoxy(25, 38);cout << "                                                                " << endl;
+	gotoxy(25, 39);cout << "Opcion de sala elegida es: " << fopcsala(opcs, price) <<"-"<<price<<" la und."<<endl;
 	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
+				system("CLS");
 				cout<<"Error en el archivo..."<<endl;
 				Sleep(2000);
 				exit(1);
 			}
 			Grabacion<<price<<endl;
 			Grabacion.close();
-
-	system("pause");
-	return fopcsala(opcs);
+			gotoxy(25, 40);getch();
+	return fopcsala(opcs, price);
 }
+
 string ele_horario(){
 	short opch; 
 	string x_opch;
-	// bool flag = false;
 		do {
-			system("CLS");
-			menu_ambiente();
-			cout << " \n Elija El Horario : ";
-			cout << "\nUse: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm \n" << endl;
-			getline(cin, x_opch);
+			gotoxy(25, 39);cout << "                                                                       ";
+			gotoxy(25, 36);cout << "Use: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm " << endl;
+			gotoxy(25, 37);cout << "                                                              ";
+			gotoxy(25, 38);cout << "Elija El Horario : "; getline(cin, x_opch);
+			
+			
 			istringstream(x_opch)>>opch;
-			// flag = false;
-			// if (cin.fail() || cin.get() != '\n') {
-			// cerr << "Error: Debe ingresar solo un caracter." << endl;
-			// flag = true;
-			// system("pause");
-			// }
-
+			
 			if (opch<1 || opch>3) { 
-				cout << "\nIngrese una opcion valida (1-3)... " << endl;
-				// flag = true;
-				system("pause"); 	
+				gotoxy(25, 37);cout << "Ingrese una opcion valida (1-3)... " << endl;
+				gotoxy(25, 38);cout << "                                                          ";
+				gotoxy(25, 39);cout << "                                                          ";
+				gotoxy(25, 40);getch();	
 			}
 		}while(opch<1 || opch>3); 
-	cout << "Opcion de horario es: " << fopchorario(opch) << endl;
-	system("pause");
+	gotoxy(25, 39);cout << "Opcion de horario es: " << fopchorario(opch) << endl;
+	gotoxy(25, 40);getch();
 	return fopchorario(opch);
 	
 }
