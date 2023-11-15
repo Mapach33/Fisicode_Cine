@@ -4,6 +4,8 @@
 #include "../tools/Menuss.h"
 #include "menuAmbiente.hpp"
 
+using namespace std;
+
 
 class MenuDulceria : public Menu{
     public:
@@ -20,6 +22,7 @@ void elegir_combo() {
 	string precio[] =  {"26","28","32","33","35","45"};
 
 	MenuDulceria menuDulceria; 
+	
 	elegir = menuDulceria.getOpcion();
 	system("cls");
 	gotoxy(25, 44+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
@@ -29,7 +32,7 @@ void elegir_combo() {
 	gotoxy(25, 48+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
 	cout << endl;	
 	
-	ofstream Grabacion("boleta.txt", ios::app);
+	ofstream Grabacion("boleta.txt", ios::out);
 			if(Grabacion.fail()){
 				cout << "Error en el archivo..." << endl;
 				Sleep(2000);
@@ -57,10 +60,11 @@ MenuDulceria::MenuDulceria(){
 }
 
 void MenuDulceria::imprimir(){
-    system("COLOR 70 && cls");
+    system("COLOR 70");
     int ejeYmarco = 7;
     altoMarco = 50;
     anchoMarco = 100;
+    system("cls");
     cine::gotoY(1);
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);

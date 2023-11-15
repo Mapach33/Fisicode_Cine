@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-El Exorcista: Creyentes
+Saw X
 Normal
 10
-12:00
-=======
-Saw X
-3D Envolvente
-20
-10:00
-A10
->>>>>>> ee128de4f82244f11aa4d38e8bfe8087761b0fd5
+15:00

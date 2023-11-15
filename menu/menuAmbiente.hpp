@@ -76,15 +76,15 @@ string ele_sala(){
 			Grabacion<<fopcsala(opcs, price)<<endl;
 			Grabacion<<price<<endl;
 			Grabacion.close();
-					SetConsoleTextAttribute(hConsole, 112);
-					cout << "\n\n\n\n\n\n\n\n\n\n-----------------------------------------------------------------------------"<<endl;
-					cout << "                        Seleccion de Sala"<< endl;
-					cout << "-----------------------------------------------------------------------------"<<endl;
-					cout << "Tipo de Sala     : " << fopcsala(opcs, price) << endl;
-					cout << "Precio Unitario  : " << price << endl;
-					cout << "-----------------------------------------------------------------------------"<<endl;
-					cout << endl;	
-					cout << "Ahora elija su horario..."; getch();
+			SetConsoleTextAttribute(hConsole, 112);
+					gotoxy(42, 39);cout << "---------------------------------------------------------------"<<endl;
+					gotoxy(42, 40);cout << "                     Seleccion de Sala"<< endl;
+					gotoxy(42, 41);cout << "---------------------------------------------------------------"<<endl;
+					gotoxy(42, 42);cout << "          Tipo de Sala     : " << fopcsala(opcs, price) << endl;
+					gotoxy(42, 43);cout << "          Precio Unitario  : " << price << endl;
+					gotoxy(42, 44);cout << "----------------------------------------------------------------"<<endl;
+					gotoxy(42, 45);cout << endl;	
+					gotoxy(42, 46);	cout << "Ahora elija su horario..."; getch();
 			return fopcsala(opcs, price);
 }
 
@@ -94,11 +94,6 @@ string ele_horario(){
 	
 	MenuHorario MenuHorario; 
 	opch = MenuHorario.getOpcion();
-	system("cls");
-
-	gotoxy(25, 39);cout << "Opcion de horario es: " << fopchorario(opch) << endl;
-	gotoxy(25, 40);getch();
-	
 	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
 				system("CLS");
@@ -108,7 +103,15 @@ string ele_horario(){
 			}
 			Grabacion<<fopchorario(opch)<<endl;
 			Grabacion.close();
-			gotoxy(25, 40);getch();
+		SetConsoleTextAttribute(hConsole, 112);
+				gotoxy(42, 39);	cout << "---------------------------------------------------------------"<<endl;
+				gotoxy(42, 40);	cout << "                    Seleccion de Horario"<< endl;
+				gotoxy(42, 41);	cout << "---------------------------------------------------------------"<<endl;
+				gotoxy(42, 42);	cout << "       Horario Elegida     : " << fopchorario(opch) << endl;
+				gotoxy(42, 43);	cout << "----------------------------------------------------------------"<<endl;
+				gotoxy(42, 44);	cout << endl;	
+				gotoxy(42, 45);	cout << "Ahora elija su asiento..."; getch();
+			
 	return fopchorario(opch);
 }
 /*Constructor*/
@@ -128,8 +131,6 @@ void MenuSala::imprimir(){
 			altoMarco = 30;
 			anchoMarco = 55;
 			system("cls");
-			altoMarco = 50;
-			anchoMarco = 100;
 			cine::gotoY(1);
 			cine::printRawCenter(cine::logo_fisicode);
 			imprimirMarco(ejeYmarco);
