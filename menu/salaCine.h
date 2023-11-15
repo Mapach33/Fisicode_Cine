@@ -17,7 +17,7 @@ class MenuAsientos : public Menu {
 };
 
 MenuAsientos::MenuAsientos(){
-    srand(time(NULL));
+    
     maxFilas = 6;
     maxColumnas = 10;
     altoConsola = 45;
