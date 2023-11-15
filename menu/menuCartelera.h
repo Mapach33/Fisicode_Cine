@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <Windows.h>
-#include <string>
+#include <string.h>
 #include <fstream>
+#include <sstream>
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
@@ -86,28 +87,22 @@ void mostrar_cartelera(){
 }
 
 void elegir_pelicula() {
-    short p;
-	char elegir;
-	string imprimir_pelicula, imprimir_duracion, imprimir_director, imprimir_sinopsis;
+    short p, elegir;
+	
+	string x_elegir, imprimir_pelicula, imprimir_duracion, imprimir_director, imprimir_sinopsis;
     do{
-        gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; cin >> elegir;
+        gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; getline(cin, x_elegir);
 		cout<<endl;
 		i++;
-        if(elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6'){
-        gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida..." << endl;
+		istringstream(x_elegir)>>elegir;
+        if(elegir > 6 || elegir < 1){
+        gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida (1-6)...            " << endl;
+		i=1; 
+		gotoxy(56, 42+i);color(hConsole, 79); cout << "                                     " << endl;
         }       
-    } while (elegir != '1' && elegir != '2' && elegir != '3' && elegir != '4' && elegir != '5' && elegir != '6');
+    } while (elegir > 6 || elegir < 1);
 
-    
-	switch (elegir) {
-		case '1': p = 1; break;
-		case '2': p = 2; break;
-		case '3': p = 3; break;
-		case '4': p = 4; break;
-		case '5': p = 5; break;
-		case '6': p = 6; break;
-	}
-
+    p=elegir;
 	
 	gotoxy(25, 44+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
 	gotoxy(55, 45+i);color(hConsole, 79);cout << peliculas[p-1]<< endl;
@@ -131,6 +126,7 @@ void elegir_pelicula() {
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
+	
 	
 }
 

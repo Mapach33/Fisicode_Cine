@@ -60,7 +60,7 @@ void menu_ambiente() {
 	gotoxy(20, 10);  cout << "|  |_|  |_| |_|     |_| |______|  |_______| |______| |__|   |_____|     |_|     |______|   |" ; 
 	gotoxy(20, 11);  cout << "|__________________________________________________________________________________________|" ; 
 	gotoxy(20, 12);  cout << "| ¦                                                                                     ¦  |" ; 
-	gotoxy(20, 13);  cout << "| ¦                                                                                     ¦  |" ; 
+	gotoxy(20, 13);  cout << "| ¦                TIPO DE SALA                               HORARIO                   ¦  |" ; 
 	gotoxy(20, 14);  cout << "| ¦         +============#1===========+            +============#2===========+          ¦  |" ; 
 	gotoxy(20, 15);  cout << "| ¦         |                         |            |                         |          ¦  |" ; 
 	gotoxy(20, 16);  cout << "| ¦         |          NORMAL         |            |          10:00am        |          ¦  |" ; 
@@ -87,18 +87,26 @@ void menu_ambiente() {
 string ele_sala(){
 	int price;
 	char opcs = '0'; 
+	bool flag = false;
 	do{
 		system("CLS");
 		menu_ambiente();
 		cout << " \n Elija Su Tipo de Sala : ";
 		cout << "\nUse '1' = Normal / '2' = 3D Envolvente / '3' = VIP \n" << endl;
 		cin >> opcs; 
+		flag = false;
+		//verificación de un unico caracter
+		if (cin.fail() || cin.get() != '\n') {
+        cerr << "Error: Debe ingresar solo un caracter." << endl;
+        flag = true;
+        system("pause");
+   		}
 		if (opcs != '1' && opcs != '2' && opcs != '3') { 
-			cout << "\nError al seleccionar una opcion \n";
-			cout << "\nRecuerde que solo se aceptan los valores '1', '2' y '3' \n" << endl;
+			cout << "\nError:Solo se aceptan los valores '1', '2' y '3' \n" << endl;
+			flag = true;
 			system("pause");
 		}
-	}while(opcs != '1' && opcs != '2' && opcs != '3');	
+	}while(flag);	
 	cout << "Opcion de sala elegida es: " << fopcsala(opcs) << endl;
 	switch(opcs){
 		case '1':{
@@ -132,18 +140,26 @@ string ele_sala(){
 }
 string ele_horario(){
 	char opch = '0'; 
+	bool flag = false;
 		do {
 			system("CLS");
 			menu_ambiente();
 			cout << " \n Elija El Horario : ";
 			cout << "\nUse: '1' = 10:00am / '2' = 1:00pm / '3' = 7:00pm \n" << endl;
 			cin >> opch;
+			flag = false;
+			if (cin.fail() || cin.get() != '\n') {
+			cerr << "Error: Debe ingresar solo un caracter." << endl;
+			flag = true;
+			system("pause");
+			}
+
 			if (opch != '1' && opch != '2' && opch != '3') { 
-				cout << "\nError al seleccionar una opcion \n";
-				cout << "\nRecuerde que solo se aceptan los valores '1', '2' y '3' \n" << endl;
+				cout << "\nError: Solo se aceptan los valores '1', '2' y '3' " << endl;
+				flag = true;
 				system("pause"); 	
 			}
-		}while(opch != '1' && opch != '2' && opch != '3'); 
+		}while(flag ); 
 	cout << "Opcion de horario es: " << fopchorario(opch) << endl;
 	system("pause");
 	return fopchorario(opch);
