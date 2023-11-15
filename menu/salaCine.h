@@ -17,11 +17,15 @@ class MenuAsientos : public Menu {
 };
 
 MenuAsientos::MenuAsientos(){
-    
     maxFilas = 6;
     maxColumnas = 10;
-    altoConsola = 45;
     asientos.resize(maxFilas, vector<int>(maxColumnas,0));
+    for(int i=0;i<maxFilas;i++){
+        for(int j=0;j<maxColumnas;j++){
+            asientos[i][j] = rand()%2;
+        }
+    }
+    altoConsola = 45;
     anchoConsola = 165;
     cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
     imprimir();
@@ -36,24 +40,30 @@ void MenuAsientos::imprimir(){
     gotoxy(anchoConsola/2 - 8,2);
     cout << "P A N T A L L A";
     imprimirCine();
+    cine::ShowConsoleCursor(true);
     do{
-        gotoxy(anchoConsola/2-19,25);
-        cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
-        getline(cin,fila);
-    }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
+        //Consistecia para la fila
+        do{
+            gotoxy(anchoConsola/2-19,25);
+            cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
+            getline(cin,fila);
+        }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
 
-    do{
-        gotoxy(anchoConsola/2-19,26);
-        cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
-        getline(cin,columna);
-    }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
+        //Consistencia para la columna
+        do{
+            gotoxy(anchoConsola/2-19,26);
+            cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
+            getline(cin,columna);
+        }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
+
+    }while(asientos[fila[0]-65][columna[0]-49] == 0);
 }
 
 void MenuAsientos::imprimirCine(){
     cine::gotoxy(50,4);
-    for(int i=0;i<maxColumnas;i++){
-        for(int j=0;j<maxFilas;j++){
-            imprimirUnAsiento(50+(i*6),4+(j*3),rand()%2);
+    for(int i=0;i<maxFilas;i++){
+        for(int j=0;j<maxColumnas;j++){
+            imprimirUnAsiento(50+(j*6),4+(i*3),asientos[i][j]);
         }
     }
     for(int i=0;i<maxFilas;i++){
