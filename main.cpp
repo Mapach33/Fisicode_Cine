@@ -11,15 +11,11 @@ int main(){
     MenuPrincipal menuPrincipal;
 
     if(menuPrincipal.getOpcion() == 1){
-                
-                elegir_pelicula();
-                /*menu_ambiente();*/
-                ele_sala();
-                ele_horario();
-                MenuAsientos menuAsientos;
-                
-                elegir_combo();
-                
+            elegir_pelicula();
+            ele_sala();
+            ele_horario();
+            MenuAsientos menuAsientos;
+            elegir_combo();       
     }
     return 0;
 }

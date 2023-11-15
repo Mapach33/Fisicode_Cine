@@ -9,13 +9,13 @@ class MenuAsientos : public Menu {
         void imprimir();
         void imprimirCine();
         void imprimirUnAsiento(int fila, int columna,bool libre);
-        string getAsiento();
     protected:
         vector<vector<int>> asientos;
         int maxFilas, maxColumnas;
         string fila, columna;
 };
 
+//Constructor
 MenuAsientos::MenuAsientos(){
     maxFilas = 6;
     maxColumnas = 10;
@@ -30,18 +30,15 @@ MenuAsientos::MenuAsientos(){
     cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
     imprimir();
 }
-string MenuAsientos::getAsiento(){
-    return fila+columna;
-}
+
 
 void MenuAsientos::imprimir(){
-    system("cls");
-    system("color 7");
-    gotoxy(anchoConsola/2 - 8,2);
-    cout << "P A N T A L L A";
+    system("cls && color 7");
+    gotoxy(anchoConsola/2 - 8,2);cout << "P A N T A L L A";
     imprimirCine();
     cine::ShowConsoleCursor(true);
     do{
+        gotoxy(anchoConsola/2-19,25);cout<<string(50,' ');gotoxy(anchoConsola/2-19,26);cout<<string(50,' ');
         //Consistecia para la fila
         do{
             gotoxy(anchoConsola/2-19,25);
@@ -57,15 +54,26 @@ void MenuAsientos::imprimir(){
         }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
 
     }while(asientos[fila[0]-65][columna[0]-49] == 0);
+
+    ofstream Grabacion("boleta.txt", ios::app);
+			if(Grabacion.fail()){
+				cout << "Error en el archivo..." << endl;
+				Sleep(2000);
+				exit(1);
+			}
+			Grabacion<<columna<<fila<<endl;
+			Grabacion.close();
 }
 
 void MenuAsientos::imprimirCine(){
     cine::gotoxy(50,4);
+    //Imprime todos los asientos
     for(int i=0;i<maxFilas;i++){
         for(int j=0;j<maxColumnas;j++){
             imprimirUnAsiento(50+(j*6),4+(i*3),asientos[i][j]);
         }
     }
+    //Imprime los numeros de las filas y columnas
     for(int i=0;i<maxFilas;i++){
         gotoxy(50-3,5+(i*3));
         cout<<char(65+i);

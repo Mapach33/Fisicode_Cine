@@ -35,16 +35,6 @@ void elegir_pelicula() {
 	
 	MenuCartelera menuCartelera; 
 	elegir = menuCartelera.getOpcion();
-	
-	cout << "\n\n\n\n\n\n\n\n\n\n-----------------------------------------------------------------------------"<<endl;
-	cout << peliculas[elegir-1]<< endl;
-	cout << "-----------------------------------------------------------------------------"<<endl;
-	cout << "Duracion: " << duracion[elegir-1] << endl;
-	cout << "Director: " << director[elegir-1] << endl;
-	cout << "Sinopsis: " << sinopsis[elegir-1] << endl;   
-	cout << "-----------------------------------------------------------------------------"<<endl;
-	cout << endl;	
-	cout << "Ahora elija su sala de preferencia..."; getch();
 	ofstream Grabacion("boleta.txt", ios::out);
 			if(Grabacion.fail()){
 				cout << "Error en el archivo..." << endl;
@@ -54,6 +44,17 @@ void elegir_pelicula() {
 			Grabacion<<peliculas[elegir-1]<<endl;
 			
 			Grabacion.close();
+    SetConsoleTextAttribute(hConsole, 112);
+	cout << "\n\n\n\n\n\n\n\n\n\n-----------------------------------------------------------------------------"<<endl;
+	cout << peliculas[elegir-1]<< endl;
+	cout << "-----------------------------------------------------------------------------"<<endl;
+	cout << "Duracion: " << duracion[elegir-1] << endl;
+	cout << "Director: " << director[elegir-1] << endl;
+	cout << "Sinopsis: " << sinopsis[elegir-1] << endl;   
+	cout << "-----------------------------------------------------------------------------"<<endl;
+	cout << endl;	
+	cout << "Ahora elija su sala de preferencia..."; getch();
+	
 
     
 	color(hConsole, 15);
