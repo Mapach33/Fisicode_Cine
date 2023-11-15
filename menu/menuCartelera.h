@@ -71,7 +71,7 @@ MenuCartelera::MenuCartelera(){
 }
 
 void MenuCartelera::imprimir(){
-    system("COLOR 70");
+    system("cls && COLOR 70");
     string cartelera = 
     R"(  _____           _       _                
  / ____|         | |     | |               
@@ -82,7 +82,6 @@ void MenuCartelera::imprimir(){
 	int ejeYmarco = 7;
     altoMarco = 27;
     anchoMarco = 64;
-    system("cls");
     cine::gotoY(1);
     cine::printRawCenter(cartelera);
     imprimirMarco(ejeYmarco);
