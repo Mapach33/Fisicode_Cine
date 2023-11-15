@@ -3,7 +3,6 @@
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
-using namespace std;
 
 class MenuAmbiente : public Menu{
     public:

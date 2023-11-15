@@ -4,8 +4,6 @@
 #include "../tools/Menuss.h"
 #include "menuAmbiente.hpp"
 
-using namespace std;
-
 
 class MenuDulceria : public Menu{
     public:

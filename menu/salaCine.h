@@ -35,14 +35,12 @@ string MenuAsientos::getAsiento(){
 }
 
 void MenuAsientos::imprimir(){
-    system("cls");
-    system("color 7");
-    gotoxy(anchoConsola/2 - 8,2);
-    cout << "P A N T A L L A";
+    system("cls && color 7");
+    gotoxy(anchoConsola/2 - 8,2);cout << "P A N T A L L A";
     imprimirCine();
     cine::ShowConsoleCursor(true);
     do{
-        cout<<endl<<string(anchoConsola,' ')<<endl<<string(anchoConsola,' ')<<endl;
+        gotoxy(anchoConsola/2-19,25);cout<<string(50,' ');gotoxy(anchoConsola/2-19,26);cout<<string(50,' ');
         //Consistecia para la fila
         do{
             gotoxy(anchoConsola/2-19,25);
@@ -62,11 +60,13 @@ void MenuAsientos::imprimir(){
 
 void MenuAsientos::imprimirCine(){
     cine::gotoxy(50,4);
+    //Imprime todos los asientos
     for(int i=0;i<maxFilas;i++){
         for(int j=0;j<maxColumnas;j++){
             imprimirUnAsiento(50+(j*6),4+(i*3),asientos[i][j]);
         }
     }
+    //Imprime los numeros de las filas y columnas
     for(int i=0;i<maxFilas;i++){
         gotoxy(50-3,5+(i*3));
         cout<<char(65+i);
