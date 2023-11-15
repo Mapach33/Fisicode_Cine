@@ -42,6 +42,7 @@ void MenuAsientos::imprimir(){
     imprimirCine();
     cine::ShowConsoleCursor(true);
     do{
+        cout<<endl<<string(anchoConsola,' ')<<endl<<string(anchoConsola,' ')<<endl;
         //Consistecia para la fila
         do{
             gotoxy(anchoConsola/2-19,25);
