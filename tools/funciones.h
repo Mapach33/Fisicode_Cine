@@ -177,3 +177,11 @@ namespace cine
         return 0;
     }
 }//namespaces cine
+
+
+//Retorna la fecha y hora actual
+string obteneFechaHora() {
+    SYSTEMTIME localTime; GetLocalTime(&localTime);
+    stringstream ss; ss << localTime.wYear << "/" << localTime.wMonth << "/" << localTime.wDay;
+    return ss.str();
+}
