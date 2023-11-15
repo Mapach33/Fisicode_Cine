@@ -5,14 +5,15 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
-#include <string>
+#include <string.h>
 #include <fstream>
+#include <sstream>
 #include "../tools/funciones.h"
 
 
 
 using namespace std;
-
+int fdulceria();
 //iniciamos el viaje - FICINEMA
 //DECLARACION DE FUNCIONES 
 void dulceria(){
@@ -26,7 +27,7 @@ void dulceria(){
 		cout<<"\n3.- EXTRAS ";
 		cout<<"\n4.- COMBOS ";
 	
-		cout<<"\n\n0.- Salir ";
+		cout<<"\n\n5.- Salir ";
 		cout<<endl;
 		cout<<"\n\tQUE DESEA COMPRAR----->";
 			
@@ -47,7 +48,7 @@ void dulceria(){
 		cout<<"\n5.- CANCHITA MIXTA MEDIANA";
 		cout<<"\n6.- CANCHITA MIXTA GRANDE";
 	
-		cout<<"\n\n0.- Salir ";
+		cout<<"\n\n7.- Salir ";
 		cout<<endl;
 		cout<<"\n\tQUE DESEA COMPRAR----->"<<endl;
 		
@@ -108,12 +109,14 @@ void dulceria(){
  	string nomcanchita[] = {"C. dulce mediana","C. dulce grande","C. salada mediana","C. salada grande","C. mixta mediana","C. mixta grande"};
 	float pciocanchita[] = {17,20,15,18.5,19,24};
 	int cnt_canchita[6];
- 	int opccanchita ;
+ 	string x_opccanchita;
+	int opccanchita ;
  	float pcanchita;
  	do{
 
  		canchita();
- 		cin>>opccanchita;
+ 		getline(cin, x_opccanchita);
+		istringstream(x_opccanchita)>>opccanchita;	
  
  		switch(opccanchita){
 			case 1 :{
@@ -132,7 +135,7 @@ void dulceria(){
 						system("cls");
 					}
 				}while(cntcanchita < 0);
-				do{
+				do{ //consistencia para todos
 					cout<<" ¿Desea agregar algo mas a su pedido? "<<endl;
 					cout<<"[0]SI:                          [1]NO:"<<endl;
 					cin>>opcsn;
@@ -143,11 +146,14 @@ void dulceria(){
 				}while(opcsn < 0 or opcsn>1);
 				
 				if(opcsn == 0){
-						
+					
+					dulceria();	
+					fdulceria();	
 				} 
 				if(opcsn == 1){
 					cout<<"Su boleta es: "<<"S/. "<<pcanchita*cntcanchita<<endl;
-					system("pause");
+					
+					opccanchita = 7;
 					break;
 				}
 				system("pause");
@@ -347,7 +353,7 @@ void dulceria(){
 				break;
 			}
 			
-			case 0 :{
+			case 7 :{
 				system("cls");
 				system("pause");
 				break;
@@ -359,7 +365,7 @@ void dulceria(){
 		}
 	
 		
-	} while(opccanchita != 0);
+	} while(opccanchita != 7);
 	
  	return (0);
 }
@@ -1149,60 +1155,68 @@ int fextras(){
 }
 
 int fdulceria(){
- 	cine::ShowConsoleCursor(true);
- 	char opcdulceria = ' ';
- 	
+ 	cine::ShowConsoleCursor(1);
+ 	string x_opcdulceria;
+ 	short opcdulceria;
+	fflush(stdin);
  	do{
 	
- 		dulceria();
- 		cin>>opcdulceria;
- 
- 		switch(opcdulceria){
-			case '1':{
-				system("cls");
-				canchita();
-				fcanchita();
-				system("pause");
-				break;
-			}
+		dulceria();
+ 		getline(cin,x_opcdulceria);
+		istringstream(x_opcdulceria)>>opcdulceria;
+		if(opcdulceria>5 || opcdulceria<1){
+			cout << "Ingrese una opcion valida (1-5)...            " << endl;
 			
-			case '2':{
-				system("cls");
-				bebidas();
-				fbebidas();
-				system("pause");
-				break;
-			}
+			system("pause");
+			system("cls");
 			
-			case '3':{
-				system("cls");
-				extras();
-				fextras();
-				system("pause");
-				break;
-			}
-			
-			case '4':{
-				system("cls");
-				combos();
-				fcombos();
-				system("pause");
-				break;
-			}
-			
-			case '0':{
-				system("cls");
-				system("pause");
-				break;
-			}
-			default:{
-				cout<<"Seleccionar una opcion valida "<<endl;
-				break;
-			}		
 		}
+		
+				switch(opcdulceria){
+				case 1:{
+					system("cls");
+					canchita();
+					fcanchita();
+					system("pause");
+					break;
+				}
+				
+				case 2:{
+					system("cls");
+					bebidas();
+					fbebidas();
+					system("pause");
+					break;
+				}
+				
+				case 3:{
+					system("cls");
+					extras();
+					fextras();
+					system("pause");
+					break;
+				}
+				
+				case 4:{
+					system("cls");
+					combos();
+					fcombos();
+					system("pause");
+					break;
+				}
+				
+				case 5:{
+					system("cls");
+					system("pause");
+					break;
+				}
+			}
+			
+		
+ 		
 
 
-	} while(opcdulceria != '0');
+	} while(opcdulceria>5 || opcdulceria<1);
 
  	return (0);
 }
