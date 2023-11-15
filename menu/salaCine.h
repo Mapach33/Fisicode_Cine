@@ -11,13 +11,13 @@ class MenuAsientos : public Menu {
         void imprimirUnAsiento(int fila, int columna,bool libre);
         string getAsiento();
     protected:
-        vector<vector<int>> asientos;
+        vector<vector<int>> asientos; 
         int maxFilas, maxColumnas, columna;
         string fila;
 };
 
 MenuAsientos::MenuAsientos(){
-    srand(time(NULL));
+    
     maxFilas = 6;
     maxColumnas = 10;
     altoConsola = 45;
@@ -38,17 +38,11 @@ void MenuAsientos::imprimir(){
 }
 
 void MenuAsientos::imprimirCine(){
-    for(int i=0;i<maxColumnas;i++){
-        for(int j=0;j<maxFilas;j++){
-            if(rand()%2 == 0){
-                asientos[i][j] = 1;
-            }
-        }
-    }
+   
     cine::gotoxy(50,4);
     for(int i=0;i<maxColumnas;i++){
         for(int j=0;j<maxFilas;j++){
-            imprimirUnAsiento(50+(i*6),4+(j*3),asientos[i][j]);
+            imprimirUnAsiento(50+(i*6),4+(j*3),rand()%2);
         }
     }
     for(int i=0;i<maxFilas;i++){

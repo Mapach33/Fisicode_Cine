@@ -137,6 +137,7 @@ string ele_horario(){
 		}while(opch<1 || opch>3); 
 	gotoxy(25, 39);cout << "Opcion de horario es: " << fopchorario(opch) << endl;
 	gotoxy(25, 40);getch();
+	system ("color 7");
 	return fopchorario(opch);
 	
 }

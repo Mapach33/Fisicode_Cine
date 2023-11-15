@@ -25,7 +25,7 @@ void mostrar_cartelera(){
 			
 	system("cls");
 	system("color 47");
-	setlocale(LC_ALL, "Spanish");
+	
 	
 	gotoxy(20, 3);  color(hConsole, 6);  cout << " __________________________________________________________________________________" ; color(hConsole, 0); cout<<"¦";	
 	gotoxy(20, 4);  color(hConsole, 228);cout << "| +-------------------------------------------------------------------------------+|" ; color(hConsole, 0); cout<<"¦";
@@ -115,4 +115,5 @@ void elegir_pelicula() {
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
+	color(hConsole, 15);
 }
