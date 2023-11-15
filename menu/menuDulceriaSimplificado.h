@@ -31,7 +31,7 @@ void elegir_combo() {
 	gotoxy(25, 48+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
 	cout << endl;	
 	
-	ofstream Grabacion("boleta.txt", ios::out);
+	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
 				cout << "Error en el archivo..." << endl;
 				Sleep(2000);
