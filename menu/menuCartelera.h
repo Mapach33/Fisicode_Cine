@@ -133,5 +133,6 @@ void elegir_pelicula() {
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
 	
+	
 }
 
