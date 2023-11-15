@@ -15,7 +15,7 @@ int main(){
                 /*menu_ambiente();*/
                 ele_sala();
                 ele_horario();
-                MenuAsientos menuAsientos; cin.get();
+                MenuAsientos menuAsientos;
                 
                 elegir_combo();
                 
