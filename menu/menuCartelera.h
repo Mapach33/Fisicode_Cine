@@ -6,22 +6,8 @@
 #include <sstream>
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
-#define color SetConsoleTextAttribute//definde el setcontrol para llamarlo por "color"
+#define color SetConsoleTextAttribute//define el setcontrol para llamarlo por "color"
 using namespace std;
-
-
-char elegir;
-string peliculas[] = {"Saw X", "Five Nights At Freddy's", "The Eras Tour","Sonidos de libertad","El Exorcista: Creyentes", "Sin Aire"};
-string duracion[] = {"2hrs 0min","1hrs 50min","2hrs 45min","2hrs 10min","2hrs 0min","1hrs 30min"};
-string director[] = {"Kevin Greutert","Emma Tammi","Sam Wrench","Alejandro Gómez Monteverde","David Gordon Green","Maximilian Erlenwein"};
-string sinopsis[] = {"Un asesino busca venganza",
-                    "Un guardia teme por su vida",
-                    "Sumergete en la experiencia cinematografica de este concierto",
-					"Un agente se embarca en la mision de salvar a una niña del trafico de menores", 
-                    "La película de terror más aterradora de la historia volvio a las pantallas",
-					"May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
-
-
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 void gotoxy(int x, int y) {
@@ -33,17 +19,14 @@ void gotoxy(int x, int y) {
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
-
-
 void mostrar_cartelera(){
-	cine::Set_Console_Sizes(130,60,1);   
 	
-		
+	cine::Set_Console_Sizes(130,60,1);   
+			
 	system("cls");
 	system("color 47");
 	setlocale(LC_ALL, "Spanish");
 	
-
 	gotoxy(20, 3);  color(hConsole, 6);  cout << " __________________________________________________________________________________" ; color(hConsole, 0); cout<<"¦";	
 	gotoxy(20, 4);  color(hConsole, 228);cout << "| +-------------------------------------------------------------------------------+|" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 5);  color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
@@ -57,7 +40,7 @@ void mostrar_cartelera(){
 	gotoxy(20, 13); color(hConsole, 116);cout << "|__________________________________________________________________________________|" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 14); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 15); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
-	gotoxy(20, 16); color(hConsole, 228);cout << "|      +========= ^-^ #1 ========+            +========= ^-^ #2 ========+         |" ; color(hConsole, 0); cout<<"¦";
+	gotoxy(20, 16); color(hConsole, 228);cout << "|       +========= ^-^ #1 ========+            +========= ^-^ #2 ========+         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 17); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 18); color(hConsole, 228);cout << "|       |         Saw X           |            | Five Nights At Freddy's |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 19); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
@@ -76,57 +59,60 @@ void mostrar_cartelera(){
 	gotoxy(20, 32); color(hConsole, 228);cout << "|       | El Exorcista: Creyentes |            |        Sin Aire         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 33); color(hConsole, 228);cout << "|       |                         |            |                         |         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 34); color(hConsole, 228);cout << "|       |       B18 - Terror      |            |      B14 - Thriller     |         |" ; color(hConsole, 0); cout<<"¦";
-	gotoxy(20, 35); color(hConsole, 228);cout << "|       +=========================+            +=========================+          |" ; color(hConsole, 0); cout<<"¦";
+	gotoxy(20, 35); color(hConsole, 228);cout << "|       +=========================+            +=========================+         |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 36); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 37); color(hConsole, 228);cout << "|                                                                                  |" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 38); color(hConsole, 228);cout << "|+--------------------------------------------------------------------------------+|" ; color(hConsole, 0); cout<<"¦";
 	gotoxy(20, 39); color(hConsole, 228);cout << "|__________________________________________________________________________________|" ; color(hConsole, 0); cout<<"¦";
-	
-	
-	
+		
 }
 
 void elegir_pelicula() {
-    short p, elegir;
-	int i=0;
-	string x_elegir, imprimir_pelicula, imprimir_duracion, imprimir_director, imprimir_sinopsis;
-    do{
-        gotoxy(25, 42+i);color(hConsole, 79); cout << "Por favor eliga una pelicula : "; getline(cin, x_elegir);
-		cout<<endl;
+    
+	short elegir, i = 0;
+	string x_elegir;
+    string peliculas[] = {"Saw X", "Five Nights At Freddy's", "The Eras Tour", "Sonidos de libertad", "El Exorcista: Creyentes", "Sin Aire"};
+	string duracion[] =  {"2hrs 0min", "1hrs 50min", "2hrs 45min", "2hrs 10min", "2hrs 0min", "1hrs 30min"};
+	string director[] =  {"Kevin Greutert", "Emma Tammi", "Sam Wrench", "Alejandro Gómez Monteverde", "David Gordon Green", "Maximilian Erlenwein"};
+	string sinopsis[] =  {"Un asesino busca venganza", "Un guardia teme por su vida", "Sumergete en la experiencia cinematografica de este concierto",
+						 "Un agente se embarca en la mision de salvar a una niña del trafico de menores", "La película de terror más aterradora de la historia volvio a las pantallas",
+						 "May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
+	do{
+        gotoxy(25, 42+i); color(hConsole, 79); cout << "Por favor eliga una pelicula : "; getline(cin, x_elegir);
+		istringstream(x_elegir) >> elegir;
+		
+		cout << endl;
 		i++;
-		istringstream(x_elegir)>>elegir;
+		
         if(elegir > 6 || elegir < 1){
-        gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida (1-6)...            " << endl;
-		i=1; 
-		gotoxy(56, 42+i);color(hConsole, 79); cout << "                                     " << endl;
+			gotoxy(25, 42);color(hConsole, 79); cout << "Ingrese una opcion valida (1-6)...            " << endl;
+			i = 1; 
+			gotoxy(56, 42+i);color(hConsole, 79); cout << "                                     " << endl;
         }       
     } while (elegir > 6 || elegir < 1);
 
-    p = elegir;
+    // p = elegir;
 	
-	gotoxy(25, 44+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
-	gotoxy(55, 45+i);color(hConsole, 79);cout << peliculas[p-1]<< endl;
-	gotoxy(25, 46+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
-	gotoxy(25, 47+i);color(hConsole, 79);cout << "Duracion: " << duracion[p-1] << endl;
-	gotoxy(25, 48+i);color(hConsole, 79);cout << "Director: " << director[p-1] << endl;
-	gotoxy(25, 49+i);color(hConsole, 79);cout << "Sinopsis: " << sinopsis[p-1] << endl;   
-	gotoxy(25, 50+i);color(hConsole, 79);cout << "-----------------------------------------------------------------------------";
+	gotoxy(25, 44+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
+	gotoxy(55, 45+i);color(hConsole, 79); cout << peliculas[elegir-1]<< endl;
+	gotoxy(25, 46+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
+	gotoxy(25, 47+i);color(hConsole, 79); cout << "Duracion: " << duracion[elegir-1] << endl;
+	gotoxy(25, 48+i);color(hConsole, 79); cout << "Director: " << director[elegir-1] << endl;
+	gotoxy(25, 49+i);color(hConsole, 79); cout << "Sinopsis: " << sinopsis[elegir-1] << endl;   
+	gotoxy(25, 50+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
 	cout << endl;	
 	
 	ofstream Grabacion("boleta.txt", ios::out);
 			if(Grabacion.fail()){
-				cout<<"Error en el archivo..."<<endl;
+				cout << "Error en el archivo..." << endl;
 				Sleep(2000);
 				exit(1);
 			}
-			Grabacion<<peliculas[p-1]<<endl;
-			Grabacion<<duracion[p-1]<<endl;
-			Grabacion<<director[p-1]<<endl;
-			Grabacion<<sinopsis[p-1]<<endl;
+			Grabacion<<peliculas[elegir-1]<<endl;
+			Grabacion<<duracion[elegir-1]<<endl;
+			Grabacion<<director[elegir-1]<<endl;
+			Grabacion<<sinopsis[elegir-1]<<endl;
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
-	
-	
 }
-
