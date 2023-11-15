@@ -37,8 +37,11 @@ void elegir_combo() {
 				Sleep(2000);
 				exit(1);
 			}
-			Grabacion<<combo[elegir-1]<<endl;
-			
+			Grabacion<<combo[elegir-1]<<endl;//Tipo
+			Grabacion<<precio[elegir-1]<<endl;//Cantidad
+			Grabacion<<combo[elegir-1]<<endl;//Precio U
+			Grabacion<<combo[elegir-1]<<endl;//Precio T
+
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
