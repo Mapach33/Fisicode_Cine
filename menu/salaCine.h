@@ -11,9 +11,9 @@ class MenuAsientos : public Menu {
         void imprimirUnAsiento(int fila, int columna,bool libre);
         string getAsiento();
     protected:
-        vector<vector<int>> asientos; 
-        int maxFilas, maxColumnas, columna;
-        string fila;
+        vector<vector<int>> asientos;
+        int maxFilas, maxColumnas;
+        string fila, columna;
 };
 
 MenuAsientos::MenuAsientos(){
@@ -26,19 +26,30 @@ MenuAsientos::MenuAsientos(){
     cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
     imprimir();
 }
+string MenuAsientos::getAsiento(){
+    return fila+columna;
+}
 
 void MenuAsientos::imprimir(){
     system("cls");
+    system("color 7");
     gotoxy(anchoConsola/2 - 8,2);
     cout << "P A N T A L L A";
     imprimirCine();
-    gotoxy(anchoConsola/2-19,25);
-    cout<<"Eliga la fila: "; 
-    cout<<"Eliga la columna: ";
+    do{
+        gotoxy(anchoConsola/2-19,25);
+        cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
+        getline(cin,fila);
+    }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
+
+    do{
+        gotoxy(anchoConsola/2-19,26);
+        cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
+        getline(cin,columna);
+    }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
 }
 
 void MenuAsientos::imprimirCine(){
-   
     cine::gotoxy(50,4);
     for(int i=0;i<maxColumnas;i++){
         for(int j=0;j<maxFilas;j++){
@@ -55,6 +66,7 @@ void MenuAsientos::imprimirCine(){
     }
 }
 
+//Imprime solo un asiento
 void MenuAsientos::imprimirUnAsiento(int ejeX,int ejeY ,bool libre){
     cine::gotoxy(ejeX, ejeY);
     
@@ -73,11 +85,4 @@ void MenuAsientos::imprimirUnAsiento(int ejeX,int ejeY ,bool libre){
         cout<<char(192)<<char(196)<<char(196)<<char(196)<<char(217);
         SetConsoleTextAttribute(miconsola, 15);
     }
-
 }
-
-
-
-
-
-

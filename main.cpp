@@ -13,13 +13,12 @@ int main(){
     if(menuPrincipal.getOpcion() == 1){
                 
                 elegir_pelicula();
-                menu_ambiente();
+                /*menu_ambiente();*/
                 ele_sala();
                 ele_horario();
-                MenuAsientos menuAsientos; cin.get();
+                MenuAsientos menuAsientos;
                 
-                Combos();
-                ElegirCombos();
+                elegir_combo();
                 
     }
     return 0;

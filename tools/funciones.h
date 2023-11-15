@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include <locale.h>
+#include <fstream>
+#include <sstream>
 #include "consola.hpp"
 #include <stdio.h>
 #include <vector>

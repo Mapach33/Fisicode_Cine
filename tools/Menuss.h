@@ -2,6 +2,7 @@
 #include "funciones.h"
 #include "consola.hpp"
 //Clase madre
+
 class Menu{
     public:
         Menu();
@@ -23,8 +24,9 @@ int Menu::getOpcion(){
     return opcion;
 }
 
+//Imprime un marco
 void Menu::imprimirMarco(int posicionY){
-    int posicionX = (cine::getConsoleSize().x - anchoMarco)/2;
+    int posicionX = (anchoConsola - anchoMarco)/2;
 
     SetConsoleTextAttribute(miconsola,colorMarco);    //probar 
 
@@ -44,10 +46,13 @@ void Menu::imprimirMarco(int posicionY){
 
 void Menu::imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool seleccionado){
 
-    int largoOpcion{19}, altoOpcion{3}; // esto se puede cambioar
+    int largoOpcion{19}, altoOpcion{3}; // esto se puede cambiar
 
     colorOpcion = 120;
+
+    //Cambia el color de la opcion seleccionada
     if(seleccionado) {colorOpcion = colorMarco;}
+
     SetConsoleTextAttribute(miconsola,colorOpcion);
 
     cine::gotoxy (posicionX, posicionY + 1);
@@ -57,7 +62,9 @@ void Menu::imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool 
     cine::gotoxy(posicionX, (altoOpcion + posicionY - 1));
     cout << char ('\xC0') << string (largoOpcion - 2,'\xDF') << char ('\xD9');
 
+    //Cambia el color de la opcion seleccionada
     if (seleccionado) colorOpcion = colorTexto; else colorOpcion = 143;
+
     SetConsoleTextAttribute(miconsola, colorOpcion);
     cine::gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
     cout << nombreOpcion;
@@ -98,7 +105,7 @@ void MenuPrincipal::imprimir(){
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
-    
+    ////// 
     while(continuar){
         imprimirOpcion("Cartelera", (anchoConsola - 23)/2, 14, opcion==1);
         imprimirOpcion("Salir", (anchoConsola - 23)/2 , 18, opcion==2);
