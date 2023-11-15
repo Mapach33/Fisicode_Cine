@@ -66,9 +66,6 @@ string ele_sala(){
 	
 	MenuSala MenuSala; 
 	opcs = MenuSala.getOpcion();
-	system("cls");
-	gotoxy(25, 38);cout << "                                                                " << endl;
-	gotoxy(25, 39);cout << "Opcion de sala elegida es: " << fopcsala(opcs, price) <<"-"<<price<<" la und."<<endl;
 	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
 				system("CLS");
@@ -79,7 +76,15 @@ string ele_sala(){
 			Grabacion<<fopcsala(opcs, price)<<endl;
 			Grabacion<<price<<endl;
 			Grabacion.close();
-			gotoxy(25, 40);getch();
+					SetConsoleTextAttribute(hConsole, 112);
+					cout << "\n\n\n\n\n\n\n\n\n\n-----------------------------------------------------------------------------"<<endl;
+					cout << "                        Seleccion de Sala"<< endl;
+					cout << "-----------------------------------------------------------------------------"<<endl;
+					cout << "Tipo de Sala     : " << fopcsala(opcs, price) << endl;
+					cout << "Precio Unitario  : " << price << endl;
+					cout << "-----------------------------------------------------------------------------"<<endl;
+					cout << endl;	
+					cout << "Ahora elija su horario..."; getch();
 			return fopcsala(opcs, price);
 }
 
@@ -127,7 +132,7 @@ void MenuSala::imprimir(){
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
-    ////// 
+    
     while(continuar){
         imprimirOpcion("Normal", (anchoConsola - 23)/2, 14, opcion==1);
         imprimirOpcion("2D Prime ", (anchoConsola - 23)/2 , 18, opcion==2);
