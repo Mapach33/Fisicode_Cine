@@ -28,7 +28,7 @@ void dulceria(){
 	
 		cout<<"\n\n0.- Salir ";
 		cout<<endl;
-		cout<<"\n\t�QUE DESEA COMPRARNOS?-->";
+		cout<<"\n\tQUE DESEA COMPRAR----->";
 			
 }
 
@@ -49,7 +49,7 @@ void dulceria(){
 	
 		cout<<"\n\n0.- Salir ";
 		cout<<endl;
-		cout<<"\n\t�QUE DESEA COMPRARNOS?-->"<<endl;
+		cout<<"\n\tQUE DESEA COMPRAR----->"<<endl;
 		
 	}
 
@@ -67,7 +67,7 @@ void dulceria(){
 	
 		cout<<"\n\n0.- Salir ";
 		cout<<endl;
-		cout<<"\n\t�QUE DESEA COMPRARNOS?-->"<<endl;
+		cout<<"\n\tQUE DESEA COMPRAR----->"<<endl;
 	}
 
 	void extras(){
@@ -84,7 +84,7 @@ void dulceria(){
 	
 		cout<<"\n\n0.- Salir ";
 		cout<<endl;
-		cout<<"\n\t�QUE DESEA COMPRARNOS?-->"<<endl;
+		cout<<"\n\tQUE DESEA COMPRAR----->"<<endl;
 	}
 	
 	void combos(){
@@ -101,7 +101,7 @@ void dulceria(){
 	
 		cout<<"\n\n0.- Salir ";
 		cout<<endl;
-		cout<<"\n\t�QUE DESEA COMPRARNOS?-->"<<endl;
+		cout<<"\n\tQUE DESEA COMPRAR----->"<<endl;
 	}
 //especificaciones de funciones
 	int fcanchita(){
@@ -111,7 +111,7 @@ void dulceria(){
  	int opccanchita ;
  	float pcanchita;
  	do{
-	
+
  		canchita();
  		cin>>opccanchita;
  
