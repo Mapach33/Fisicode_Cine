@@ -7,6 +7,7 @@
 
 int main(){
     
+
     MenuPrincipal menuPrincipal;
 
     if(menuPrincipal.getOpcion() == 1){
@@ -15,6 +16,7 @@ int main(){
                 menu_ambiente();
                 ele_sala();
                 ele_horario();
+                MenuAsientos menuAsientos; cin.get();
                 Combos();
                 ElegirCombos();
                 
