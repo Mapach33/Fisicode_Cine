@@ -46,6 +46,7 @@ void MenuAsientos::imprimir(){
             gotoxy(anchoConsola/2-19,25);
             cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
             getline(cin,fila);
+            
         }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
 
         //Consistencia para la columna
