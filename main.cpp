@@ -13,8 +13,9 @@ int main(){
                 mostrar_cartelera();
                 elegir_pelicula();
                 menu_ambiente();
-                ele_sala();
+
                 ele_horario();
+                ele_sala();
                 dulceria();
                 fdulceria();
     }

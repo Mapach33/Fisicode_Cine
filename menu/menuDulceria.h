@@ -1212,9 +1212,6 @@ int fdulceria(){
 				}
 			}
 			
-		
- 		
-
 
 	} while(opcdulceria>5 || opcdulceria<1);
 

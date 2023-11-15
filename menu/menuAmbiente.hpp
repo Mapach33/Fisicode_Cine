@@ -114,7 +114,7 @@ string ele_sala(){
 			Grabacion<<price<<endl;
 			Grabacion.close();
 			gotoxy(25, 40);getch();
-	return fopcsala(opcs, price);
+			return fopcsala(opcs, price);
 }
 
 string ele_horario(){
