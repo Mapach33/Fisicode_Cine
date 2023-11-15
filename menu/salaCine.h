@@ -24,19 +24,29 @@ MenuAsientos::MenuAsientos(){
     asientos.resize(maxFilas, vector<int>(maxColumnas,0));
     anchoConsola = 165;
     cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
-    //imprimir();
+    imprimir();
+}
+string MenuAsientos::getAsiento(){
+    return fila+columna;
 }
 
 void MenuAsientos::imprimir(){
     system("cls");
+    system("color 7");
     gotoxy(anchoConsola/2 - 8,2);
     cout << "P A N T A L L A";
     imprimirCine();
-    gotoxy(anchoConsola/2-19,25);
     do{
-        cout << "Ingrese la fila: ";
+        gotoxy(anchoConsola/2-19,25);
+        cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
         getline(cin,fila);
     }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
+
+    do{
+        gotoxy(anchoConsola/2-19,26);
+        cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
+        getline(cin,columna);
+    }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
 }
 
 void MenuAsientos::imprimirCine(){

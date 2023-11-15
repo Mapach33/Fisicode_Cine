@@ -1,13 +1,4 @@
-#pragma once
-#include <stdio.h>  
-#include <iostream>
-#include <Windows.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <locale.h>
-#include <string.h>
-#include <fstream>
-#include <sstream>
+#pragma once  
 #include "../tools/funciones.h"
 #include "menuBoleta.h"
 using namespace std;

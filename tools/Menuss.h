@@ -12,7 +12,7 @@ class Menu{
     protected:
         HANDLE miconsola;
         int anchoConsola, altoConsola;
-        int opcion, altoMarco, anchoMarco, colorMarco, colorOpcion, colorTexto, anchoConsola;
+        int opcion, altoMarco, anchoMarco, colorMarco, colorOpcion, colorTexto;
         bool seleccionado;
 };
 

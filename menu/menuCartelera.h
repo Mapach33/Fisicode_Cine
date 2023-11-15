@@ -1,9 +1,4 @@
 #pragma once
-#include <iostream>
-#include <Windows.h>
-#include <string.h>
-#include <fstream>
-#include <sstream>
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
