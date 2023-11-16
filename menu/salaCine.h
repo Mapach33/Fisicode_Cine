@@ -9,13 +9,13 @@ class MenuAsientos : public Menu {
         void imprimir();
         void imprimirCine();
         void imprimirUnAsiento(int fila, int columna,bool libre);
-        string getAsiento();
     protected:
         vector<vector<int>> asientos;
         int maxFilas, maxColumnas;
         string fila, columna;
 };
 
+//Constructor
 MenuAsientos::MenuAsientos(){
     maxFilas = 6;
     maxColumnas = 10;
@@ -30,9 +30,7 @@ MenuAsientos::MenuAsientos(){
     cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
     imprimir();
 }
-string MenuAsientos::getAsiento(){
-    return fila+columna;
-}
+
 
 void MenuAsientos::imprimir(){
     system("cls && color 7");
@@ -57,6 +55,15 @@ void MenuAsientos::imprimir(){
         }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
 
     }while(asientos[fila[0]-65][columna[0]-49] == 0);
+
+    ofstream Grabacion("boleta.txt", ios::app);
+			if(Grabacion.fail()){
+				cout << "Error en el archivo..." << endl;
+				Sleep(2000);
+				exit(1);
+			}
+			Grabacion<<columna<<fila<<endl;
+			Grabacion.close();
 }
 
 void MenuAsientos::imprimirCine(){
