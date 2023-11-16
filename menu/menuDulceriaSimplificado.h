@@ -26,8 +26,8 @@ void elegir_combo() {
 
 	short elegir = menuDulceria.getOpcion();
 	cine::ShowConsoleCursor(true);
-	SetConsoleTextAttribute(hConsole, 112);
-			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                         -----------------------------------------------------------------"; cout<<endl;
+	SetConsoleTextAttribute(hConsole, 9);
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                         -----------------------------------------------------------------"; cout<<endl;
 			cout << "                                         Combo    : "<<combo[elegir-1]<< endl;
 			cout << "                                         Precio   : "<< precio[elegir-1] << endl; 
 			cout << "                                         Solo se permite comprar de 1 a 3 combos"; cout<<endl;
@@ -58,7 +58,7 @@ void elegir_combo() {
 			Grabacion.close();
 
     gotoxy(42, 45);cout << "                                         Imprimiendo Boleta..."; getch();
-	color(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, 15);
 }
 
 void MenuDulceria::imprimirDescripcion(){
@@ -116,9 +116,8 @@ void MenuDulceria::imprimirMarco(int ejeX, int ejeY){
 }
 
 
-
 void MenuDulceria::imprimir(){
-    system("cls && COLOR 70");
+    system("cls ");
     string cartelera = 
     R"( _____                    _                 
 /  __ \                  | |                
@@ -128,7 +127,9 @@ void MenuDulceria::imprimir(){
  \____/ \___/ |_| |_| |_||_.__/  \___/ |___/ )";
     altoMarco = 25;
     anchoMarco = 45;
+    SetConsoleTextAttribute(miconsola, 11);
     cine::printRawCenter(cartelera);
+    SetConsoleTextAttribute(miconsola, 15);
     int ejeXMarco = (anchoConsola)/4 - anchoMarco/2;
     imprimirMarco(ejeXMarco,7);
     ejeXDes = ejeXMarco + anchoMarco + (anchoConsola)/2 - anchoMarco;
@@ -137,12 +138,12 @@ void MenuDulceria::imprimir(){
     bool continuar=true;
     
     while(continuar){
-        imprimirOpcion("COMBO 1", ejeXMarco + 5 , 11, opcion==1);
-        imprimirOpcion("COMBO 2", ejeXMarco + 22, 11, opcion==2);
-		imprimirOpcion("COMBO 3", ejeXMarco + 5, 18, opcion==3);
-		imprimirOpcion("COMBO 4", ejeXMarco + 22, 18, opcion==4);
-		imprimirOpcion("COMBO 5", ejeXMarco + 5, 25, opcion==5);
-		imprimirOpcion("COMBO 6", ejeXMarco + 22, 25, opcion==6);
+        imprimirOpcion("C.1 S/.26", ejeXMarco + 5 , 11, opcion==1);
+        imprimirOpcion("C.2 S/.28", ejeXMarco + 22, 11, opcion==2);
+		imprimirOpcion("C.3 S/.32", ejeXMarco + 5, 18, opcion==3);
+		imprimirOpcion("C.4 S/.33", ejeXMarco + 22, 18, opcion==4);
+		imprimirOpcion("C.5 S/.35", ejeXMarco + 5, 25, opcion==5);
+		imprimirOpcion("C.6 S/.45", ejeXMarco + 22, 25, opcion==6);
         imprimirDescripcion();
         switch (cine::getch()) {
     
@@ -176,7 +177,7 @@ void MenuDulceria::imprimirOpcion(string nombreOpcion,int posicionX, int posicio
 
     int largoOpcion{15}, altoOpcion{3}; // esto se puede cambiar
 
-    colorOpcion = 120;
+    colorOpcion = 8;
 
     //Cambia el color de la opcion seleccionada
     if(seleccionado) {colorOpcion = colorMarco;}
@@ -206,8 +207,8 @@ MenuDulceria::MenuDulceria(){
     altoConsola = 40;
     anchoConsola = 140;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 112;
-    colorMarco = 115;
+    colorTexto = 144;
+    colorMarco = 9;
     opcion = 1;
     imprimir();
 }

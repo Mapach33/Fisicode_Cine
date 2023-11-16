@@ -118,6 +118,7 @@ namespace cine
     
     // Imprime un texto multilinea de forma centrada en la consola
     void printRawCenter(std::string& raw) {
+        SetConsoleTextAttribute(consoleHandle, 11); 
         std::vector<std::string> subStringsList;
         std::string buffer = "";
 
@@ -152,6 +153,7 @@ namespace cine
             cine::gotoX(offset);
             cine::print(subStringsList[i] + "\n");
         }
+        SetConsoleTextAttribute(consoleHandle, 15);
     }
     
     //Obtiene la tecla presionado o en su efecto el caracter;

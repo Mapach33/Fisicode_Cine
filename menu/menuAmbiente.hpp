@@ -76,7 +76,7 @@ string ele_sala(){
 			Grabacion<<fopcsala(opcs, price)<<endl;
 			Grabacion<<price<<endl;
 			Grabacion.close();
-			SetConsoleTextAttribute(hConsole, 112);
+			SetConsoleTextAttribute(hConsole, 9);
 					gotoxy(42, 39);cout << "---------------------------------------------------------------"<<endl;
 					gotoxy(42, 40);cout << "                     Seleccion de Sala"<< endl;
 					gotoxy(42, 41);cout << "---------------------------------------------------------------"<<endl;
@@ -103,7 +103,7 @@ string ele_horario(){
 			}
 			Grabacion<<fopchorario(opch)<<endl;
 			Grabacion.close();
-		SetConsoleTextAttribute(hConsole, 112);
+			SetConsoleTextAttribute(hConsole, 9);
 				gotoxy(42, 39);	cout << "---------------------------------------------------------------"<<endl;
 				gotoxy(42, 40);	cout << "                    Seleccion de Horario"<< endl;
 				gotoxy(42, 41);	cout << "---------------------------------------------------------------"<<endl;
@@ -111,6 +111,7 @@ string ele_horario(){
 				gotoxy(42, 43);	cout << "----------------------------------------------------------------"<<endl;
 				gotoxy(42, 44);	cout << endl;	
 				gotoxy(42, 45);	cout << "Ahora elija su asiento..."; getch();
+				SetConsoleTextAttribute(hConsole, 15);
 			
 	return fopchorario(opch);
 }
@@ -119,14 +120,14 @@ string ele_horario(){
     altoConsola = 60;
     anchoConsola = 150;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 112;
-    colorMarco = 115;
+    colorTexto = 144;
+    colorMarco = 9;
     opcion = 1;
     imprimir();
 }
 
 void MenuSala::imprimir(){
-			system("COLOR 70 && cls");
+			system("cls");
 			int ejeYmarco = 7;
 			string logo_menusala = 
     R"( _____       _       
@@ -138,16 +139,15 @@ void MenuSala::imprimir(){
 			altoMarco = 30;
 			anchoMarco = 55;
 			system("cls");
-			
 			cine::printRawCenter(logo_menusala);
 			imprimirMarco(ejeYmarco);
 			bool continuar=true;
     
     while(continuar){
-        imprimirOpcion("Normal", (anchoConsola - 23)/2, 14, opcion==1);
-        imprimirOpcion("2D Prime ", (anchoConsola - 23)/2 , 18, opcion==2);
-		imprimirOpcion("3D Envolvente", (anchoConsola - 23)/2 , 22, opcion==3);
-		imprimirOpcion("Extreme", (anchoConsola - 23)/2, 26, opcion==4);
+        imprimirOpcion("Normal S/.10", (anchoConsola - 23)/2, 14, opcion==1);
+        imprimirOpcion("2D Prime S/.15", (anchoConsola - 23)/2 , 18, opcion==2);
+		imprimirOpcion("3D Envolvente S/.20", (anchoConsola - 23)/2 , 22, opcion==3);
+		imprimirOpcion("Extreme S/.40", (anchoConsola - 23)/2, 26, opcion==4);
         switch (cine::getch()) {
     
             case key::w:
@@ -171,14 +171,13 @@ void MenuSala::imprimir(){
     altoConsola = 60;
     anchoConsola = 150;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 112;
-    colorMarco = 115;
+    colorTexto = 144;
+    colorMarco = 9;
     opcion = 1;
     imprimir();
 }
 
 void MenuHorario::imprimir(){
-    system("COLOR 70");
     string logo_menuhorario = 
     R"( _   _                      _       
 | | | |                    (_)      

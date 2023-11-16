@@ -48,7 +48,7 @@ void Menu::imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool 
 
     int largoOpcion{19}, altoOpcion{3}; // esto se puede cambiar
 
-    colorOpcion = 120;
+    colorOpcion = 8;
 
     //Cambia el color de la opcion seleccionada
     if(seleccionado) {colorOpcion = colorMarco;}
@@ -89,14 +89,13 @@ MenuPrincipal::MenuPrincipal(){
     altoConsola = 40;
     anchoConsola = 150;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 112;
-    colorMarco = 115;
+    colorTexto = 144;
+    colorMarco = 9;
     opcion = 1;
     imprimir();
 }
 
 void MenuPrincipal::imprimir(){
-    system("COLOR 70");
     int ejeYmarco = 7;
     altoMarco = 25;
     anchoMarco = 55;

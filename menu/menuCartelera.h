@@ -2,7 +2,6 @@
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
-#define color SetConsoleTextAttribute//define el setcontrol para llamarlo por "color"
 using namespace std;
 class MenuCartelera : public Menu{
     public:
@@ -45,7 +44,7 @@ void elegir_pelicula() {
 			Grabacion<<peliculas[elegir-1]<<endl;
 			
 			Grabacion.close();
-	color(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, 15);
 }
 
 
@@ -70,7 +69,7 @@ void MenuCartelera::imprimirMarco(int ejeX, int ejeY){
 
 
 void MenuCartelera::imprimir(){
-    system("cls && COLOR 70");
+    system("cls");
     string cartelera = 
     R"(  _____           _       _                
  / ____|         | |     | |               
@@ -165,7 +164,7 @@ void MenuCartelera::imprimirOpcion(string nombreOpcion,int posicionX, int posici
 
     int largoOpcion{15}, altoOpcion{3}; // esto se puede cambiar
 
-    colorOpcion = 120;
+    colorOpcion = 8;
 
     //Cambia el color de la opcion seleccionada
     if(seleccionado) {colorOpcion = colorMarco;}
@@ -199,8 +198,8 @@ MenuCartelera::MenuCartelera(){
     altoConsola = 40;
     anchoConsola = 140;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
-    colorTexto = 112;
-    colorMarco = 115;
+    colorTexto = 144;
+    colorMarco = 9;
     opcion = 1;
     imprimir();
 }
