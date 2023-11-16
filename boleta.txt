@@ -1,4 +1,16 @@
+<<<<<<< HEAD
+El Exorcista: Creyentes
+2D Prime
+15
+15:00
+A4
+2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog
+3
+35
+105
+=======
 Saw X
 Normal
 10
 12:00
+>>>>>>> 21ec4ca96e468a658e77f4d0109753783e1ce364
