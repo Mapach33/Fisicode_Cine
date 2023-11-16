@@ -4,6 +4,8 @@
 #include "../tools/Menuss.h"
 #include "menuAmbiente.hpp"
 
+using namespace std;
+
 
 class MenuDulceria : public Menu{
     public:
@@ -12,24 +14,27 @@ class MenuDulceria : public Menu{
 };
 
 void elegir_combo() {
-    
-	short elegir, i = 0;
-	
+    int cantidad;
     string combo[] = {"Cancha Grande + 2 Gaseosas Grandes","2 Canchas Medianas + 3 Gaseosas Medianas","Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas",
          "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog", "Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog"};
 	string precio[] =  {"26","28","32","33","35","45"};
 
 	MenuDulceria menuDulceria; 
-	elegir = menuDulceria.getOpcion();
-	system("cls");
-	gotoxy(25, 44+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
-	gotoxy(55, 45+i);color(hConsole, 79); cout << combo[elegir-1]<< endl;
-	gotoxy(25, 46+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
-	gotoxy(25, 47+i);color(hConsole, 79); cout << "Precio: " << precio[elegir-1] << endl; 
-	gotoxy(25, 48+i);color(hConsole, 79); cout << "-----------------------------------------------------------------------------";
-	cout << endl;	
-	
-	ofstream Grabacion("boleta.txt", ios::app);
+
+	short elegir = menuDulceria.getOpcion();
+	SetConsoleTextAttribute(hConsole, 112);
+			gotoxy(42, 39);cout << "-----------------------------------------------------------------------------";
+			gotoxy(42, 40);cout << "Combo    :"<<combo[elegir-1]<< endl;
+			gotoxy(42, 41);cout << "Precio   :"<< precio[elegir-1] << endl; 
+			gotoxy(42, 42);cout << "-----------------------------------------------------------------------------";
+			do{
+				gotoxy(42, 41);cout << "Cantidad :                         "; 
+				gotoxy(53, 41);cin >> cantidad;
+			}while(cantidad < 1 || cantidad > 10);
+		  	gotoxy(42, 43);cout << endl;	
+			gotoxy(42, 44);cout << "Agradecemos su Compra..."; getch();
+
+	ofstream Grabacion("boleta.txt", ios::out);
 			if(Grabacion.fail()){
 				cout << "Error en el archivo..." << endl;
 				Sleep(2000);
@@ -39,7 +44,6 @@ void elegir_combo() {
 			Grabacion<<precio[elegir-1]<<endl;//Cantidad
 			Grabacion<<combo[elegir-1]<<endl;//Precio U
 			Grabacion<<combo[elegir-1]<<endl;//Precio T
-
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
@@ -48,7 +52,7 @@ void elegir_combo() {
 
 MenuDulceria::MenuDulceria(){
     altoConsola = 60;
-    anchoConsola = 130;
+    anchoConsola = 150;
     cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 112;
     colorMarco = 115;
@@ -57,22 +61,23 @@ MenuDulceria::MenuDulceria(){
 }
 
 void MenuDulceria::imprimir(){
-    system("COLOR 70 && cls");
+    system("COLOR 70");
     int ejeYmarco = 7;
-    altoMarco = 50;
-    anchoMarco = 100;
+    altoMarco = 30;
+    anchoMarco = 55;
+    system("cls");
     cine::gotoY(1);
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
     
     while(continuar){
-        imprimirOpcion("COMBO 1", (anchoConsola - 53)/2, 14, opcion==1);
-        imprimirOpcion("COMBO 2", (anchoConsola + 13)/2 , 14, opcion==2);
-		imprimirOpcion("COMBO 3", (anchoConsola - 53)/2, 24, opcion==3);
-		imprimirOpcion("COMBO 4", (anchoConsola + 13)/2, 24, opcion==4);
-		imprimirOpcion("COMBO 5", (anchoConsola - 53)/2, 34, opcion==5);
-		imprimirOpcion("COMBO 6", (anchoConsola + 13)/2, 34, opcion==6);
+        imprimirOpcion("COMBO 1", (anchoConsola - 45)/2, 10, opcion==1);
+        imprimirOpcion("COMBO 2", (anchoConsola + 8 )/2, 10, opcion==2);
+		imprimirOpcion("COMBO 3", (anchoConsola - 45)/2, 20, opcion==3);
+		imprimirOpcion("COMBO 4", (anchoConsola + 8 )/2, 20, opcion==4);
+		imprimirOpcion("COMBO 5", (anchoConsola - 45)/2, 30, opcion==5);
+		imprimirOpcion("COMBO 6", (anchoConsola + 8 )/2, 30, opcion==6);
         switch (cine::getch()) {
     
 			case key::w:

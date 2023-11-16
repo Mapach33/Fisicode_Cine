@@ -19,7 +19,7 @@ void Lee(ifstream &lee){
         getline(lee,b1.pu_combo);
         getline(lee,b1.pt_combo);
 
-            system("CLS");
+        system("CLS");
         cout << "                  Boleta" << endl;
         cout << "------------------------------------------" << endl;
         cout << "Pelicula           : " << b1.pelicula << endl;
