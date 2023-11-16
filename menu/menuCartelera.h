@@ -11,7 +11,7 @@ class MenuCartelera : public Menu{
         void imprimirDescripcion();
         void imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool seleccionado);
         void imprimirMarco(int ejeX, int ejeY);
-    private:
+    protected:
         int ejeXDes, ejeYDes;
         vector<string> sinopsis;
 };
