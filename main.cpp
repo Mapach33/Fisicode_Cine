@@ -14,7 +14,7 @@ int main(){
             elegir_pelicula();
             ele_sala();
             ele_horario();
-            MenuAsientos menuAsientos;
+            //MenuAsientos menuAsientos;
             elegir_combo();       
     }
     return 0;

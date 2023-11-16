@@ -1,7 +1,6 @@
 #pragma once  
 #include "../tools/funciones.h"
 
-
 using namespace std;
 struct boleta{
     string pelicula, sala, p_unit, hora, t_combo, pu_combo, c_combo, pt_combo;
@@ -20,7 +19,7 @@ void Lee(ifstream &lee){
         getline(lee,b1.pu_combo);
         getline(lee,b1.pt_combo);
 
-            system("CLS");
+        system("CLS");
         cout << "                  Boleta" << endl;
         cout << "------------------------------------------" << endl;
         cout << "Pelicula           : " << b1.pelicula << endl;
