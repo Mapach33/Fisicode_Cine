@@ -39,7 +39,7 @@ void elegir_combo() {
 		  	
 			gotoxy(42, 44);cout << "Agradecemos su Compra..."; getch();
 
-	ofstream Grabacion("boleta.txt", ios::out);
+	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
 				cout << "Error en el archivo..." << endl;
 				Sleep(2000);
