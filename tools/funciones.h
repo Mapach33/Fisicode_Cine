@@ -106,7 +106,7 @@ namespace cine
         SetConsoleCursorPosition(consoleHandle, cursorPosition);
     }
 
-    // Devuelve el tamaño de la consola (columns/filas) como vector 2d { x, y }
+    // Devuelve el tamano de la consola (columns/filas) como vector 2d { x, y }
     cine::coordXY getConsoleSize() {
         cine::coordXY coords;
         CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
@@ -121,13 +121,13 @@ namespace cine
         std::vector<std::string> subStringsList;
         std::string buffer = "";
 
-        // Divide la cadena en subcadenas en función de los saltos de línea
+        // Divide la cadena en subcadenas en funcion de los saltos de linea
         for (size_t i = 0; i < raw.length(); i++) {
             if (raw[i] != '\n' && i != raw.length() - 1) {
                 buffer += raw[i];
             } else {
                 if (buffer.empty() && subStringsList.empty()) {
-                    // Si es la primera línea vacía, agrega espacios para centrarla
+                    // Si es la primera linea vacia, agrega espacios para centrarla
                     size_t consoleWidth = getConsoleSize().x;
                     size_t padding = (consoleWidth - buffer.length()) / 2;
                     buffer = std::string(padding, ' ') + buffer;
@@ -137,7 +137,7 @@ namespace cine
             }
         }
 
-        // Determina la longitud de la línea más larga
+        // Determina la longitud de la linea mas larga
         size_t biggestSlice = 0;
         for (std::string substr : subStringsList) {
             if (substr.length() >= biggestSlice) {

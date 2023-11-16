@@ -77,7 +77,7 @@ void MenuDulceria::imprimir(){
     
 			case key::w:
             case Up:
-                if (opcion > 1) opcion-=2;
+                if (opcion > 2) opcion-=2;
                 break;
 			case key::d:
 			case Right:
@@ -86,7 +86,7 @@ void MenuDulceria::imprimir(){
 
             case::key::s:
             case Down:
-                if (opcion < 6) opcion+=2;
+                if (opcion < 5) opcion+=2;
                 break;
     		case key::a:
             case Left:
