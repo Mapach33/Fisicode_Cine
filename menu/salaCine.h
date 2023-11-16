@@ -58,6 +58,15 @@ void MenuAsientos::imprimir(){
         }while( colu < 1 || colu > maxColumnas);
 
     }while(asientos[fila[0]-65][colu-1] == 0);
+    //grabar en txt el asiento
+    ofstream boleta("boleta.txt", ios::app);
+    if (boleta.is_open()) {
+        boleta << getAsiento() << endl;
+        boleta.close();
+    } else {
+        cout << "Error al abrir el archivo de boleta." << endl;
+
+    }
 }
 
 void MenuAsientos::imprimirCine(){
