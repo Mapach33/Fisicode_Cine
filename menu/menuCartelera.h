@@ -45,15 +45,15 @@ void elegir_pelicula() {
 			
 			Grabacion.close();
     SetConsoleTextAttribute(hConsole, 112);
-	gotoxy(42, 39);	cout << "---------------------------------------------------------------"<<endl;
-	gotoxy(42, 40);	cout << peliculas[elegir-1]<< endl;
-	gotoxy(42, 41);	cout << "---------------------------------------------------------------"<<endl;
-	gotoxy(42, 42);	cout << "Duracion: " << duracion[elegir-1] << endl;
-	gotoxy(42, 43);	cout << "Director: " << director[elegir-1] << endl;
-	gotoxy(42, 44);	cout << "Sinopsis: " << sinopsis[elegir-1] << endl;   
-	gotoxy(42, 45);	cout << "---------------------------------------------------------------"<<endl;
-	gotoxy(42, 46);	cout << endl;	
-	gotoxy(42, 47);	cout << "Ahora elija su sala de preferencia..."; getch();
+	gotoxy(22, 34);	cout << "---------------------------------------------------------------"<<endl;
+	gotoxy(22, 35);	cout << peliculas[elegir-1]<< endl;
+	gotoxy(22, 36);	cout << "---------------------------------------------------------------"<<endl;
+	gotoxy(22, 37);	cout << "Duracion: " << duracion[elegir-1] << endl;
+	gotoxy(22, 38);	cout << "Director: " << director[elegir-1] << endl;
+	gotoxy(22, 39);	cout << "Sinopsis: " << sinopsis[elegir-1] << endl;   
+	gotoxy(22, 40);	cout << "---------------------------------------------------------------"<<endl;
+	gotoxy(22, 41);	cout << endl;	
+	gotoxy(22, 42);	cout << "Ahora elija su sala de preferencia..."; getch();
 	
 
     
