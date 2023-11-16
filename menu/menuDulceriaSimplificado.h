@@ -22,16 +22,21 @@ void elegir_combo() {
 	MenuDulceria menuDulceria; 
 
 	short elegir = menuDulceria.getOpcion();
+	cine::ShowConsoleCursor(true);
 	SetConsoleTextAttribute(hConsole, 112);
 			gotoxy(42, 39);cout << "-----------------------------------------------------------------------------";
 			gotoxy(42, 40);cout << "Combo    :"<<combo[elegir-1]<< endl;
 			gotoxy(42, 41);cout << "Precio   :"<< precio[elegir-1] << endl; 
 			gotoxy(42, 42);cout << "-----------------------------------------------------------------------------";
 			do{
-				gotoxy(42, 41);cout << "Cantidad :                         "; 
-				gotoxy(53, 41);cin >> cantidad;
+				gotoxy(42, 43);cout << "Cantidad : "; 
+				gotoxy(53, 43);cin >> cantidad;
+				if(cantidad < 1 || cantidad > 10){
+					gotoxy(42, 43);cout << "Cantidad no valida, intente de nuevo...               ";getch();
+					gotoxy(42, 43);cout << "                                                       ";
+				}
 			}while(cantidad < 1 || cantidad > 10);
-		  	gotoxy(42, 43);cout << endl;	
+		  	
 			gotoxy(42, 44);cout << "Agradecemos su Compra..."; getch();
 
 	ofstream Grabacion("boleta.txt", ios::out);
@@ -46,7 +51,7 @@ void elegir_combo() {
 			Grabacion<<combo[elegir-1]<<endl;//Precio T
 			Grabacion.close();
 
-    cout << "\n\nAhora elija su sala de preferencia..."; getch();
+    gotoxy(42, 45);cout << "Imprimiendo Boleta..."; getch();
 	color(hConsole, 15);
 }
 
