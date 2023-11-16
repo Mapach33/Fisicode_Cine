@@ -119,12 +119,12 @@ void MenuDulceria::imprimirMarco(int ejeX, int ejeY){
 void MenuDulceria::imprimir(){
     system("cls && COLOR 70");
     string cartelera = 
-    R"(  _____           _       _                
- / ____|         | |     | |               
-| |     __ _ _ __| |_ ___| | ___ _ __ __ _ 
-| |    / _` | '__| __/ _ \ |/ _ \ '__/ _` |
-| |___| (_| | |  | ||  __/ |  __/ | | (_| |
- \_____\__,_|_|   \__\___|_|\___|_|  \__,_|)";
+    R"( _____                    _                 
+/  __ \                  | |                
+| /  \/  ___   _ __ ___  | |__    ___   ___ 
+| |     / _ \ | '_ ` _ \ | '_ \  / _ \ / __|
+| \__/\| (_) || | | | | || |_) || (_) |\__ \
+ \____/ \___/ |_| |_| |_||_.__/  \___/ |___/ )";
     altoMarco = 25;
     anchoMarco = 45;
     cine::printRawCenter(cartelera);
