@@ -55,7 +55,7 @@ void MenuAsientos::imprimir(){
             colu = stoi(columna);
         }while(colu<1 or colu>maxColumnas);
 
-    }while(asientos[fila[0]-65][colu] == 0);
+    }while(asientos[fila[0]-65][colu-1] == 0);
 
     ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
