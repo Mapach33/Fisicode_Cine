@@ -138,12 +138,12 @@ void MenuDulceria::imprimir(){
     bool continuar=true;
     
     while(continuar){
-        imprimirOpcion("COMBO 1", ejeXMarco + 5 , 11, opcion==1);
-        imprimirOpcion("COMBO 2", ejeXMarco + 22, 11, opcion==2);
-		imprimirOpcion("COMBO 3", ejeXMarco + 5, 18, opcion==3);
-		imprimirOpcion("COMBO 4", ejeXMarco + 22, 18, opcion==4);
-		imprimirOpcion("COMBO 5", ejeXMarco + 5, 25, opcion==5);
-		imprimirOpcion("COMBO 6", ejeXMarco + 22, 25, opcion==6);
+        imprimirOpcion("C.1 S/.26", ejeXMarco + 5 , 11, opcion==1);
+        imprimirOpcion("C.2 S/.28", ejeXMarco + 22, 11, opcion==2);
+		imprimirOpcion("C.3 S/.32", ejeXMarco + 5, 18, opcion==3);
+		imprimirOpcion("C.4 S/.33", ejeXMarco + 22, 18, opcion==4);
+		imprimirOpcion("C.5 S/.35", ejeXMarco + 5, 25, opcion==5);
+		imprimirOpcion("C.6 S/.45", ejeXMarco + 22, 25, opcion==6);
         imprimirDescripcion();
         switch (cine::getch()) {
     

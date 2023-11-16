@@ -144,10 +144,10 @@ void MenuSala::imprimir(){
 			bool continuar=true;
     
     while(continuar){
-        imprimirOpcion("Normal", (anchoConsola - 23)/2, 14, opcion==1);
-        imprimirOpcion("2D Prime ", (anchoConsola - 23)/2 , 18, opcion==2);
-		imprimirOpcion("3D Envolvente", (anchoConsola - 23)/2 , 22, opcion==3);
-		imprimirOpcion("Extreme", (anchoConsola - 23)/2, 26, opcion==4);
+        imprimirOpcion("Normal S/.10", (anchoConsola - 23)/2, 14, opcion==1);
+        imprimirOpcion("2D Prime S/.15", (anchoConsola - 23)/2 , 18, opcion==2);
+		imprimirOpcion("3D Envolvente S/.20", (anchoConsola - 23)/2 , 22, opcion==3);
+		imprimirOpcion("Extreme S/.40", (anchoConsola - 23)/2, 26, opcion==4);
         switch (cine::getch()) {
     
             case key::w:
