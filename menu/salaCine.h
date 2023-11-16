@@ -35,8 +35,9 @@ string MenuAsientos::getAsiento(){
 }
 
 void MenuAsientos::imprimir(){
-    system("cls && color 7");
-    gotoxy(anchoConsola/2 - 8,2);cout << "P A N T A L L A";
+    system("cls ");
+    cine::gotoxy((anchoConsola-14)/2,1);cout << "P A N T A L L A";
+    cine::gotoxy(52,2);SetConsoleTextAttribute(miconsola,254);cout<< string(55,' ');SetConsoleTextAttribute(miconsola,15);
     imprimirCine();
     int colu;
     cine::ShowConsoleCursor(true);
