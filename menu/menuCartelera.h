@@ -29,8 +29,8 @@ void elegir_pelicula() {
 	string duracion[] =  {"2hrs 0min", "1hrs 50min", "2hrs 45min", "2hrs 10min", "2hrs 0min", "1hrs 30min"};
 	string director[] =  {"Kevin Greutert", "Emma Tammi", "Sam Wrench", "Alejandro Gomez Monteverde", "David Gordon Green", "Maximilian Erlenwein"};
 	string sinopsis[] =  {"Un asesino busca venganza", "Un guardia teme por su vida", "Sumergete en la experiencia cinematografica de este concierto",
-						 "Un agente se embarca en la mision de salvar a una chica del trafico de menores", "La pelicula de terror mas aterradora de la historia volvio a las pantallas",
-						 "May yace en lo profundo bajo el mar, atrapada por escombros e incapaz de moverse"};
+						 "Un agente salva a una chica del trafico de menores", "La pelicula de terror mas aterradora de la historia",
+						 "May yace en lo profundo bajo el mar, atrapada por escombros"};
 
 	
 	MenuCartelera menuCartelera; 
