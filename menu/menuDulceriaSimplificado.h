@@ -17,7 +17,7 @@ void elegir_combo() {
     int cantidad;
     string combo[] = {"Cancha Grande + 2 Gaseosas Grandes","2 Canchas Medianas + 3 Gaseosas Medianas","Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas",
          "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog", "Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog"};
-	string precio[] =  {"26","28","32","33","35","45"};
+	int precio[] =  {26,28,32,33,35,45};
 
 	MenuDulceria menuDulceria; 
 
@@ -46,9 +46,9 @@ void elegir_combo() {
 				exit(1);
 			}
 			Grabacion<<combo[elegir-1]<<endl;//Tipo
-			Grabacion<<precio[elegir-1]<<endl;//Cantidad
-			Grabacion<<combo[elegir-1]<<endl;//Precio U
-			Grabacion<<combo[elegir-1]<<endl;//Precio T
+			Grabacion<<cantidad <<endl;//Cantidad
+			Grabacion<<precio[elegir-1]<<endl;//Precio U
+			Grabacion<<cantidad * precio[elegir-1]<<endl;//Precio T
 			Grabacion.close();
 
     gotoxy(42, 45);cout << "Imprimiendo Boleta..."; getch();
