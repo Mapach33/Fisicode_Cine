@@ -30,9 +30,9 @@ void elegir_combo() {
 			gotoxy(42, 42);cout << "Solo se permite comprar de 1 a 3 combos";
 			short xcantidad;
 			do{
-				gotoxy(42, 43);cout << "Cantidad : "; 
+				gotoxy(42, 43);cout << "Cantidad : ";         
 				gotoxy(53, 43);getline(cin, cantidad); 
-				xcantidad = stoi(cantidad);
+				istringstream(cantidad)>>xcantidad ; 
 				if(xcantidad < 1 || xcantidad > 3){
 					gotoxy(42, 43);cout << "Cantidad no valida, intente de nuevo...               ";getch();
 					gotoxy(42, 43);cout << "                                                       ";
