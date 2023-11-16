@@ -7,7 +7,7 @@
 
 
 int main(){
-    
+    srand(time(NULL));
     MenuPrincipal menuPrincipal;
 
     if(menuPrincipal.getOpcion() == 1){

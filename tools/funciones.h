@@ -116,11 +116,6 @@ namespace cine
         return coords;
     }
     
-    //Limpia la pantalla
-    void clear(){
-        system("cls");
-    }
-
     // Imprime un texto multilinea de forma centrada en la consola
     void printRawCenter(std::string& raw) {
         std::vector<std::string> subStringsList;
@@ -181,6 +176,12 @@ namespace cine
         //}
         return 0;
     }
-
-
 }//namespaces cine
+
+
+//Retorna la fecha y hora actual
+string obteneFechaHora() {
+    SYSTEMTIME localTime; GetLocalTime(&localTime);
+    stringstream ss; ss << localTime.wYear << "/" << localTime.wMonth << "/" << localTime.wDay;
+    return ss.str();
+}

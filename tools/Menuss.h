@@ -120,7 +120,6 @@ void MenuPrincipal::imprimir(){
             case Down:
                 if (opcion < 2) opcion++;
                 break;
-
             case Enter:
                 continuar = false;
                 break;

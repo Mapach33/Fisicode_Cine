@@ -1,7 +1,6 @@
 #pragma once  
 #include "../tools/funciones.h"
 
-
 using namespace std;
 struct boleta{
     string pelicula, sala, p_unit, hora, t_combo, pu_combo, c_combo, pt_combo;
@@ -26,7 +25,7 @@ void Lee(ifstream &lee){
         cout << "Pelicula           : " << b1.pelicula << endl;
         cout << "Sala               : " << b1.sala<< endl;
         cout << "Horario            : " << b1.hora<< endl;
-        cout << "Asientos           : " << endl;
+        cout << "Asientos           : 1" << endl;
         cout << "Precio por Asiento : " << b1.p_unit<<endl;
         cout << "------------------------------------------" << endl;
         cout << "Combos             : " << b1.t_combo<< endl;
@@ -39,9 +38,6 @@ void Lee(ifstream &lee){
         cout << "           Gracias por su compra" << endl;
         cout << "------------------------------------------" << endl;
         system("pause");
-			
-		
-		
 
 }
 

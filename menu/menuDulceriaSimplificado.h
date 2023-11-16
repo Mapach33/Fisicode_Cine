@@ -35,8 +35,11 @@ void elegir_combo() {
 				Sleep(2000);
 				exit(1);
 			}
-			Grabacion<<combo[elegir-1]<<endl;
-			
+			Grabacion<<combo[elegir-1]<<endl;//Tipo
+			Grabacion<<precio[elegir-1]<<endl;//Cantidad
+			Grabacion<<combo[elegir-1]<<endl;//Precio U
+			Grabacion<<combo[elegir-1]<<endl;//Precio T
+
 			Grabacion.close();
 
     cout << "\n\nAhora elija su sala de preferencia..."; getch();
@@ -54,11 +57,10 @@ MenuDulceria::MenuDulceria(){
 }
 
 void MenuDulceria::imprimir(){
-    system("COLOR 70");
+    system("COLOR 70 && cls");
     int ejeYmarco = 7;
     altoMarco = 50;
     anchoMarco = 100;
-    system("cls");
     cine::gotoY(1);
     cine::printRawCenter(cine::logo_fisicode);
     imprimirMarco(ejeYmarco);
