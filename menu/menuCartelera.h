@@ -77,10 +77,9 @@ void MenuCartelera::imprimir(){
 | |     __ _ _ __| |_ ___| | ___ _ __ __ _ 
 | |    / _` | '__| __/ _ \ |/ _ \ '__/ _` |
 | |___| (_| | |  | ||  __/ |  __/ | | (_| |
- \_____\__,_|_|   \__\___|_|\___|_|  \__,_| )";
+ \_____\__,_|_|   \__\___|_|\___|_|  \__,_|)";
     altoMarco = 25;
     anchoMarco = 45;
-    cine::gotoY(1);
     cine::printRawCenter(cartelera);
     int ejeXMarco = (anchoConsola)/4 - anchoMarco/2;
     imprimirMarco(ejeXMarco,7);
