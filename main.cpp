@@ -1,6 +1,7 @@
 #include "menu/menuCartelera.h"
 #include "menu/menuAmbiente.hpp"
 #include "menu/menuDulceriaSimplificado.h"
+#include "menu/menuBoleta.h"
 #include "tools/funciones.h"
 #include "tools/menuss.h"
 #include "menu/salaCine.h"
@@ -15,7 +16,8 @@ int main(){
             ele_sala();
             ele_horario();
             MenuAsientos menuAsientos;
-            elegir_combo();       
+            elegir_combo(); 
+            imprimirBoleta();      
     }
     return 0;
 }
