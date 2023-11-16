@@ -14,10 +14,10 @@ class MenuDulceria : public Menu{
 };
 
 void elegir_combo() {
-    int cantidad;
+    string cantidad;
     string combo[] = {"Cancha Grande + 2 Gaseosas Grandes","2 Canchas Medianas + 3 Gaseosas Medianas","Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas",
          "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog", "Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog"};
-	string precio[] =  {"26","28","32","33","35","45"};
+	short precio[] =  {26,28,32,33,35,45};
 
 	MenuDulceria menuDulceria; 
 
@@ -27,16 +27,18 @@ void elegir_combo() {
 			gotoxy(42, 39);cout << "-----------------------------------------------------------------------------";
 			gotoxy(42, 40);cout << "Combo    :"<<combo[elegir-1]<< endl;
 			gotoxy(42, 41);cout << "Precio   :"<< precio[elegir-1] << endl; 
-			gotoxy(42, 42);cout << "-----------------------------------------------------------------------------";
+			gotoxy(42, 42);cout << "Solo se permite comprar de 1 a 3 combos";
+			short xcantidad;
 			do{
 				gotoxy(42, 43);cout << "Cantidad : "; 
-				gotoxy(53, 43);cin >> cantidad;
-				if(cantidad < 1 || cantidad > 10){
+				gotoxy(53, 43);getline(cin, cantidad); 
+				xcantidad = stoi(cantidad);
+				if(xcantidad < 1 || xcantidad > 3){
 					gotoxy(42, 43);cout << "Cantidad no valida, intente de nuevo...               ";getch();
 					gotoxy(42, 43);cout << "                                                       ";
 				}
-			}while(cantidad < 1 || cantidad > 10);
-		  	
+			}while(xcantidad < 1 || xcantidad > 3);
+		  	gotoxy(42, 42);cout << "-----------------------------------------------------------------------------";
 			gotoxy(42, 44);cout << "Agradecemos su Compra..."; getch();
 
 	ofstream Grabacion("boleta.txt", ios::app);
@@ -46,9 +48,9 @@ void elegir_combo() {
 				exit(1);
 			}
 			Grabacion<<combo[elegir-1]<<endl;//Tipo
-			Grabacion<<precio[elegir-1]<<endl;//Cantidad
-			Grabacion<<combo[elegir-1]<<endl;//Precio U
-			Grabacion<<combo[elegir-1]<<endl;//Precio T
+			Grabacion<<cantidad <<endl;//Cantidad
+			Grabacion<<precio[elegir-1]<<endl;//Precio U
+			Grabacion<<xcantidad * precio[elegir-1]<<endl;//Precio T
 			Grabacion.close();
 
     gotoxy(42, 45);cout << "Imprimiendo Boleta..."; getch();
