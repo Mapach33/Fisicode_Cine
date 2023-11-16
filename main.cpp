@@ -1,6 +1,6 @@
 #include "menu/menuCartelera.h"
 #include "menu/menuAmbiente.hpp"
-#include "menu/menuDulceriaSimplificado.h"
+#include "menu/menuDulceria.h"
 #include "menu/menuBoleta.h"
 #include "tools/funciones.h"
 #include "tools/menuss.h"
