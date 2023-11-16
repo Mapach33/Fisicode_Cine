@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-Sonidos de libertad
-Normal
-10
+Saw X
+2D Prime
+15
 15:00
-Cancha Mediana + 2 Hot Dog + 2 Gaseosas Medianas
-3-5-5
-32
-96
-=======
-Five Nights At Freddy's
-3D Envolvente
-20
-21:00
-D10
->>>>>>> a84a60921a5448ddfd664613bdc1183400d81e45
