@@ -38,6 +38,7 @@ void MenuAsientos::imprimir(){
     system("cls && color 7");
     gotoxy(anchoConsola/2 - 8,2);cout << "P A N T A L L A";
     imprimirCine();
+    int colu;
     cine::ShowConsoleCursor(true);
     do{
         gotoxy(anchoConsola/2-19,25);cout<<string(50,' ');gotoxy(anchoConsola/2-19,26);cout<<string(50,' ');
@@ -53,9 +54,19 @@ void MenuAsientos::imprimir(){
             gotoxy(anchoConsola/2-19,26);
             cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
             getline(cin,columna);
-        }while(columna.size() != 1 || columna[0] < 49 || columna[0] > 49+maxColumnas);
+            colu = stoi(columna);
+        }while( colu < 1 || colu > maxColumnas);
 
-    }while(asientos[fila[0]-65][columna[0]-49] == 0);
+    }while(asientos[fila[0]-65][colu-1] == 0);
+    //grabar en txt el asiento
+    ofstream boleta("boleta.txt", ios::app);
+    if (boleta.is_open()) {
+        boleta << getAsiento() << endl;
+        boleta.close();
+    } else {
+        cout << "Error al abrir el archivo de boleta." << endl;
+
+    }
 }
 
 void MenuAsientos::imprimirCine(){

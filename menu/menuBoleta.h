@@ -4,7 +4,7 @@
 
 using namespace std;
 struct boleta{
-    string pelicula, sala, p_unit, hora, t_combo, pu_combo, c_combo, pt_combo;
+    string pelicula, sala, p_unit, hora,asiento, t_combo, pu_combo, c_combo, pt_combo;
 }b1;
 
 void Lee(ifstream &lee){
@@ -15,6 +15,7 @@ void Lee(ifstream &lee){
         getline(lee,b1.sala);
         getline(lee,b1.p_unit);
         getline(lee,b1.hora);
+        getline(lee,b1.asiento);
         getline(lee,b1.t_combo);
         getline(lee,b1.c_combo);
         getline(lee,b1.pu_combo);
@@ -26,7 +27,7 @@ void Lee(ifstream &lee){
         cout << "Pelicula           : " << b1.pelicula << endl;
         cout << "Sala               : " << b1.sala<< endl;
         cout << "Horario            : " << b1.hora<< endl;
-        cout << "Asientos           : 1" << endl;
+        cout << "Asiento            : " << b1.asiento <<endl;
         cout << "Precio por Asiento : " << b1.p_unit<<endl;
         cout << "------------------------------------------" << endl;
         cout << "Combos             : " << b1.t_combo<< endl;

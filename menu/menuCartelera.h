@@ -11,7 +11,7 @@ class MenuCartelera : public Menu{
         void imprimirDescripcion();
         void imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool seleccionado);
         void imprimirMarco(int ejeX, int ejeY);
-    private:
+    protected:
         int ejeXDes, ejeYDes;
         vector<string> sinopsis;
 };
@@ -80,7 +80,6 @@ void MenuCartelera::imprimir(){
  \_____\__,_|_|   \__\___|_|\___|_|  \__,_|)";
     altoMarco = 25;
     anchoMarco = 45;
-    cine::gotoY(1);
     cine::printRawCenter(cartelera);
     int ejeXMarco = (anchoConsola)/4 - anchoMarco/2;
     imprimirMarco(ejeXMarco,7);

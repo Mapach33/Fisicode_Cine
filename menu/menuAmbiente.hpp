@@ -128,11 +128,18 @@ string ele_horario(){
 void MenuSala::imprimir(){
 			system("COLOR 70 && cls");
 			int ejeYmarco = 7;
+			string logo_menusala = 
+    R"( _____       _       
+/  ___|     | |      
+\ `--.  __ _| | __ _ 
+ `--. \/ _` | |/ _` |
+/\__/ / (_| | | (_| |
+\____/ \__,_|_|\__,_| )";
 			altoMarco = 30;
 			anchoMarco = 55;
 			system("cls");
 			cine::gotoY(1);
-			cine::printRawCenter(cine::logo_fisicode);
+			cine::printRawCenter(logo_menusala);
 			imprimirMarco(ejeYmarco);
 			bool continuar=true;
     
@@ -172,12 +179,19 @@ void MenuSala::imprimir(){
 
 void MenuHorario::imprimir(){
     system("COLOR 70");
-    int ejeYmarco = 7;
+    string logo_menuhorario = 
+    R"( _   _                      _       
+| | | |                    (_)      
+| |_| | ___  _ __ __ _ _ __ _  ___  
+|  _  |/ _ \| '__/ _` | '__| |/ _ \ 
+| | | | (_) | | | (_| | |  | | (_) |
+\_| |_/\___/|_|  \__,_|_|  |_|\___/ )";
+	int ejeYmarco = 7;
     altoMarco = 30;
     anchoMarco = 55;
     system("cls");
     cine::gotoY(1);
-    cine::printRawCenter(cine::logo_fisicode);
+    cine::printRawCenter(logo_menuhorario);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
     ////// 
