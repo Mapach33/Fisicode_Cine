@@ -30,7 +30,7 @@ namespace cine{
         SetConsoleCursorInfo(out, &cursorInfo);
     }
 
-    //Modifica el tamaño de la ventana e impide que el usuario la modifique
+    //Modifica el tamano de la ventana e impide que el usuario la modifique
     void Set_Console_Sizes(const int consola_ancho,const int consola_alto,bool cursor) {
         std::stringstream ss; ss << "MODE CON: COLS=" << consola_ancho << "LINES=" << consola_alto;
         system(ss.str().c_str());
