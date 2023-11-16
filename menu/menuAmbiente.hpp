@@ -138,7 +138,7 @@ void MenuSala::imprimir(){
 			altoMarco = 30;
 			anchoMarco = 55;
 			system("cls");
-			cine::gotoY(1);
+			
 			cine::printRawCenter(logo_menusala);
 			imprimirMarco(ejeYmarco);
 			bool continuar=true;
@@ -190,7 +190,7 @@ void MenuHorario::imprimir(){
     altoMarco = 30;
     anchoMarco = 55;
     system("cls");
-    cine::gotoY(1);
+    
     cine::printRawCenter(logo_menuhorario);
     imprimirMarco(ejeYmarco);
     bool continuar=true;

@@ -27,22 +27,23 @@ void elegir_combo() {
 	short elegir = menuDulceria.getOpcion();
 	cine::ShowConsoleCursor(true);
 	SetConsoleTextAttribute(hConsole, 112);
-			gotoxy(42, 39);cout << "-----------------------------------------------------------------------------";
-			gotoxy(42, 40);cout << "Combo    :"<<combo[elegir-1]<< endl;
-			gotoxy(42, 41);cout << "Precio   :"<< precio[elegir-1] << endl; 
-			gotoxy(42, 42);cout << "Solo se permite comprar de 1 a 3 combos";
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                         -----------------------------------------------------------------"; cout<<endl;
+			cout << "                                         Combo    : "<<combo[elegir-1]<< endl;
+			cout << "                                         Precio   : "<< precio[elegir-1] << endl; 
+			cout << "                                         Solo se permite comprar de 1 a 3 combos"; cout<<endl;
 			short xcantidad;
 			do{
-				gotoxy(42, 43);cout << "Cantidad : ";         
-				gotoxy(53, 43);getline(cin, cantidad); 
+				cout << "                                         Cantidad : ";         
+				getline(cin, cantidad); 
 				istringstream(cantidad)>>xcantidad ; 
 				if(xcantidad < 1 || xcantidad > 3){
-					gotoxy(42, 43);cout << "Cantidad no valida, intente de nuevo...               ";getch();
-					gotoxy(42, 43);cout << "                                                       ";
+					cout << "                                         Cantidad no valida, intente de nuevo...    ";getch();
+					cout << "                                                       ";
 				}
 			}while(xcantidad < 1 || xcantidad > 3);
-		  	gotoxy(42, 42);cout << "-----------------------------------------------------------------------------";
-			gotoxy(42, 44);cout << "Agradecemos su Compra..."; getch();
+		  	cout << "                                         ---------------------------------------------------------------"; cout <<endl;
+			cout << "                                         Agradecemos su Compra..."; getch();
+            cout << endl;
 
 	ofstream Grabacion("boleta.txt", ios::app);
 			if(Grabacion.fail()){
@@ -56,7 +57,7 @@ void elegir_combo() {
 			Grabacion<<xcantidad * precio[elegir-1]<<endl;//Precio T
 			Grabacion.close();
 
-    gotoxy(42, 45);cout << "Imprimiendo Boleta..."; getch();
+    gotoxy(42, 45);cout << "                                         Imprimiendo Boleta..."; getch();
 	color(hConsole, 15);
 }
 
