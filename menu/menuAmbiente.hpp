@@ -149,12 +149,12 @@ void MenuSala::imprimir(){
 		imprimirOpcion("Extreme S/.40", (anchoConsola - 23)/2, 26, opcion==4);
         switch (getTecla()) {
     
-            case key::w:
+            case tecla::w:
             case Up:
                 if (opcion > 1) opcion--;
                 break;
         
-            case key::s:
+            case tecla::s:
             case Down:
                 if (opcion < 4) opcion++;
                 break;
@@ -200,12 +200,12 @@ void MenuHorario::imprimir(){
 		imprimirOpcion("21:00", (anchoConsola - 23)/2, 26, opcion==4);
         switch (getTecla()) {
     
-            case key::w:
+            case tecla::w:
             case Up:
                 if (opcion > 1) opcion--;
                 break;
         
-            case key::s:
+            case tecla::s:
             case Down:
                 if (opcion < 4) opcion++;
                 break;

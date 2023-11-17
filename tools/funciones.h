@@ -27,7 +27,7 @@ struct coordXY {
         int y;
 };
 
-enum key {
+enum tecla {
         //numeros ramdons
         Up = 600,
         Down = 700,

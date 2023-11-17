@@ -116,12 +116,12 @@ void MenuPrincipal::imprimir(){
         imprimirOpcion("Salir", (anchoConsola - 23)/2 , 18, opcion==2);
         switch (getTecla()) {
     
-            case key::w:
+            case tecla::w:
             case Up:
                 if (opcion > 1) opcion--;
                 break;
         
-            case key::s:
+            case tecla::s:
             case Down:
                 if (opcion < 2) opcion++;
                 break;

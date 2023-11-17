@@ -146,20 +146,20 @@ void MenuDulceria::imprimir(){
         imprimirDescripcion();
         switch (getTecla()) {
     
-			case key::w:
+			case tecla::w:
             case Up:
                 if (opcion > 2) opcion-=2;
                 break;
-			case key::d:
+			case tecla::d:
 			case Right:
                 if (opcion < 6) opcion++;
                 break;
 
-            case::key::s:
+            case::tecla::s:
             case Down:
                 if (opcion < 5) opcion+=2;
                 break;
-    		case key::a:
+    		case tecla::a:
             case Left:
                 if (opcion > 1) opcion--;
                 break;

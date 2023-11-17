@@ -87,22 +87,22 @@ void MenuCartelera::imprimir(){
         imprimirDescripcion();
         switch (getTecla()) {
     
-			case key::w:
+			case tecla::w:
             case Up:
                 if (opcion > 2 ) opcion-=2;
                 break;
 			
-			case key::d:
+			case tecla::d:
 			case Right:
                 if (opcion < 6) opcion++;
                 break;
 
-            case::key::s:
+            case::tecla::s:
             case Down:
                 if (opcion < 5) opcion+=2;
                 break;
     		
-			case key::a:
+			case tecla::a:
             case Left:
                 if (opcion > 1) opcion--;
                 break;
@@ -115,15 +115,18 @@ void MenuCartelera::imprimir(){
 }
 
 void MenuCartelera::imprimirDescripcion(){
+
     //Limpia el espacio de la descripcion
     for(int i=0;i<altoMarco-2; i++){
         gotoxy(ejeXDes+1, ejeYDes+1+i);
         cout<<string(anchoMarco - 2,' ');
     }
+
     vector<string> description;
     string parsed_word, line = "";
-     bool first_word = true;
-    // Procesar la descripcion y dividirla en lineas de maximo 19 caracteres
+    bool first_word = true;
+
+    // Procesar la descripcion y dividirla en lineas de maximo el ancho del Marco
     istringstream string_stream(sinopsis[opcion - 1]);
 
     while (getline(string_stream, parsed_word, ' ')) {
@@ -142,6 +145,7 @@ void MenuCartelera::imprimirDescripcion(){
     }
     description.push_back(line);
     int description_size = description.size();
+
     for (int i = 0; i < description_size; i++) {
         int center_format = ((anchoMarco-2 - description[i].length()) / 2);
         gotoxy(ejeXDes + 1, 12 + i);
