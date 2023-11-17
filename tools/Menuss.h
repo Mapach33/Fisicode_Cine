@@ -1,6 +1,13 @@
 #pragma once
 #include "funciones.h"
-//Clase madre
+
+
+/*****************************************************/
+/*                                                   */
+/*             Clase Madre para todos los menu       */
+/*                                                   */
+/*                                                   */
+/*****************************************************/
 
 class Menu{
     public:
