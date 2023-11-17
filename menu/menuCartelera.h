@@ -2,7 +2,7 @@
 #include "../tools/funciones.h"
 #include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
-using namespace std;
+
 class MenuCartelera : public Menu{
     public:
         MenuCartelera();
@@ -15,16 +15,6 @@ class MenuCartelera : public Menu{
         vector<string> sinopsis;
 };
 
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-void gotoxy(int x, int y) {
-	HANDLE hcon;
-	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD dwPos;
-	dwPos.X = x;
-	dwPos.Y = y;
-	SetConsoleCursorPosition(hcon, dwPos);
-}
 
 void elegir_pelicula() {
     
