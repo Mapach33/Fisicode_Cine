@@ -1,3 +1,14 @@
+/**************************************************/
+/*                                                */
+/*    @autores:                                   */ 
+/*    - Cuenca Echevarria, Andre Alexander        */
+/*    - Giron Altamirano, Miguel Alejandro        */
+/*    - Padilla Arellano, Alejandro Manuel        */
+/*                                                */
+/*     https://github.com/Mapach33/Fisicode_Cine  */ 
+/*                                                */  
+/**************************************************/
+
 #include "menu/menuCartelera.h"
 #include "menu/menuAmbiente.hpp"
 #include "menu/menuDulceria.h"
