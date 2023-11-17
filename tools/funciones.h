@@ -12,6 +12,12 @@
 #include <ctime>
 
 using namespace std;
+
+struct coordXY {
+        int x;
+        int y;
+};
+
 enum key {
         //numeros ramdons
         Up = 600,
@@ -47,17 +53,17 @@ void gotoxy(int x, int y) {
 //para llamar a cualquiera de estas  funciones usaremos cine::<funcion>
 namespace cine 
 {   
-    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     //Imprime mas rapido
-    void print(char ch) {
-        WriteConsole(consoleHandle, &ch, 1, NULL, NULL);
-    }
-    void print(std::string str) {
-        WriteConsole(consoleHandle, str.c_str(), str.length(), NULL, NULL);
-    }
-    void print(const char* str) {
-        WriteConsole(consoleHandle, str, strlen(str), NULL, NULL);
-    }
+    // void print(char ch) {
+    //     WriteConsole(hConsole, &ch, 1, NULL, NULL);
+    // }
+    // void print(std::string str) {
+    //     WriteConsole(hConsole, str.c_str(), str.length(), NULL, NULL);
+    // }
+    // void print(const char* str) {
+    //     WriteConsole(hConsole, str, strlen(str), NULL, NULL);
+    // }
 
     //Logotoipo de fisicode
     std::string logo_fisicode = 
@@ -70,21 +76,13 @@ namespace cine
     
 
     //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
-    struct coordXY {
-        int x;
-        int y;
-        bool operator == (const coordXY& vec) { return (x == vec.x && y == vec.y); }
-        bool operator != (const coordXY& vec) { return !(*this == vec); }
-        coordXY operator + (const coordXY& vec) { return { x + vec.x, y + vec.y }; }
-        coordXY operator - (const coordXY& vec) { return { x - vec.x, y - vec.y }; }
-    };
 
 
     //Obtiene la posicion del cursor donde se encuentra
-    cine::coordXY getCursorPosition(){
-        cine::coordXY coords;
+    coordXY getCursorPosition(){
+        coordXY coords;
         CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
-        GetConsoleScreenBufferInfo(consoleHandle, &BufferInfo);
+        GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
         coords = { BufferInfo.dwCursorPosition.X, BufferInfo.dwCursorPosition.Y };
         return coords;
     }
@@ -98,28 +96,28 @@ namespace cine
     }
 
     //gotoxy con parametro de coordenada
-    void gotoxy(cine::coordXY pos){
+    void gotoxy(coordXY pos){
         COORD cursorPosition = { short(pos.x), short(pos.y) };
-        SetConsoleCursorPosition(consoleHandle, cursorPosition);
+        SetConsoleCursorPosition(hConsole, cursorPosition);
     }
 
     //Mueve el cursor solo en el eje X
     void gotoX(short x){
         COORD cursorPosition = { x, short(cine::getCursorPosition().y) };
-        SetConsoleCursorPosition(consoleHandle, cursorPosition);
+        SetConsoleCursorPosition(hConsole, cursorPosition);
     }
 
     //Mueve el cursor en el eje Y
     void gotoY(short y){
         COORD cursorPosition = { short(cine::getCursorPosition().x), y};
-        SetConsoleCursorPosition(consoleHandle, cursorPosition);
+        SetConsoleCursorPosition(hConsole, cursorPosition);
     }
 
     // Devuelve el tamano de la consola (columns/filas) como vector 2d { x, y }
-    cine::coordXY getConsoleSize() {
-        cine::coordXY coords;
+    coordXY getConsoleSize() {
+        coordXY coords;
         CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
-        GetConsoleScreenBufferInfo(consoleHandle, &BufferInfo);
+        GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
         coords = { BufferInfo.dwSize.X, BufferInfo.dwSize.Y };
 
         return coords;
@@ -127,7 +125,7 @@ namespace cine
     
     // Imprime un texto multilinea de forma centrada en la consola
     void printRawCenter(std::string& raw) {
-        SetConsoleTextAttribute(consoleHandle, 11); 
+        SetConsoleTextAttribute(hConsole, 11); 
         std::vector<std::string> subStringsList;
         std::string buffer = "";
 
@@ -160,9 +158,9 @@ namespace cine
         // Imprime el texto centrado
         for (size_t i = 0; i < subStringsList.size(); i++) {
             cine::gotoX(offset);
-            cine::print(subStringsList[i] + "\n");
+            cout<< subStringsList[i] << "\n";
         }
-        SetConsoleTextAttribute(consoleHandle, 15);
+        SetConsoleTextAttribute(hConsole, 15);
     }
     
     //Obtiene la tecla presionado o en su efecto el caracter;
