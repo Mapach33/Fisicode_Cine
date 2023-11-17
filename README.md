@@ -1,6 +1,6 @@
 # Fisicode_Cine
 
-![fisilogo](logo.png)
+![fisilogo](logo.png){width=100px}
 
 ## Integrantes
 - Cuenca Echevarria, Andre Alexander
