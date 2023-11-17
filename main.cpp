@@ -13,8 +13,6 @@
 #include "menu/menuAmbiente.hpp"
 #include "menu/menuDulceria.h"
 #include "menu/menuBoleta.h"
-#include "tools/funciones.h"
-#include "tools/menuss.h"
 #include "menu/salaCine.h"
 
 
