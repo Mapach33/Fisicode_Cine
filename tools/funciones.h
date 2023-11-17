@@ -35,6 +35,15 @@ enum key {
         Enter = 13
 };
 
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+void gotoxy(int x, int y) {
+	COORD dwPos;
+	dwPos.X = x;
+	dwPos.Y = y;
+	SetConsoleCursorPosition(hConsole, dwPos);
+}
+
 //para llamar a cualquiera de estas  funciones usaremos cine::<funcion>
 namespace cine 
 {   
