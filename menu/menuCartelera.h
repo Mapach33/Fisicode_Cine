@@ -29,7 +29,7 @@ void gotoxy(int x, int y) {
 void elegir_pelicula() {
     
 	short elegir;
-    vector<string> peliculas = {"Saw X", "Five Nights At Freddy's", "The Eras Tour", "Sonidos de libertad", "El Exorcista: Creyentes", "Sin Aire"};
+    vector<string> peliculas = {"Saw X", "Susy", "The Eras Tour", "The Marvels", "El Exorcista", "Trolls 3"};
 
 	MenuCartelera menuCartelera; 
 	elegir = menuCartelera.getOpcion();
