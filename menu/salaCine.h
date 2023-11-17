@@ -1,6 +1,5 @@
 #pragma once
 #include "../tools/funciones.h"
-#include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
 
 class MenuAsientos : public Menu {
@@ -27,7 +26,7 @@ MenuAsientos::MenuAsientos(){
     }
     altoConsola = 45;
     anchoConsola = 165;
-    cine::Set_Console_Sizes(anchoConsola,altoConsola,false);
+    Set_Console_Sizes(anchoConsola,altoConsola,false);
     imprimir();
 }
 string MenuAsientos::getAsiento(){
@@ -36,24 +35,24 @@ string MenuAsientos::getAsiento(){
 
 void MenuAsientos::imprimir(){
     system("cls ");
-    cine::gotoxy((anchoConsola-14)/2,1);cout << "P A N T A L L A";
-    cine::gotoxy(52,2);SetConsoleTextAttribute(miconsola,254);cout<< string(55,' ');SetConsoleTextAttribute(miconsola,15);
+    gotoxy((anchoConsola-14)/2,1);cout << "P A N T A L L A";
+    gotoxy(52,2);SetConsoleTextAttribute(miconsola,254);cout<< string(55,' ');SetConsoleTextAttribute(miconsola,15);
     imprimirCine();
     int colu;
-    cine::ShowConsoleCursor(true);
+    ShowConsoleCursor(true);
     do{
         gotoxy(anchoConsola/2-19,25);cout<<string(50,' ');gotoxy(anchoConsola/2-19,26);cout<<string(50,' ');
         //Consistecia para la fila
         do{
             gotoxy(anchoConsola/2-19,25);
-            cout << "Ingrese la fila: "<<string(10,' ');cine::gotoX(anchoConsola/2-1);
+            cout << "Ingrese la fila: "<<string(10,' ');gotoX(anchoConsola/2-1);
             getline(cin,fila);
         }while(fila.size() != 1 || fila[0] < 65 || fila[0] > 65+maxFilas);
 
         //Consistencia para la columna
         do{
             gotoxy(anchoConsola/2-19,26);
-            cout << "Ingrese la columna: ";string(10,' ');cine::gotoX(anchoConsola/2+2);
+            cout << "Ingrese la columna: ";string(10,' ');gotoX(anchoConsola/2+2);
             getline(cin,columna);
             colu = stoi(columna);
         }while( colu < 1 || colu > maxColumnas);
@@ -71,7 +70,7 @@ void MenuAsientos::imprimir(){
 }
 
 void MenuAsientos::imprimirCine(){
-    cine::gotoxy(50,4);
+    gotoxy(50,4);
     //Imprime todos los asientos
     for(int i=0;i<maxFilas;i++){
         for(int j=0;j<maxColumnas;j++){
@@ -91,20 +90,20 @@ void MenuAsientos::imprimirCine(){
 
 //Imprime solo un asiento
 void MenuAsientos::imprimirUnAsiento(int ejeX,int ejeY ,bool libre){
-    cine::gotoxy(ejeX, ejeY);
+    gotoxy(ejeX, ejeY);
     
     if(libre){
         cout << char(218)<<char(196)<<char(196)<<char(196)<<char(191);
-        cine::gotoxy(ejeX, ejeY+1);
+        gotoxy(ejeX, ejeY+1);
         cout<<char(179)<<"   ";
-        cout<<char(179); cine::gotoxy(ejeX, ejeY+2);
+        cout<<char(179); gotoxy(ejeX, ejeY+2);
         cout<<char(192)<<char(196)<<char(196)<<char(196)<<char(217);
     }else{
         SetConsoleTextAttribute(miconsola, 12);
         cout << char(218)<<char(196)<<char(196)<<char(196)<<char(191);
-        cine::gotoxy(ejeX, ejeY+1);
+        gotoxy(ejeX, ejeY+1);
         cout<<char(179)<<" X ";
-        cout<<char(179); cine::gotoxy(ejeX, ejeY+2);
+        cout<<char(179); gotoxy(ejeX, ejeY+2);
         cout<<char(192)<<char(196)<<char(196)<<char(196)<<char(217);
         SetConsoleTextAttribute(miconsola, 15);
     }

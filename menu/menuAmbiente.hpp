@@ -1,7 +1,6 @@
 #pragma once
 #include"menuCartelera.h"
 #include "../tools/funciones.h"
-#include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
 
 class MenuSala : public Menu{
@@ -119,7 +118,7 @@ string ele_horario(){
 	MenuSala::MenuSala(){
     altoConsola = 60;
     anchoConsola = 150;
-    cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
+    Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 144;
     colorMarco = 9;
     opcion = 1;
@@ -139,7 +138,7 @@ void MenuSala::imprimir(){
 			altoMarco = 30;
 			anchoMarco = 55;
 			system("cls");
-			cine::printRawCenter(logo_menusala);
+			printRawCenter(logo_menusala);
 			imprimirMarco(ejeYmarco);
 			bool continuar=true;
     
@@ -148,7 +147,7 @@ void MenuSala::imprimir(){
         imprimirOpcion("2D Prime S/.15", (anchoConsola - 23)/2 , 18, opcion==2);
 		imprimirOpcion("3D Envolvente S/.20", (anchoConsola - 23)/2 , 22, opcion==3);
 		imprimirOpcion("Extreme S/.40", (anchoConsola - 23)/2, 26, opcion==4);
-        switch (cine::getch()) {
+        switch (getTecla()) {
     
             case key::w:
             case Up:
@@ -170,7 +169,7 @@ void MenuSala::imprimir(){
 	MenuHorario::MenuHorario(){
     altoConsola = 60;
     anchoConsola = 150;
-    cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
+    Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 144;
     colorMarco = 9;
     opcion = 1;
@@ -190,7 +189,7 @@ void MenuHorario::imprimir(){
     anchoMarco = 55;
     system("cls");
     
-    cine::printRawCenter(logo_menuhorario);
+    printRawCenter(logo_menuhorario);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
     ////// 
@@ -199,7 +198,7 @@ void MenuHorario::imprimir(){
         imprimirOpcion("15:00", (anchoConsola - 23)/2 , 18, opcion==2);
 		imprimirOpcion("18:00", (anchoConsola - 23)/2 , 22, opcion==3);
 		imprimirOpcion("21:00", (anchoConsola - 23)/2, 26, opcion==4);
-        switch (cine::getch()) {
+        switch (getTecla()) {
     
             case key::w:
             case Up:

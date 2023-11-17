@@ -1,6 +1,5 @@
 #pragma once
 #include "../tools/funciones.h"
-#include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
 
 class MenuCartelera : public Menu{
@@ -43,16 +42,16 @@ void MenuCartelera::imprimirMarco(int ejeX, int ejeY){
    gotoxy(ejeX, ejeY);
    SetConsoleTextAttribute(miconsola,colorMarco);    //probar 
 
-    cine::gotoxy(ejeX, ejeY);
+    gotoxy(ejeX, ejeY);
     cout << string (anchoMarco, char(220));
 
-    cine::gotoxy(ejeX, (ejeY + altoMarco  - 1));
+    gotoxy(ejeX, (ejeY + altoMarco  - 1));
     cout << string (anchoMarco, char(223));
 
     for (int i = 0; i < (altoMarco - 2); i++) {
-        cine::gotoxy(ejeX, i + (ejeY + 1));
+        gotoxy(ejeX, i + (ejeY + 1));
         cout << char (186);
-        cine::gotoxy(ejeX + (anchoMarco - 1), i + (ejeY + 1));
+        gotoxy(ejeX + (anchoMarco - 1), i + (ejeY + 1));
         cout << char (186);
     }SetConsoleTextAttribute(miconsola, 15);
 }
@@ -69,7 +68,7 @@ void MenuCartelera::imprimir(){
  \_____\__,_|_|   \__\___|_|\___|_|  \__,_|)";
     altoMarco = 25;
     anchoMarco = 45;
-    cine::printRawCenter(cartelera);
+    printRawCenter(cartelera);
     int ejeXMarco = (anchoConsola)/4 - anchoMarco/2;
     imprimirMarco(ejeXMarco,7);
     ejeXDes = ejeXMarco + anchoMarco + (anchoConsola)/2 - anchoMarco;
@@ -86,7 +85,7 @@ void MenuCartelera::imprimir(){
 		imprimirOpcion("El Exorcista", ejeXMarco + 5, 25, opcion==5);
 		imprimirOpcion("Trolls 3 ", ejeXMarco + 22, 25, opcion==6);
         imprimirDescripcion();
-        switch (cine::getch()) {
+        switch (getTecla()) {
     
 			case key::w:
             case Up:
@@ -161,18 +160,18 @@ void MenuCartelera::imprimirOpcion(string nombreOpcion,int posicionX, int posici
 
     SetConsoleTextAttribute(miconsola,colorOpcion);
 
-    cine::gotoxy (posicionX, posicionY + 1);
+    gotoxy (posicionX, posicionY + 1);
     cout << string (largoOpcion, '\xDB');
-    cine::gotoxy(posicionX, posicionY);
+    gotoxy(posicionX, posicionY);
     cout << char ('\xDA') << string (largoOpcion - 2,'\xDC') << char ('\xBF');
-    cine::gotoxy(posicionX, (altoOpcion + posicionY - 1));
+    gotoxy(posicionX, (altoOpcion + posicionY - 1));
     cout << char ('\xC0') << string (largoOpcion - 2,'\xDF') << char ('\xD9');
 
     //Cambia el color de la opcion seleccionada
     if (seleccionado) colorOpcion = colorTexto; else colorOpcion = 143;
 
     SetConsoleTextAttribute(miconsola, colorOpcion);
-    cine::gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
+    gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
     cout << nombreOpcion;
 
     SetConsoleTextAttribute(miconsola, 15);
@@ -187,7 +186,7 @@ MenuCartelera::MenuCartelera(){
                                 "En esta nueva entrega de la exitosa franquicia, Poppy y Ramon ya son oficialmente una pareja, y a medida que se van conociendo surge el pasado oscuro de Ramon:  fue parte de la legendaria banda de pop, BroZone! Ahora nuestros protagonistas se embarcaran en una aventura para rescatar a los hermanos de Ramon y salvar la musica pop."};
     altoConsola = 40;
     anchoConsola = 140;
-    cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
+    Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 144;
     colorMarco = 9;
     opcion = 1;

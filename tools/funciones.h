@@ -2,7 +2,7 @@
 #include <iostream>
 #include <locale.h>
 #include <fstream>
-#include "consola.hpp"
+#include <sstream>
 #include <stdio.h>
 #include <vector>
 #include <conio.h>
@@ -12,6 +12,15 @@
 #include <ctime>
 
 using namespace std;
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+string logo_fisicode = 
+    R"( _____   ___   ____    ___    ____    ___    ____    _____ 
+|  ___| |_ _| / ___|  |_ _|  / ___|  / _ \  |  _ \  | ____|
+| |_     | |  \___ \   | |  | |     | | | | | | | | |  _|  
+|  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
+|_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
 
 struct coordXY {
         int x;
@@ -41,7 +50,6 @@ enum key {
         Enter = 13
 };
 
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void gotoxy(int x, int y) {
 	COORD dwPos;
@@ -50,84 +58,64 @@ void gotoxy(int x, int y) {
 	SetConsoleCursorPosition(hConsole, dwPos);
 }
 
-//para llamar a cualquiera de estas  funciones usaremos cine::<funcion>
-namespace cine 
-{   
-    //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    //Imprime mas rapido
-    // void print(char ch) {
-    //     WriteConsole(hConsole, &ch, 1, NULL, NULL);
-    // }
-    // void print(std::string str) {
-    //     WriteConsole(hConsole, str.c_str(), str.length(), NULL, NULL);
-    // }
-    // void print(const char* str) {
-    //     WriteConsole(hConsole, str, strlen(str), NULL, NULL);
-    // }
+//Funcion para obtener el codigo de la tecla presionada
+int getTecla(){
+    //primero obtenemos el caracter de control
+    int control = _getch(); //  
+    int input; 
+    if (_kbhit()) input = _getch();
 
-    //Logotoipo de fisicode
-    std::string logo_fisicode = 
-    R"( _____   ___   ____    ___    ____    ___    ____    _____ 
-|  ___| |_ _| / ___|  |_ _|  / ___|  / _ \  |  _ \  | ____|
-| |_     | |  \___ \   | |  | |     | | | | | | | | |  _|  
-|  _|    | |   ___) |  | |  | |___  | |_| | | |_| | | |___ 
-|_|     |___| |____/  |___|  \____|  \___/  |____/  |_____|)";
-
-    
-
-    //Estructura que permite trabajaar en conjuntos las coordenada (x,y) para no trabajarlas por separadas
-
-
-    //Obtiene la posicion del cursor donde se encuentra
-    coordXY getCursorPosition(){
-        coordXY coords;
-        CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
-        GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
-        coords = { BufferInfo.dwCursorPosition.X, BufferInfo.dwCursorPosition.Y };
-        return coords;
+    switch (control) {
+    case 224://caso cuando es caracter de control
+        if (input == 77) return Right;
+        if (input == 75) return Left;
+        if (input == 72) return Up;
+        if (input == 80) return Down;
+        break;
+    default:
+        return control;//sino hay caracter de control solo retorna asci de la tecla
+        break;
     }
+    return 0;
+}
 
-    //Mueve el cursor a un al punto x y
-    void gotoxy(int x, int y) {
-        COORD coord;
-        coord.X = x;
-        coord.Y = y;
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-    }
+//Obtiene la posicion del cursor donde se encuentra
+coordXY getCursorPosition(){
+    coordXY coords;
+    CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
+    GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
+    coords = { BufferInfo.dwCursorPosition.X, BufferInfo.dwCursorPosition.Y };
+    return coords;
+}
 
-    //gotoxy con parametro de coordenada
-    void gotoxy(coordXY pos){
-        COORD cursorPosition = { short(pos.x), short(pos.y) };
-        SetConsoleCursorPosition(hConsole, cursorPosition);
-    }
+//Devuelve el tamano de la consola (columns/filas) como vector 2d { x, y }
+coordXY getConsoleSize() {
+    CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
+    coordXY coords;
+    GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
+    coords = { BufferInfo.dwSize.X, BufferInfo.dwSize.Y };
 
-    //Mueve el cursor solo en el eje X
-    void gotoX(short x){
-        COORD cursorPosition = { x, short(cine::getCursorPosition().y) };
-        SetConsoleCursorPosition(hConsole, cursorPosition);
-    }
+    return coords;
+}
 
-    //Mueve el cursor en el eje Y
-    void gotoY(short y){
-        COORD cursorPosition = { short(cine::getCursorPosition().x), y};
-        SetConsoleCursorPosition(hConsole, cursorPosition);
-    }
 
-    // Devuelve el tamano de la consola (columns/filas) como vector 2d { x, y }
-    coordXY getConsoleSize() {
-        coordXY coords;
-        CONSOLE_SCREEN_BUFFER_INFO BufferInfo;
-        GetConsoleScreenBufferInfo(hConsole, &BufferInfo);
-        coords = { BufferInfo.dwSize.X, BufferInfo.dwSize.Y };
+//Mueve el cursor solo en el eje X
+void gotoX(short x){
+    COORD cursorPosition = { x, short(getCursorPosition().y) };
+    SetConsoleCursorPosition(hConsole, cursorPosition);
+}
 
-        return coords;
-    }
-    
-    // Imprime un texto multilinea de forma centrada en la consola
-    void printRawCenter(std::string& raw) {
+//Mueve el cursor en el eje Y
+void gotoY(short y){
+    COORD cursorPosition = { short(getCursorPosition().x), y};
+    SetConsoleCursorPosition(hConsole, cursorPosition);
+}
+
+
+void printRawCenter(string& raw) {
         SetConsoleTextAttribute(hConsole, 11); 
-        std::vector<std::string> subStringsList;
-        std::string buffer = "";
+        vector<string> subStringsList;
+        string buffer = "";
 
         // Divide la cadena en subcadenas en funcion de los saltos de linea
         for (size_t i = 0; i < raw.length(); i++) {
@@ -147,7 +135,7 @@ namespace cine
 
         // Determina la longitud de la linea mas larga
         size_t biggestSlice = 0;
-        for (std::string substr : subStringsList) {
+        for (string substr : subStringsList) {
             if (substr.length() >= biggestSlice) {
                 biggestSlice = substr.length();
             }
@@ -157,35 +145,46 @@ namespace cine
         int offset = (getConsoleSize().x)/2 - (biggestSlice / 2);
         // Imprime el texto centrado
         for (size_t i = 0; i < subStringsList.size(); i++) {
-            cine::gotoX(offset);
+            gotoX(offset);
             cout<< subStringsList[i] << "\n";
         }
         SetConsoleTextAttribute(hConsole, 15);
-    }
-    
-    //Obtiene la tecla presionado o en su efecto el caracter;
-    int getch(){
-        //if (_kbhit()) { // Comprobar si se presiono una tecla
-        //primero obtenemos el caracter de control
-        int control = _getch(); //  
-        int input; 
-        if (_kbhit()) input = _getch();
+}
 
-        switch (control) {
-        case 224://caso cuando es caracter de control
-            if (input == 77) return Right;
-            if (input == 75) return Left;
-            if (input == 72) return Up;
-            if (input == 80) return Down;
-            break;
-        default:
-            return control;//sino hay caracter de control solo retorna asci de la tecla
-            break;
-        }
-        //}
-        return 0;
+    void CenterConsoleWindow();
+
+    //Mostrar o no mostrar el cursor (parametro booleano)
+    void ShowConsoleCursor(bool showFlag) {
+        HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+        CONSOLE_CURSOR_INFO cursorInfo;
+
+        GetConsoleCursorInfo(out, &cursorInfo);
+        cursorInfo.bVisible = showFlag; // set the cursor visibility
+        SetConsoleCursorInfo(out, &cursorInfo);
     }
-}//namespaces cine
+
+    //Modifica el tamano de la ventana e impide que el usuario la modifique
+    void Set_Console_Sizes(const int consola_ancho,const int consola_alto,bool cursor) {
+        std::stringstream ss; ss << "MODE CON: COLS=" << consola_ancho << "LINES=" << consola_alto;
+        system(ss.str().c_str());
+        HWND consoleWindow = GetConsoleWindow();
+        SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
+        CenterConsoleWindow();
+        ShowConsoleCursor(cursor);
+    }
+
+    //Cetra la consola en la pantalla
+    void CenterConsoleWindow() {
+       RECT rectClient, rectWindow;
+        HWND hWnd = GetConsoleWindow();
+        GetClientRect(hWnd, &rectClient);
+        GetWindowRect(hWnd, &rectWindow);
+        int posx, posy;
+        posx = GetSystemMetrics(SM_CXSCREEN) / 2 - (rectClient.right - rectClient.left) / 2, 
+        posy = GetSystemMetrics(SM_CYSCREEN) / 2 - (rectClient.bottom - rectClient.top) / 2,
+
+        MoveWindow(hWnd, posx, posy, rectClient.right - rectClient.left, rectClient.bottom - rectClient.top, TRUE);
+    }
 
 
 //Retorna la fecha y hora actual

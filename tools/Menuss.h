@@ -1,6 +1,5 @@
 #pragma once
 #include "funciones.h"
-#include "consola.hpp"
 //Clase madre
 
 class Menu{
@@ -30,16 +29,16 @@ void Menu::imprimirMarco(int posicionY){
 
     SetConsoleTextAttribute(miconsola,colorMarco);    //probar 
 
-    cine::gotoxy(posicionX, posicionY);
+    gotoxy(posicionX, posicionY);
     cout << string (anchoMarco, char(220));
 
-    cine::gotoxy(posicionX, (posicionY + altoMarco  - 1));
+    gotoxy(posicionX, (posicionY + altoMarco  - 1));
     cout << string (anchoMarco, char(223));
 
     for (int i = 0; i < (altoMarco - 2); i++) {
-        cine::gotoxy(posicionX, i + (posicionY + 1));
+        gotoxy(posicionX, i + (posicionY + 1));
         cout << char (186);
-        cine::gotoxy(posicionX + (anchoMarco - 1), i + (posicionY + 1));
+        gotoxy(posicionX + (anchoMarco - 1), i + (posicionY + 1));
         cout << char (186);
     }SetConsoleTextAttribute(miconsola, 15);
 }
@@ -55,18 +54,18 @@ void Menu::imprimirOpcion(string nombreOpcion,int posicionX, int posicionY,bool 
 
     SetConsoleTextAttribute(miconsola,colorOpcion);
 
-    cine::gotoxy (posicionX, posicionY + 1);
+    gotoxy (posicionX, posicionY + 1);
     cout << string (largoOpcion, '\xDB');
-    cine::gotoxy(posicionX, posicionY);
+    gotoxy(posicionX, posicionY);
     cout << char ('\xDA') << string (largoOpcion - 2,'\xDC') << char ('\xBF');
-    cine::gotoxy(posicionX, (altoOpcion + posicionY - 1));
+    gotoxy(posicionX, (altoOpcion + posicionY - 1));
     cout << char ('\xC0') << string (largoOpcion - 2,'\xDF') << char ('\xD9');
 
     //Cambia el color de la opcion seleccionada
     if (seleccionado) colorOpcion = colorTexto; else colorOpcion = 143;
 
     SetConsoleTextAttribute(miconsola, colorOpcion);
-    cine::gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
+    gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
     cout << nombreOpcion;
 
     SetConsoleTextAttribute(miconsola, 15);
@@ -88,7 +87,7 @@ class MenuPrincipal : public Menu{
 MenuPrincipal::MenuPrincipal(){
     altoConsola = 40;
     anchoConsola = 150;
-    cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
+    Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 144;
     colorMarco = 9;
     opcion = 1;
@@ -100,15 +99,15 @@ void MenuPrincipal::imprimir(){
     altoMarco = 25;
     anchoMarco = 55;
     system("cls");
-    cine::gotoY(1);
-    cine::printRawCenter(cine::logo_fisicode);
+    gotoY(1);
+    printRawCenter(logo_fisicode);
     imprimirMarco(ejeYmarco);
     bool continuar=true;
     ////// 
     while(continuar){
         imprimirOpcion("Cartelera", (anchoConsola - 23)/2, 14, opcion==1);
         imprimirOpcion("Salir", (anchoConsola - 23)/2 , 18, opcion==2);
-        switch (cine::getch()) {
+        switch (getTecla()) {
     
             case key::w:
             case Up:

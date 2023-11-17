@@ -1,6 +1,5 @@
 #pragma once
 #include "../tools/funciones.h"
-#include "../tools/consola.hpp"
 #include "../tools/Menuss.h"
 #include "menuAmbiente.hpp"
 
@@ -25,7 +24,7 @@ void elegir_combo() {
 	MenuDulceria menuDulceria; 
 
 	short elegir = menuDulceria.getOpcion();
-	cine::ShowConsoleCursor(true);
+	ShowConsoleCursor(true);
 	SetConsoleTextAttribute(hConsole, 9);
 			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                         -----------------------------------------------------------------"; cout<<endl;
 			cout << "                                         Combo    : "<<combo[elegir-1]<< endl;
@@ -101,16 +100,16 @@ void MenuDulceria::imprimirMarco(int ejeX, int ejeY){
    gotoxy(ejeX, ejeY);
    SetConsoleTextAttribute(miconsola,colorMarco);    //probar 
 
-    cine::gotoxy(ejeX, ejeY);
+    gotoxy(ejeX, ejeY);
     cout << string (anchoMarco, char(220));
 
-    cine::gotoxy(ejeX, (ejeY + altoMarco  - 1));
+    gotoxy(ejeX, (ejeY + altoMarco  - 1));
     cout << string (anchoMarco, char(223));
 
     for (int i = 0; i < (altoMarco - 2); i++) {
-        cine::gotoxy(ejeX, i + (ejeY + 1));
+        gotoxy(ejeX, i + (ejeY + 1));
         cout << char (186);
-        cine::gotoxy(ejeX + (anchoMarco - 1), i + (ejeY + 1));
+        gotoxy(ejeX + (anchoMarco - 1), i + (ejeY + 1));
         cout << char (186);
     }SetConsoleTextAttribute(miconsola, 15);
 }
@@ -128,7 +127,7 @@ void MenuDulceria::imprimir(){
     altoMarco = 25;
     anchoMarco = 45;
     SetConsoleTextAttribute(miconsola, 11);
-    cine::printRawCenter(cartelera);
+    printRawCenter(cartelera);
     SetConsoleTextAttribute(miconsola, 15);
     int ejeXMarco = (anchoConsola)/4 - anchoMarco/2;
     imprimirMarco(ejeXMarco,7);
@@ -145,7 +144,7 @@ void MenuDulceria::imprimir(){
 		imprimirOpcion("C.5 S/.35", ejeXMarco + 5, 25, opcion==5);
 		imprimirOpcion("C.6 S/.45", ejeXMarco + 22, 25, opcion==6);
         imprimirDescripcion();
-        switch (cine::getch()) {
+        switch (getTecla()) {
     
 			case key::w:
             case Up:
@@ -184,18 +183,18 @@ void MenuDulceria::imprimirOpcion(string nombreOpcion,int posicionX, int posicio
 
     SetConsoleTextAttribute(miconsola,colorOpcion);
 
-    cine::gotoxy (posicionX, posicionY + 1);
+    gotoxy (posicionX, posicionY + 1);
     cout << string (largoOpcion, '\xDB');
-    cine::gotoxy(posicionX, posicionY);
+    gotoxy(posicionX, posicionY);
     cout << char ('\xDA') << string (largoOpcion - 2,'\xDC') << char ('\xBF');
-    cine::gotoxy(posicionX, (altoOpcion + posicionY - 1));
+    gotoxy(posicionX, (altoOpcion + posicionY - 1));
     cout << char ('\xC0') << string (largoOpcion - 2,'\xDF') << char ('\xD9');
 
     //Cambia el color de la opcion seleccionada
     if (seleccionado) colorOpcion = colorTexto; else colorOpcion = 143;
 
     SetConsoleTextAttribute(miconsola, colorOpcion);
-    cine::gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
+    gotoxy (posicionX + ((largoOpcion - nombreOpcion.length()) / 2), posicionY + 1);
     cout << nombreOpcion;
 
     SetConsoleTextAttribute(miconsola, 15);
@@ -206,7 +205,7 @@ MenuDulceria::MenuDulceria(){
          "2 Canchas Grandes + 5 Gaseosas Medianas","2 Canchas Grandes + 3 Gaseosas GRANDES + 3 Hot Dog", "Canchas Medianas + 4 Gaseosas Grandes + 4 Hot Dog"};
     altoConsola = 40;
     anchoConsola = 140;
-    cine::Set_Console_Sizes(anchoConsola, altoConsola, false);
+    Set_Console_Sizes(anchoConsola, altoConsola, false);
     colorTexto = 144;
     colorMarco = 9;
     opcion = 1;

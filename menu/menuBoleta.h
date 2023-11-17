@@ -8,7 +8,7 @@ struct boleta{
 }b1;
 
 void Lee(ifstream &lee){
-    cine::Set_Console_Sizes(77,25,1);
+    Set_Console_Sizes(77,25,1);
 		system("CLS");
 		getline(lee,b1.pelicula);
         getline(lee,b1.sala);
