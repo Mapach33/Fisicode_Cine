@@ -52,7 +52,7 @@ void elegir_combo() {
 				exit(1);
 			}
 			Grabacion<<combo[elegir-1]<<endl;//Tipo
-			Grabacion<<cantidad <<endl;//Cantidad
+			Grabacion<<xcantidad <<endl;//Cantidad
 			Grabacion<<precio[elegir-1]<<endl;//Precio U
 			Grabacion<<xcantidad * precio[elegir-1]<<endl;//Precio T
 			Grabacion.close();
